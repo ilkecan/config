@@ -19,7 +19,6 @@
       just
       libnotify   # `notify-send`
       page
-      upterm  # https://github.com/owenthereal/upterm
       watchexec
       ydotool
     ];

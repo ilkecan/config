@@ -4,6 +4,10 @@
 }:
 
 {
+  imports = [
+    ./secure-shell.nix
+  ];
+
   home = {
     sessionVariables = {
       PROXYCHAINS_SOCKS5_PORT = 1080;
