@@ -1,0 +1,35 @@
+{
+  config,
+  inputs,
+  lib,
+  ...
+}:
+
+let
+  inherit (lib)
+    mapAttrsToList
+    concatStringsSep
+  ;
+
+  cfg = config.sops;
+
+  nixAccessTokens = {
+    "github.com" = cfg.placeholder.github-access-token;
+  };
+in
+{
+  sops = {
+    defaultSopsFile = "${inputs.self}/secrets/hosts/${config.networking.hostName}.yaml";
+
+    secrets = {
+      github-access-token = {};
+      ilkecan-hashed-password = { neededForUsers = true; };
+    };
+
+    templates = {
+      nix-access-tokens.content = ''
+        access-tokens = ${concatStringsSep " " (mapAttrsToList (k: v: "${k}=${v}") nixAccessTokens)}
+      '';
+    };
+  };
+}

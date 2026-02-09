@@ -1,0 +1,13 @@
+keys:
+  - &ilkecan age17fjhuectnh2t7jln7308jns0wawjfjt998gr64prl6qrztxfc5sspdyk7c
+  - &host_mephistopheles age1x9u5yv5mgagr78dunursjssjkx9rxe4y4p8rdf2enqpv4093dsmstcwyaj
+creation_rules:
+  - path_regex: secrets/hosts/mephistopheles.yaml
+    key_groups:
+      - age:
+        - *ilkecan
+        - *host_mephistopheles
+  - path_regex: secrets/users/ilkecan.yaml
+    key_groups:
+      - age:
+        - *ilkecan

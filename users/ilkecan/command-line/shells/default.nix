@@ -1,0 +1,10 @@
+{
+  ...
+}:
+
+{
+  imports = [
+    ./nushell.nix
+    ./zsh
+  ];
+}

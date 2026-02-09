@@ -1,0 +1,42 @@
+layout {
+  tab hide_floating_panes=true name="shell" {
+    pane
+  }
+
+  tab focus=true hide_floating_panes=true name="Neovim" {
+    pane command="nvim"
+    pane size=1 borderless=true {
+      plugin location="zellij:compact-bar"
+    }
+  }
+
+  tab hide_floating_panes=true name="nh" {
+    pane split_direction="horizontal" {
+      pane split_direction="vertical" {
+        pane command="nh" {
+          args "os" "switch"
+          start_suspended true
+        }
+        pane command="nh" {
+          args "os" "repl"
+          start_suspended true
+        }
+      }
+
+      pane split_direction="vertical" {
+        pane command="nh" {
+          args "home" "switch"
+          start_suspended true
+        }
+        pane command="nh" {
+          args "home" "repl"
+          start_suspended true
+        }
+      }
+    }
+
+    pane size=1 borderless=true {
+      plugin location="zellij:compact-bar"
+    }
+  }
+}
