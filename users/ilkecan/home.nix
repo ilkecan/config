@@ -22,7 +22,7 @@ in
     ./input
     ./internet
     ./multimedia
-    ./networking.nix
+    ./networking
     ./nix.nix
     ./office.nix
     ./qt.nix

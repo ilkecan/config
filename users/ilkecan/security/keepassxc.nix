@@ -20,6 +20,10 @@
         SpecialChars = false;
       };
 
+      SSHAgent = {
+        Enabled = true;
+      };
+
       Security = {
         IconDownloadFallback = true;
         LockDatabaseIdle = false;
