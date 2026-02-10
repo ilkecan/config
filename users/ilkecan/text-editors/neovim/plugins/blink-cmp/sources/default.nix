@@ -11,6 +11,5 @@
     ./nerdfont.nix
     ./npm.nix
     ./ripgrep.nix
-    ./spell.nix
   ];
 }
