@@ -54,6 +54,9 @@ in
       "rails"
       "ruby"
       "rubygems"
+
+      "python"
+      "pypi"
     ];
 
     engines = genAttrs defaultSearchEngines (_: { metaData.hidden = true; }) // {
@@ -167,6 +170,20 @@ in
         urls = [ { template = "https://nur.nix-community.org/?query={searchTerms}"; } ];
         icon = nixSnowflake;
         definedAliases = [ "@nur" ];
+      };
+
+      pypi = {
+        name = "PyPI";
+        urls = [ { template = "https://pypi.org/search/?q={searchTerms}"; } ];
+        iconMapObj."32" = "https://pypi.org/favicon.ico";
+        definedAliases = [ "@pypi" ];
+      };
+
+      python = {
+        name = "Python documentation";
+        urls = [ { template = "https://docs.python.org/3/search.html?q={searchTerms}"; } ];
+        iconMapObj."48" = "https://docs.python.org/favicon.ico";
+        definedAliases = [ "@python" "@py" ];
       };
 
       rails = {
