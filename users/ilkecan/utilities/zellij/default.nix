@@ -1,21 +1,11 @@
 {
-  config,
-  inputs,
-  lib,
   ...
 }:
 
-let
-  inherit (lib)
-    mkAfter
-  ;
-
-  zellijLayoutsRelPath = "zellij/layouts";
-  user = config.home.username;
-in
 {
   imports = [
     ./keybindings.nix
+    ./layouts
     ./plugins
   ];
 
@@ -50,6 +40,4 @@ in
       add-zsh-hook chpwd auto_zellij
     '';
   };
-
-  xdg.configFile.${zellijLayoutsRelPath}.source = "${inputs.self}/users/${user}/dotfiles/.config/${zellijLayoutsRelPath}";
 }
