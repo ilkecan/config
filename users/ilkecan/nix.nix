@@ -35,6 +35,7 @@ in
     nix-tree  # https://github.com/utdemir/nix-tree
     nix-update  # https://github.com/Mic92/nix-update/
     nixfmt  # https://github.com/NixOS/nixfmt
+    nixos-anywhere  # https://github.com/nix-community/nixos-anywhere
     nixos-facter  # https://github.com/nix-community/nixos-facter
     notashelf.flint   # https://github.com/NotAShelf/flint
     unstable.nixpkgs-review  # https://github.com/Mic92/nixpkgs-review
