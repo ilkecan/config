@@ -38,7 +38,6 @@ in
       "wikipedia2"
       "github"
       "youtube"
-      "archlinux"
       "urban-dictionary"
 
       "nixpkgs"
@@ -50,6 +49,9 @@ in
       "nixos-wiki"
       "noogle"
       "nixpkgs-pull-request-tracker"
+
+      "archlinux"
+      "aur"
 
       "rails"
       "ruby"
@@ -70,6 +72,13 @@ in
         urls = [ { template = "https://wiki.archlinux.org/index.php?search={searchTerms}"; } ];
         iconMapObj."16" = "https://wiki.archlinux.org/favicon.ico";
         definedAliases = [ "@archlinux" "@arch" ];
+      };
+
+      aur = {
+        name = "AUR";
+        urls = [ { template = "https://aur.archlinux.org/packages?K={searchTerms}"; } ];
+        iconMapObj."16" = "https://aur.archlinux.org/static/images/favicon.ico";
+        definedAliases = [ "@aur" ];
       };
 
       duckduckgo = {
