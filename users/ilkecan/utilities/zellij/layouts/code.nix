@@ -13,8 +13,8 @@
               pane = {
                 _props = { split_direction = "vertical"; };
                 _children = [
-                  { pane._props = { command = "nvim"; }; }
-                  { pane._props = { focus = true; }; }
+                  { pane._props = { command = "nvim"; focus = true; }; }
+                  { pane = { }; }
                 ];
               };
             }

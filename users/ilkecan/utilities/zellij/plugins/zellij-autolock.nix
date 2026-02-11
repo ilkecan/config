@@ -10,7 +10,7 @@
     plugins.autolock = {
       _props.location = "file:${pkgs.nur.repos.ilkecan.zellij-autolock}/share/zellij/plugins/zellij-autolock.wasm";
 
-      is_enabled = true;
+      is_enabled = false;
       triggers = "nvim";
       reaction_seconds = "3";
       # print_to_log = true;
