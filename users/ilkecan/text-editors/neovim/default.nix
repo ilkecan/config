@@ -13,7 +13,7 @@
     ./lua.nix
     ./options.nix
     ./plugins
-    ./treesitter.nix
+    ./treesitter
   ];
 
   programs.nvf = {

@@ -11,10 +11,14 @@ let
 in
 
 {
+  imports = [
+    ./context.nix
+    ./textobjects.nix
+  ];
+
   programs.nvf.settings.vim = {
     treesitter = {
       enable = true;  # https://github.com/nvim-treesitter/nvim-treesitter
-      context.enable = true;  # https://github.com/nvim-treesitter/nvim-treesitter-context
       fold = true;
       grammars = pkgs.vimPlugins.nvim-treesitter.allGrammars;
       highlight = {
@@ -29,7 +33,6 @@ in
           end
         '';
       };
-      textobjects.enable = true;  # https://github.com/nvim-treesitter/nvim-treesitter-textobjects
     };
   };
 }
