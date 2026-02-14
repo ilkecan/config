@@ -28,10 +28,14 @@
     zsh.initContent = ''
       auto_zellij() {
         if [[ -z "$ZELLIJ" ]]; then
-          if [[ -f zellij-layout-name.txt ]]; then
-            zellij --layout $(cat zellij-layout-name.txt)
-          elif [[ -f zellij-layout.kdl ]]; then
-            zellij --layout zellij-layout.kdl
+          file=".zellij-layout-name.txt"
+          if [[ -f $file ]]; then
+            zellij --layout $(cat $file)
+          fi
+
+          file=".zellij-layout.kdl"
+          if [[ -f $file ]]; then
+            zellij --layout $file
           fi
         fi
       }
