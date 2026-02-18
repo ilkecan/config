@@ -5,6 +5,7 @@
 
 {
   imports = [
+    ./debugging.nix
     ./version-control
   ];
 
