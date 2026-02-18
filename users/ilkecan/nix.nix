@@ -20,6 +20,7 @@ in
 
   home.sessionVariables = {
     NH_NO_CHECKS = 1;
+    NIXPKGS_ALLOW_UNFREE = toString pkgs.config.allowUnfree;
   };
 
   home.packages = with pkgs; [
