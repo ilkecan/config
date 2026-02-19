@@ -19,7 +19,7 @@
       ilkecan = {
         hashedPasswordFile = config.sops.secrets.ilkecan-hashed-password.path;
         isNormalUser = true;
-        extraGroups = [ "wheel" ];
+        extraGroups = [ config.users.groups.wheel.name ];
         shell = homeConfig.programs.zsh.package;
       };
     };
