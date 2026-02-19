@@ -26,7 +26,6 @@ in
   home.packages = with pkgs; [
     cachix
     dix   # https://github.com/faukah/dix
-    dpkg  # for `dpkg-deb`
     nix-alien   # https://github.com/thiagokokada/nix-alien
     nix-diff  # https://github.com/Gabriella439/nix-diff
     nix-du  # https://github.com/symphorien/nix-du

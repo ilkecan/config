@@ -26,6 +26,7 @@ in
     ./networking
     ./nix.nix
     ./office.nix
+    ./packaging.nix
     ./qt.nix
     ./security
     ./sops.nix
