@@ -10,13 +10,15 @@ let
   ;
 
   pulls = {
-    "480060" = "sha256-eGTcHObgSfYz5Gt92g0nS9MgljVv6vshwbz28DWwpTI=";
-    "480164" = "sha256-mR9SOmQWeEBld2H1hopn7geXAnYwDwtJdBuBJcach44=";
-    "485661" = "sha256-oMDlKMxsrDuqsjdbuVpFH4ij6/M7fPWU/tr0DOIM9pg=";
-    "485963" = "sha256-DzvdCYfsXTtgwjibuONwSZsGYoC6R/vPPe/ekx/XndM=";
+    "480060" = "sha256-FNMYPEOeCp0WSbM9XZxJm8Qb9QfsTGud8cBriM6fnrM=";
   };
 
-  patches = mapAttrsToList (k: v: { url = "https://github.com/NixOS/nixpkgs/pull/${k}.patch?full_index=1"; sha256 = v; }) pulls;
+  pullToPatch = number: sha256:
+    let
+      name = "${number}.patch";
+    in
+    { inherit name sha256; url = "https://github.com/NixOS/nixpkgs/pull/${name}?full_index=1"; };
+  patches = mapAttrsToList pullToPatch pulls;
 in
 {
   perSystem = { system, ... }: {
