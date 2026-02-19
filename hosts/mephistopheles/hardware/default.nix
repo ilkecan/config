@@ -13,6 +13,7 @@
     ./keyboard.nix
     ./monitor.nix
     ./mouse.nix
+    ./printer.nix
     ./thunderbolt.nix
     inputs.nixos-hardware.nixosModules.lenovo-thinkpad-e14-intel-gen7
   ];
