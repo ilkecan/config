@@ -379,7 +379,6 @@
       },
       "original": {
         "owner": "feel-co",
-        "ref": "refs/tags/v2.6.0",
         "repo": "ndg",
         "type": "github"
       }
@@ -638,6 +637,7 @@
       "original": {
         "owner": "NotAShelf",
         "repo": "nvf",
+        "rev": "9c75c2a199af39fc95fb203636ce97d070ca3973",
         "type": "github"
       }
     },
