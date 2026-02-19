@@ -11,7 +11,7 @@ let
     libheif.out   # https://github.com/NixOS/nixpkgs/pull/427112
     nufraw-thumbnailer
     papers  # https://gitlab.gnome.org/GNOME/papers
-    patched.bign-handheld-thumbnailer   # https://github.com/MateusRodCosta/bign-handheld-thumbnailer
+    unstable.bign-handheld-thumbnailer   # https://github.com/MateusRodCosta/bign-handheld-thumbnailer
     patched.gnome-font-viewer   # https://gitlab.gnome.org/GNOME/gnome-font-viewer
     patched.icoextract  # https://github.com/jlu5/icoextract
     patched.libgsf  # https://gitlab.gnome.org/GNOME/libgsf
