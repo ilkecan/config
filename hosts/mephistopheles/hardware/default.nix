@@ -1,4 +1,6 @@
 {
+  config,
+  homeConfig,
   inputs,
   ...
 }:
@@ -26,4 +28,6 @@
     fwupd.enable = true;
     power-profiles-daemon.enable = true;  # https://danklinux.com/docs/dankmaterialshell/cli-doctor#power-profiles-daemon
   };
+
+  users.groups.${config.hardware.i2c.group}.members = [ homeConfig.home.username ];
 }
