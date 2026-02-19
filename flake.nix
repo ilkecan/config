@@ -99,7 +99,7 @@
       };
     };
     nvf = {
-      url = "github:NotAShelf/nvf";
+      url = "github:NotAShelf/nvf/9c75c2a199af39fc95fb203636ce97d070ca3973";
       inputs = {
         flake-compat.follows = "flake-compat";
         flake-parts.follows = "flake-parts";
