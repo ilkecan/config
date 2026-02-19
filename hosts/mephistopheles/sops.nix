@@ -27,9 +27,13 @@ in
     };
 
     templates = {
-      nix-access-tokens.content = ''
-        access-tokens = ${concatStringsSep " " (mapAttrsToList (k: v: "${k}=${v}") nixAccessTokens)}
-      '';
+      nix-access-tokens = {
+        content = ''
+          access-tokens = ${concatStringsSep " " (mapAttrsToList (k: v: "${k}=${v}") nixAccessTokens)}
+        '';
+        group = config.users.groups.wheel.name;
+        mode = "0440";
+      };
     };
   };
 }
