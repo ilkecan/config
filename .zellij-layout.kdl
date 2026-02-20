@@ -1,5 +1,5 @@
 layout {
-  tab hide_floating_panes=true name="shell" {
+  tab name="shell" {
     pane
 
     pane size=1 borderless=true {
@@ -7,7 +7,7 @@ layout {
     }
   }
 
-  tab focus=true hide_floating_panes=true name="Neovim" {
+  tab focus=true name="Neovim" {
     pane command="nvim"
 
     pane size=1 borderless=true {
@@ -15,7 +15,7 @@ layout {
     }
   }
 
-  tab hide_floating_panes=true name="nh" {
+  tab name="nh" {
     pane split_direction="horizontal" {
       pane split_direction="vertical" {
         pane command="nh" {
