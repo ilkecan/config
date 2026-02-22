@@ -10,6 +10,10 @@ let
   user = config.home.username;
 in
 {
+  imports = [
+    ./plugins
+  ];
+
   home.packages = with pkgs; [
     unstable.dsearch
   ];
