@@ -9,6 +9,7 @@
     ./gstreamer.nix
     ./image.nix
     ./video.nix
+    ./wireplumber
   ];
 
   home.packages = with pkgs; [
