@@ -8,7 +8,7 @@
     ./communication
     ./download.nix
     ./instant-messaging
-    ./web-browsers
+    ./web
   ];
 
   home.packages = with pkgs; [
