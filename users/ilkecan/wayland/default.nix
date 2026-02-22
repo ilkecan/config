@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  osConfig,
   pkgs,
   ...
 }:
@@ -21,7 +20,7 @@ let
 in
 {
   imports = [
-    ./dank-material-shell.nix
+    ./dank-material-shell
     ./niri
     ./satty.nix
   ];
