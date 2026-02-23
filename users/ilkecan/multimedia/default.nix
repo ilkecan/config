@@ -5,7 +5,7 @@
 
 {
   imports = [
-    ./audio.nix
+    ./audio
     ./gstreamer.nix
     ./image.nix
     ./video.nix
