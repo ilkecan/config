@@ -17,7 +17,7 @@ in
     ./flatpak.nix
     ./gaming
     ./gtk.nix
-    ./hardware.nix
+    ./hardware
     ./home-manager.nix
     ./input
     ./internet

@@ -4,6 +4,10 @@
 }:
 
 {
+  imports = [
+    ./display.nix
+  ];
+
   home.sessionVariables = {
     LIBVA_DRIVER_NAME = "iHD"; # Prefer the modern iHD backend
   };
