@@ -4,6 +4,7 @@
 
 {
   imports = [
+    ./command-runner.nix
     ./dank-battery-alerts.nix
     ./dank-kde-connect.nix
     ./dank-pomodoro-timer.nix
