@@ -24,6 +24,12 @@ let
   ];
 in
 {
+  xdg.systemDirs.data =
+    let
+      pkg = pkgs.gtk3;
+    in
+    [ "${pkg}/share/gsettings-schemas/${pkg.name}" ];
+
   gtk = {
     enable = true;
 
