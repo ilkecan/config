@@ -9,4 +9,8 @@
     ./dank-pomodoro-timer.nix
     ./emoji-launcher.nix
   ];
+
+  programs.dank-material-shell = {
+    managePluginSettings = true;
+  };
 }
