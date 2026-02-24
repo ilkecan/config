@@ -10,7 +10,7 @@ let
   ;
 in
 {
-  home.packages = [ pkgs.zsh-autosuggestions ];
+  home.packages = with pkgs; [ zsh-autosuggestions ];
 
   programs.zsh.initContent = mkOrder 701 ''
     export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE="20"
