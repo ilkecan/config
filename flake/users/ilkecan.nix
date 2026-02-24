@@ -8,11 +8,12 @@
 let
   module =
     {
+      lib,
       pkgs,
       ...
     }:
     inputs.home-manager.lib.homeManagerConfiguration {
-      inherit pkgs;
+      inherit lib pkgs;
 
       modules = [
         inputs.betterfox-nix.homeModules.betterfox

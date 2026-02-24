@@ -137,6 +137,7 @@
       };
 
       imports = [
+        ./flake/lib.nix
         ./flake/nixpkgs.nix
 
         ./flake/hosts

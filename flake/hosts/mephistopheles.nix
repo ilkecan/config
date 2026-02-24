@@ -8,6 +8,7 @@
 let
   module =
     {
+      lib,
       pkgs,
       ...
     }:
@@ -27,7 +28,7 @@ let
       ];
 
       specialArgs = {
-        inherit inputs;
+        inherit inputs lib;
         homeConfig = self.homeConfigurations.ilkecan.config;
       };
     };
