@@ -14,6 +14,12 @@ let
   ;
 in
 {
+  imports = [
+    ./angrr.nix
+    ./envfs.nix
+    ./nix-ld.nix
+  ];
+
   nix = {
     package = pkgs.nixVersions.stable;
     channel.enable = false;
@@ -58,28 +64,6 @@ in
       automatic = true;
       dates = "weekly";
       options = "--delete-older-than 30d";
-    };
-  };
-
-  programs.nix-ld = {
-    enable = true;
-    libraries = pkgs.steam-run.args.multiPkgs pkgs;
-  };
-
-  services = {
-    angrr = {
-      # https://github.com/linyinfeng/angrr
-      # TODO reconfigure this after v26.05
-      enable = true;
-      period = "30d";
-    };
-
-    envfs = {
-      # https://github.com/Mic92/envfs
-      enable = true;
-      extraFallbackPathCommands = ''
-        ln -s ${pkgs.bash}/bin/bash $out/bash
-      '';
     };
   };
 }

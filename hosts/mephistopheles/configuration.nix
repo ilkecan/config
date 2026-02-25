@@ -19,7 +19,7 @@
     ./locale.nix
     ./multimedia.nix
     ./networking
-    ./nix.nix
+    ./nix
     ./security.nix
     ./sops.nix
     ./users.nix
