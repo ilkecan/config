@@ -137,6 +137,7 @@
       };
 
       imports = [
+        ./flake/default.nix
         ./flake/lib.nix
         ./flake/nixpkgs.nix
 
