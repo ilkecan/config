@@ -1,14 +1,9 @@
 {
-  lib,
   ...
 }:
 
-let
-  inherit (lib)
-    mapAttrs
-    mkDefault
-  ;
-in
 {
-  perInput = _system: mapAttrs (_: mkDefault);
+  imports = [
+    ./modules/flake/per-system-flake-inputs.nix
+  ];
 }
