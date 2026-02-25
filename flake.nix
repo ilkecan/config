@@ -132,10 +132,6 @@
 
   outputs = inputs:
     inputs.flake-parts.lib.mkFlake { inherit inputs; } {
-      perSystem = _: {
-        _module.args = { inherit inputs; };
-      };
-
       imports = [
         ./flake/default.nix
         ./flake/lib.nix

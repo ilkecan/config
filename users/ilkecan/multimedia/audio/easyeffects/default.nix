@@ -1,7 +1,7 @@
 {
   config,
-  inputs,
   lib,
+  self',
   ...
 }:
 
@@ -33,7 +33,7 @@ in
   };
 
   xdg.dataFile.${dataRelPath} = {
-    source = "${inputs.self}/users/${user}/dotfiles/.local/share/${dataRelPath}";
+    source = "${self'}/users/${user}/dotfiles/.local/share/${dataRelPath}";
     recursive = true;
   };
 }

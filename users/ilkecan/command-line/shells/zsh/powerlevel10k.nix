@@ -1,9 +1,9 @@
 # https://github.com/romkatv/powerlevel10k
 {
   config,
-  inputs,
   lib,
   pkgs,
+  self',
   ...
 }:
 
@@ -23,7 +23,7 @@ in
 {
   home.packages = [ pkgs.zsh-powerlevel10k ];
 
-  xdg.configFile.${configRelPath}.source = "${inputs.self}/users/${user}/dotfiles/.config/${configRelPath}";
+  xdg.configFile.${configRelPath}.source = "${self'}/users/${user}/dotfiles/.config/${configRelPath}";
 
   programs.zsh.initContent = mkMerge [
     (mkBefore ''

@@ -1,7 +1,7 @@
 {
   config,
-  inputs,
   lib,
+  self',
   ...
 }:
 
@@ -19,7 +19,7 @@ let
 in
 {
   sops = {
-    defaultSopsFile = "${inputs.self}/secrets/hosts/${config.networking.hostName}.yaml";
+    defaultSopsFile = "${self'}/secrets/hosts/${config.networking.hostName}.yaml";
 
     secrets = {
       github-access-token = {};

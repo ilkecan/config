@@ -1,12 +1,12 @@
 {
   config,
-  inputs,
+  self',
   ...
 }:
 
 {
   sops = {
-    defaultSopsFile = "${inputs.self}/secrets/users/${config.home.username}.yaml";
+    defaultSopsFile = "${self'}/secrets/users/${config.home.username}.yaml";
 
     secrets = {
     };

@@ -1,7 +1,7 @@
 {
   config,
   homeConfig,
-  inputs,
+  inputs',
   ...
 }:
 
@@ -15,7 +15,7 @@
     ./mouse.nix
     ./printer.nix
     ./thunderbolt.nix
-    inputs.nixos-hardware.nixosModules.lenovo-thinkpad-e14-intel-gen7
+    inputs'.nixos-hardware.nixosModules.lenovo-thinkpad-e14-intel-gen7
   ];
 
   # TODO switch to facter after NixOS 26.05

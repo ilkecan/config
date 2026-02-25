@@ -3,14 +3,14 @@
 # to /etc/nixos/configuration.nix instead.
 {
   config,
+  inputs',
   lib,
-  inputs,
   ...
 }:
 
 {
   imports = [
-    inputs.nixpkgs.nixosModules.notDetected
+    inputs'.nixpkgs.nixosModules.notDetected
   ];
 
   boot.initrd.availableKernelModules = [

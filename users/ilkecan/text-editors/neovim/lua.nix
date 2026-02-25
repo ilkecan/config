@@ -1,10 +1,10 @@
 {
-  inputs,
+  inputs',
   ...
 }:
 
 let
-  inherit (inputs.nvf.lib.nvim)
+  inherit (inputs'.nvf.lib.nvim)
     dag
   ;
 in
