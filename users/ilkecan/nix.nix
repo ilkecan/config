@@ -1,6 +1,6 @@
 {
   config,
-  inputs,
+  inputs',
   pkgs,
   ...
 }:
@@ -12,7 +12,7 @@ let
 in
 {
   nix.channels = {
-    inherit (inputs)
+    inherit (inputs')
       nixpkgs
       nixpkgs-unstable
     ;

@@ -1,7 +1,7 @@
 {
   config,
-  inputs,
   pkgs,
+  self',
   ...
 }:
 
@@ -48,5 +48,5 @@ in
     };
   };
 
-  xdg.configFile.${niriBindsRelPath}.source = "${inputs.self}/users/${user}/dotfiles/.config/${niriBindsRelPath}";
+  xdg.configFile.${niriBindsRelPath}.source = "${self'}/users/${user}/dotfiles/.config/${niriBindsRelPath}";
 }

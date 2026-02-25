@@ -1,5 +1,5 @@
 {
-  inputs,
+  inputs',
   lib,
   ...
 }:
@@ -13,7 +13,7 @@ in
   # TODO: until v26.05
   disabledModules = [ "services/system/automatic-timezoned.nix" ];
   imports = [
-    "${inputs.nixpkgs-unstable}/nixos/modules/services/system/automatic-timezoned.nix"
+    "${inputs'.nixpkgs-unstable}/nixos/modules/services/system/automatic-timezoned.nix"
   ];
 
   location.provider = "geoclue2";
