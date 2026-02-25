@@ -6,18 +6,9 @@
 }:
 
 let
-  inherit (builtins)
-    readDir
-  ;
-
-  inherit (lib)
-    attrNames
-    genAttrs
-  ;
-
   inherit (lib.my)
     callExpression
-    relativeTo
+    importTree
   ;
 
   user = config.home.username;
@@ -29,7 +20,7 @@ in
     enable = true;
 
     # https://github.com/wwmm/easyeffects/wiki/Community-Presets
-    extraPresets = genAttrs (attrNames (readDir ./presets)) (x: callExpression (relativeTo ./presets x)) ;
+    extraPresets = importTree { root = ./presets; importFn = callExpression; depth = 1; };
   };
 
   xdg.dataFile.${dataRelPath} = {
