@@ -12,6 +12,7 @@ let
     isPath
     mapAttrs'
     nameValuePair
+    substring
   ;
 
   inherit (lib.my)
@@ -61,6 +62,13 @@ in
     if isPath path then
       path
     else
-      root + "/${toString path}"
+      let
+        path' = toString path;
+        firstChar = substring 0 1 path';
+      in
+      if firstChar == "/" then
+        path'
+      else
+        root + "/${path'}"
     ;
 }
