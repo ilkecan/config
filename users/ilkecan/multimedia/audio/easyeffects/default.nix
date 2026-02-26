@@ -6,8 +6,11 @@
 }:
 
 let
-  inherit (lib.my)
+  inherit (lib.my-pkgs)
     callExpression
+  ;
+
+  inherit (lib.my)
     importTree
   ;
 
