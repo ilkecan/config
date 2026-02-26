@@ -8,8 +8,10 @@ let
   ;
 
   inherit (lib)
+    id
     isPath
-    mapAttrs
+    mapAttrs'
+    nameValuePair
   ;
 
   inherit (lib.my)
@@ -24,17 +26,24 @@ in
     {
       root,
       depth ? INFINITY,
+      normalizeNameFn ? id,
       importFn ? import,
     }:
     let
       importFile = path:
         importFn (relativeTo root path);
       importDir = path:
-        mapAttrs (name: type:
-          if type == "directory" then
-            importTree { root = relativeTo root name; depth = depth - 1; inherit importFn; }
-          else
-            importFile name
+        mapAttrs' (name: type:
+          let
+            name' = normalizeNameFn name;
+            value =
+              if type == "directory" then
+                importTree { root = relativeTo root name; depth = depth - 1; inherit normalizeNameFn importFn; }
+              else
+                importFile name
+              ;
+          in
+          nameValuePair name' value
         ) (readDir path);
     in
     if depth <= 0 then
