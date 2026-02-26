@@ -19,7 +19,7 @@ let
 
   inherit (lib.my)
     importTree
-    relativeTo
+    mkAbsolute
   ;
 
   INFINITY = 1.0e308 * 2;
@@ -54,14 +54,14 @@ in
     }:
     let
       importFile = path:
-        importFn (relativeTo root path);
+        importFn (mkAbsolute root path);
       importDir = path:
         mapAttrs' (name: type:
           let
             name' = normalizeNameFn name;
             value =
               if type == "directory" then
-                importTree { root = relativeTo root name; depth = depth - 1; inherit normalizeNameFn importFn; }
+                importTree { root = mkAbsolute root name; depth = depth - 1; inherit normalizeNameFn importFn; }
               else
                 importFile name
               ;
@@ -71,13 +71,13 @@ in
     in
     if depth <= 0 then
       importFile root
-    else if pathExists (relativeTo root "default.nix") then
+    else if pathExists (mkAbsolute root "default.nix") then
       importFile root
     else
       importDir root
     ;
 
-  relativeTo = root: path:
+  mkAbsolute = root: path:
     if isPath path then
       path
     else
