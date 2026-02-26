@@ -12,6 +12,7 @@ let
     isPath
     mapAttrs'
     nameValuePair
+    pathExists
     substring
   ;
 
@@ -53,6 +54,8 @@ in
         ) (readDir path);
     in
     if depth <= 0 then
+      importFile root
+    else if pathExists (relativeTo root "default.nix") then
       importFile root
     else
       importDir root
