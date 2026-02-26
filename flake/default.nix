@@ -7,11 +7,11 @@
   imports = [
     inputs.flake-parts.flakeModules.modules
 
-    ./modules/flake/per-system-flake-inputs.nix   # dogfood
+    ../modules/flake/per-system-flake-inputs.nix # dogfood
 
     ./hosts
     ./lib.nix
-    ./modules
+    ./modules.nix
     ./nixpkgs.nix
     ./users
   ];
