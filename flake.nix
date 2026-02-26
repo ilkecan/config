@@ -135,20 +135,5 @@
       lib = import ./lib { inherit (inputs.nixpkgs) lib; };
       specialArgs = { inherit lib; };
     in
-    inputs.flake-parts.lib.mkFlake { inherit inputs specialArgs;  } {
-      imports = [
-        ./flake/default.nix
-        ./flake/lib.nix
-        ./flake/nixpkgs.nix
-
-        ./flake/hosts
-        ./flake/users
-      ];
-
-      debug = true;
-
-      systems = [
-        "x86_64-linux"
-      ];
-    };
+    inputs.flake-parts.lib.mkFlake { inherit inputs specialArgs;  } { imports = [ ./flake ]; };
 }
