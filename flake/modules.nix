@@ -19,8 +19,8 @@ let
     importTree {
       inherit root;
       depth = 1;
-      normalizeNameFn = x: toCamelCase (removeSuffix ".nix" x);
       importFn = id;
+      normalizeNameFn = x: toCamelCase (removeSuffix ".nix" x);
     };
 in
 {
