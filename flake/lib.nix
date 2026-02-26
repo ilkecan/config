@@ -3,7 +3,7 @@
 }:
 
 {
-  perSystem = { pkgs, self', ... }@args: {
-    _module.args.lib = import "${self'}/lib" args;
+  perSystem = { pkgs, self', ... }: {
+    _module.args.lib = import "${self'}/lib" { inherit (pkgs) lib pkgs; };
   };
 }

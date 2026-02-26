@@ -1,7 +1,5 @@
 {
   lib,
-  pkgs,
-  ...
 }:
 
 let
@@ -10,9 +8,6 @@ let
   ;
 
   inherit (lib)
-    functionArgs
-    intersectAttrs
-    isFunction
     isPath
     mapAttrs
   ;
@@ -25,18 +20,6 @@ let
   INFINITY = 1.0e308 * 2;
 in
 {
-  callExpression =
-    let
-      callExpressionWith = autoArgs: fn:
-        let
-          f = if isFunction fn then fn else import fn;
-          fargs = functionArgs f;
-          args = intersectAttrs fargs autoArgs;
-        in
-        f args;
-    in
-    callExpressionWith pkgs;
-
   importTree =
     {
       root,
