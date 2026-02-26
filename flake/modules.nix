@@ -1,5 +1,6 @@
 {
   lib,
+  self,
   ...
 }:
 
@@ -24,6 +25,6 @@ let
 in
 {
   flake.modules = {
-    flake = importDir ./flake;
+    flake = importDir "${self}/modules/flake";
   };
 }
