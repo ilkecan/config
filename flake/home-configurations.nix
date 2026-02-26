@@ -8,11 +8,11 @@ let
   mkHomeConfiguration =
     {
       system,
-      module,
+      root,
       osConfig ? null,
     }:
     let
-      module' =
+      module =
         {
           inputs',
           lib,
@@ -37,7 +37,7 @@ let
             inputs'.sops-nix.homeManagerModules.sops
             inputs'.stylix.homeModules.stylix
 
-            module
+            root
           ];
 
           extraSpecialArgs = {
@@ -45,10 +45,10 @@ let
           };
         };
     in
-    withSystem system module';
+    withSystem system module;
 in
 {
   flake.homeConfigurations = {
-    ilkecan = mkHomeConfiguration { system = "x86_64-linux"; module = "${self}/users/ilkecan/home.nix"; osConfig = self.nixosConfigurations.mephistopheles.config; };
+    ilkecan = mkHomeConfiguration { system = "x86_64-linux"; root = "${self}/users/ilkecan"; osConfig = self.nixosConfigurations.mephistopheles.config; };
   };
 }
