@@ -54,10 +54,11 @@ in
       ];
 
       auto-optimise-store = true;
+      http-connections = 128;   # default: 25
       keep-going = true;
       keep-outputs = true;
-      http-connections = 128;   # default: 25
       max-substitution-jobs = 128; # default: 16
+      # warn-short-path-literals = true;
     };
 
     gc = {
