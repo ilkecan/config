@@ -5,8 +5,9 @@
 
 let
   inherit (lib)
-    toCamelCase
+    id
     removeSuffix
+    toCamelCase
   ;
 
   inherit (lib.my)
@@ -14,7 +15,12 @@ let
   ;
 
   importDir = root:
-    importTree { inherit root; depth = 1; normalizeNameFn = x: toCamelCase (removeSuffix ".nix" x); };
+    importTree {
+      inherit root;
+      depth = 1;
+      normalizeNameFn = x: toCamelCase (removeSuffix ".nix" x);
+      importFn = id;
+    };
 in
 {
   flake.modules = {

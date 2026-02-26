@@ -27,6 +27,11 @@ in
       root,
       depth ? INFINITY,
       normalizeNameFn ? id,
+
+      # NOTE: Prefer `importApply` over bare `import` when a module expression
+      # is required. If there is no extra arguments to be passed, file path
+      # (`importFn = id`) is also preferable to `import`.
+      # https://noogle.dev/f/lib/modules/importApply
       importFn ? import,
     }:
     let
