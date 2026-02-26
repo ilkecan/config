@@ -133,7 +133,6 @@
   outputs = inputs:
     let
       lib = import ./lib { inherit (inputs.nixpkgs) lib; };
-      specialArgs = { inherit lib; };
     in
-    inputs.flake-parts.lib.mkFlake { inherit inputs specialArgs;  } { imports = [ ./flake ]; };
+    inputs.flake-parts.lib.mkFlake { inputs = import ./inputs { inherit inputs; }; specialArgs = { inherit lib; };} { imports = [ ./flake ]; };
 }
