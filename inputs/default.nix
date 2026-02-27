@@ -3,6 +3,8 @@
 }:
 
 let
+  # NOTE: unfortunately there is no way to avoid hard-coded `system` yet
+  # https://github.com/NixOS/nix/issues/3920
   system = "x86_64-linux";
   inherit (inputs.nixpkgs.legacyPackages.${system})
     applyPatches
@@ -11,22 +13,20 @@ let
 
   patchInput = patches: input: name:
     let
-      patchedInput = applyPatches {
+      src = applyPatches {
         name = "${name}-patched";
         patches = map fetchpatch2 patches;
         src = input;
       };
 
-      flake = import "${patchedInput}/flake.nix";
-      self = flake.outputs inputs;
-      inputs = { inherit self; } // input.inputs;
-      sourceInfo = input.sourceInfo // { inherit (patchedInput) outPath; };
+      flake = import "${src}/flake.nix";
+      outputs = flake.outputs ({ self = outputs; } // input.inputs);
+      sourceInfo = input.sourceInfo // { inherit (src) outPath; };
     in
-    self // sourceInfo // {
+    outputs // sourceInfo // {
       _type = "flake";
       inherit (input) inputs;
-      inherit sourceInfo;
-      outputs = self;
+      inherit sourceInfo outputs;
     };
 
   newAttrs = {
