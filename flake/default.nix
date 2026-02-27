@@ -9,11 +9,10 @@
 
     ../modules/flake/per-system-flake-inputs.nix # dogfood
 
+    ./args
     ./home-configurations.nix
-    ./lib.nix
     ./modules.nix
     ./nixos-configurations.nix
-    ./nixpkgs.nix
   ];
 
   debug = true;
