@@ -10,6 +10,7 @@ let
 
   pulls = {
     "480060" = "sha256-FNMYPEOeCp0WSbM9XZxJm8Qb9QfsTGud8cBriM6fnrM=";
+    "494001" = "sha256-6dJgDCqmUx86kVgsqSXKSUF1v0GPvsA2hTKy/S7E2+I=";
   };
 
   mkPatch = number: sha256:
