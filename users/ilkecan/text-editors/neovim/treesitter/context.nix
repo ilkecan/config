@@ -8,6 +8,7 @@
     treesitter.context = {
       enable = true;
       setupOpts = {
+        enable = false;
       };
     };
 
