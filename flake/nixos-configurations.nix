@@ -1,4 +1,5 @@
 {
+  inputs,
   self,
   withSystem,
   ...
@@ -20,17 +21,17 @@ let
           self',
           ...
         }:
-        inputs'.nixpkgs.lib.nixosSystem {
+        inputs.nixpkgs.lib.nixosSystem {
           modules = [
-            inputs'.nixpkgs.nixosModules.readOnlyPkgs
+            inputs.nixpkgs.nixosModules.readOnlyPkgs
             { nixpkgs.pkgs = pkgs; }
 
-            inputs'.disko.nixosModules.disko
-            inputs'.impermanence.nixosModules.impermanence
-            inputs'.nix-gaming.nixosModules.pipewireLowLatency
-            inputs'.nix-gaming.nixosModules.platformOptimizations
-            inputs'.nix-gaming.nixosModules.wine
-            inputs'.sops-nix.nixosModules.sops
+            inputs.disko.nixosModules.disko
+            inputs.impermanence.nixosModules.impermanence
+            inputs.nix-gaming.nixosModules.pipewireLowLatency
+            inputs.nix-gaming.nixosModules.platformOptimizations
+            inputs.nix-gaming.nixosModules.wine
+            inputs.sops-nix.nixosModules.sops
 
             root
           ];
