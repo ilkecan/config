@@ -50,7 +50,7 @@
       };
     };
     dms = {
-      url = "github:AvengeMedia/DankMaterialShell/v1.4.2";
+      url = "github:AvengeMedia/DankMaterialShell/v1.4.3";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     dms-plugin-registry = {
