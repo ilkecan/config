@@ -1,10 +1,11 @@
 {
   inputs,
+  self,
   ...
 }:
 
 {
-  perSystem = { system, self', ... }: {
-    _module.args.pkgs = import "${self'}/packages" { inherit inputs system; };
+  perSystem = { system, ... }: {
+    _module.args.pkgs = import "${self}/packages" { inherit inputs system; };
   };
 }

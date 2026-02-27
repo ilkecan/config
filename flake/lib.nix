@@ -1,9 +1,10 @@
 {
+  self,
   ...
 }:
 
 {
-  perSystem = { pkgs, self', ... }: {
-    _module.args.lib = import "${self'}/lib" { inherit (pkgs) lib pkgs; };
+  perSystem = { pkgs, ... }: {
+    _module.args.lib = import "${self}/lib" { inherit (pkgs) lib pkgs; };
   };
 }
