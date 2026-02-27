@@ -46,10 +46,10 @@ in
     pwvucontrol
     wasistlos
     telegram-desktop
-    ruffle  # https://github.com/ruffle-rs/ruffle
+    ruffle # https://github.com/ruffle-rs/ruffle
 
     bottom
-    unstable.oscar   # https://www.sleepfiles.com/OSCAR/
+    patched.oscar # https://www.sleepfiles.com/OSCAR/
     brightnessctl
     fd
     file
