@@ -1,9 +1,16 @@
 {
+  inputs',
   pkgs,
   ...
 }:
 
 {
+  # TODO: until v26.05
+  disabledModules = [ "tasks/filesystems/envfs.nix" ];
+  imports = [
+    "${inputs'.nixpkgs-patched}/nixos/modules/tasks/filesystems/envfs.nix"
+  ];
+
   environment.variables.ENVFS_RESOLVE_ALWAYS = "1";
 
   services.envfs = {
