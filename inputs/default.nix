@@ -41,6 +41,7 @@ let
   newAttrs = {
     dms = patchInput (import ./dms.nix args);
     home-manager = patchInput (import ./home-manager.nix args);
+    nixpkgs = patchInput (import ./nixpkgs.nix args);
     nixpkgs-patched = patchInput (import ./nixpkgs-patched.nix args);
   };
 in
