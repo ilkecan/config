@@ -4,6 +4,7 @@
 
 {
   imports = [
+    ./alarm-clock.nix
     ./command-runner.nix
     ./dank-battery-alerts.nix
     ./dank-kde-connect.nix
