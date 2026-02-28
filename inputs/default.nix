@@ -38,6 +38,7 @@ let
   args = { inherit inputs; };
   newAttrs = {
     dms = patchInput (import ./dms.nix args);
+    home-manager = patchInput (import ./home-manager.nix args);
     nixpkgs-patched = patchInput (import ./nixpkgs-patched.nix args);
   };
 in
