@@ -134,5 +134,8 @@
     let
       lib = import ./lib { inherit (inputs.nixpkgs) lib; };
     in
-    inputs.flake-parts.lib.mkFlake { inputs = import ./inputs { inherit inputs; }; specialArgs = { inherit lib; };} { imports = [ ./flake ]; };
+    inputs.flake-parts.lib.mkFlake {
+      inputs = import ./inputs { inherit inputs; };
+      specialArgs = { inherit lib; };
+    } { imports = [ ./flake ]; };
 }

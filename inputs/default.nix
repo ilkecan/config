@@ -25,15 +25,17 @@ let
         };
       patches = map fetchpatch2 (mapAttrsToList mkPatch pulls);
       src' = applyPatches { inherit name src patches; };
+
       flake = import "${src'}/flake.nix";
-      outputs = flake.outputs ({ self = outputs; } // src.inputs);
+      outputs = flake.outputs ({ inherit self; } // src.inputs);
       sourceInfo = src.sourceInfo // { inherit (src') outPath; };
+      self = outputs // sourceInfo // {
+        _type = "flake";
+        inherit (src) inputs;
+        inherit sourceInfo outputs;
+      };
     in
-    outputs // sourceInfo // {
-      _type = "flake";
-      inherit (src) inputs;
-      inherit sourceInfo outputs;
-    };
+    self;
 
   args = { inherit inputs; };
   newAttrs = {
