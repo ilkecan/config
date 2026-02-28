@@ -1,5 +1,4 @@
 {
-  inputs',
   lib,
   ...
 }:
@@ -10,12 +9,6 @@ let
   ;
 in
 {
-  # TODO: until v26.05
-  disabledModules = [ "services/system/automatic-timezoned.nix" ];
-  imports = [
-    "${inputs'.nixpkgs-unstable}/nixos/modules/services/system/automatic-timezoned.nix"
-  ];
-
   location.provider = "geoclue2";
 
   services = {
