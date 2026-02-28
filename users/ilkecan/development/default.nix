@@ -20,5 +20,7 @@
       enable = true;
       nix-direnv.enable = true;
     };
+
+    prek.enable = true; # https://github.com/j178/prek
   };
 }
