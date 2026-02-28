@@ -32,6 +32,7 @@ in
     ./sops.nix
     ./text-editors
     ./utilities
+    ./virtualization
     ./wayland
     ./xdg.nix
   ];
