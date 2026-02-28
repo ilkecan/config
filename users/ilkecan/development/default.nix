@@ -6,12 +6,12 @@
 {
   imports = [
     ./debugging.nix
+    ./formatters.nix
     ./version-control
   ];
 
   home.packages = with pkgs; [
     unstable.devenv
-    treefmt
     yaak
   ];
 
