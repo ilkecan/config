@@ -65,6 +65,13 @@
       url = "github:NotAShelf/flint";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    llm-agents = {
+      url = "github:numtide/llm-agents.nix";
+      inputs = {
+        blueprint.follows = "blueprint";
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
     niri-flake = {
       url = "github:sodiboo/niri-flake";
       inputs = {
@@ -113,6 +120,13 @@
     };
 
     ## unused
+    blueprint = {
+      url = "github:numtide/blueprint";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        systems.follows = "systems";
+      };
+    };
     flake-compat = {
       url = "github:edolstra/flake-compat";
       flake = false;

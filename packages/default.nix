@@ -40,12 +40,13 @@ import inputs.nixpkgs {
       nur = (inputs.nur.overlays.default final.unstable final.unstable).nur;
     })
 
-    inputs.nix-alien.overlays.default
-
     (final: _prev: {
       notashelf = {
         inherit (inputs.flint.packages.${final.stdenv.hostPlatform.system}) flint;
       };
     })
+
+    inputs.llm-agents.overlays.default
+    inputs.nix-alien.overlays.default
   ];
 }
