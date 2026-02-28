@@ -9,6 +9,7 @@
     ./dank-kde-connect.nix
     ./dank-pomodoro-timer.nix
     ./developer-utilities.nix
+    ./docker-manager.nix
     ./emoji-launcher.nix
   ];
 
