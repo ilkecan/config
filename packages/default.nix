@@ -14,6 +14,13 @@ import inputs.nixpkgs {
 
   overlays = [
     (final: _prev: {
+      inherit (final.unstable)
+        logitech-udev-rules
+        solaar
+      ;
+    })
+
+    (final: _prev: {
       unstable = import inputs.nixpkgs-unstable {
         localSystem = final.stdenv.hostPlatform;
         inherit (final) config;
