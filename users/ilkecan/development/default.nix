@@ -12,6 +12,7 @@
 
   home.packages = with pkgs; [
     unstable.devenv
+    unstable.prek # https://github.com/j178/prek # TODO: switch to stable after v26.05
     yaak
   ];
 
@@ -20,7 +21,5 @@
       enable = true;
       nix-direnv.enable = true;
     };
-
-    prek.enable = true; # https://github.com/j178/prek
   };
 }
