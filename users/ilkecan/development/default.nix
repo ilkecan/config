@@ -6,7 +6,7 @@
 {
   imports = [
     ./debugging.nix
-    ./formatters.nix
+    ./static-program-analysis
     ./version-control
   ];
 
