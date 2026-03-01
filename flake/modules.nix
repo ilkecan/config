@@ -26,5 +26,7 @@ in
 {
   flake.modules = {
     flake = importDir "${self}/modules/flake";
+    homeManager = importDir "${self}/modules/home-manager";
+    nixos = importDir "${self}/modules/nixos";
   };
 }
