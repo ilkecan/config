@@ -33,6 +33,8 @@ let
             inputs.nix-gaming.nixosModules.wine
             inputs.sops-nix.nixosModules.sops
 
+            self.nixosModules.default
+
             root
           ];
 
