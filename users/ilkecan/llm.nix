@@ -11,7 +11,6 @@
 
     packages = with pkgs.llm-agents; [
       claude-code
-      goose-cli
     ];
   };
 }
