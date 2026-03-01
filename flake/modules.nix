@@ -14,19 +14,12 @@ let
   inherit (lib.my)
     importTree
   ;
-
-  importDir = root:
-    importTree {
-      inherit root;
-      depth = 1;
-      importFn = id;
-      normalizeNameFn = x: toCamelCase (removeSuffix ".nix" x);
-    };
 in
 {
-  flake.modules = {
-    flake = importDir "${self}/modules/flake";
-    homeManager = importDir "${self}/modules/home-manager";
-    nixos = importDir "${self}/modules/nixos";
+  flake.modules = importTree {
+    root = "${self}/modules";
+    depth = 2;
+    importFn = id;
+    normalizeNameFn = x: toCamelCase (removeSuffix ".nix" x);
   };
 }
