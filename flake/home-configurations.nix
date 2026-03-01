@@ -26,7 +26,7 @@ let
 
           modules = [
             inputs.betterfox-nix.homeModules.betterfox
-            inputs.dms-plugin-registry.modules.default
+            inputs.dms-plugin-registry.homeModules.default
             inputs.dms.homeModules.dank-material-shell
             inputs.dms.homeModules.niri
             inputs.niri-flake.homeModules.niri
@@ -35,8 +35,10 @@ let
             inputs.nix-index-database.homeModules.default
             inputs.nixcord.homeModules.nixcord
             inputs.nvf.homeManagerModules.default
-            inputs.sops-nix.homeManagerModules.sops
+            inputs.sops-nix.homeModules.sops
             inputs.stylix.homeModules.stylix
+
+            self.homeModules.default
 
             root
           ];
