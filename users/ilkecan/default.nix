@@ -34,7 +34,7 @@ in
     ./utilities
     ./virtualization
     ./wayland
-    ./xdg.nix
+    ./xdg
   ];
 
   # Home Manager needs a bit of information about you and the

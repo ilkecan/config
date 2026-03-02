@@ -3,7 +3,6 @@
   config,
   lib,
   pkgs,
-  self',
   ...
 }:
 
@@ -17,13 +16,10 @@ let
     cacheHome
   ;
 
-  configRelPath = "zsh/.p10k.zsh";
-  user = config.home.username;
+  pkg = pkgs.zsh-powerlevel10k;
 in
 {
-  home.packages = [ pkgs.zsh-powerlevel10k ];
-
-  xdg.configFile.${configRelPath}.source = "${self'}/users/${user}/dotfiles/.config/${configRelPath}";
+  home.packages = [ pkg ];
 
   programs.zsh.initContent = mkMerge [
     (mkBefore ''
@@ -39,7 +35,7 @@ in
     '')
 
     ''
-      source "${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme"
+      source "${pkg}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme"
 
       # To customize prompt, run `p10k configure` or edit "$ZDOTDIR"/.p10k.zsh.
       [[ ! -f "$ZDOTDIR"/.p10k.zsh ]] || source "$ZDOTDIR"/.p10k.zsh
