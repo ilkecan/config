@@ -8,6 +8,7 @@ output "DP-3" {
   mode "3840x2160@120.000"
   scale 2
   position x=-1920 y=-120
+  focus-at-startup
 }
 
 output "HDMI-A-1" {
