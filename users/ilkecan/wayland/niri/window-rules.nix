@@ -6,6 +6,21 @@
 {
   programs.niri.settings.window-rules = [
     {
+      matches = [ { app-id = ''^alacritty-config$''; } ];
+      open-maximized = true;
+      open-on-workspace = "config";
+    }
+    {
+      matches = [ { app-id = ''^alacritty-nixpkgs$''; } ];
+      open-maximized = true;
+      open-on-workspace = "nixpkgs";
+    }
+    {
+      matches = [ { app-id = ''^alacritty-review$''; } ];
+      open-maximized = true;
+      open-on-workspace = "review";
+    }
+    {
       matches = [ { app-id = ''^chromium-browser$''; } ];
       open-maximized = true;
       open-on-workspace = "browser";

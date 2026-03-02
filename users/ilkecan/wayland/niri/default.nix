@@ -9,6 +9,7 @@ let
 in
 {
   imports = [
+    ./autostart.nix
     ./binds
     ./input.nix
     ./layout.nix
@@ -21,9 +22,6 @@ in
     package = pkgs.niri;
     # https://github.com/YaLTeR/niri/blob/main/resources/default-config.kdl
     settings = {
-      spawn-at-startup = [
-        { argv = [ "solaar" "--window=hide" ]; }
-      ];
     };
   };
 
