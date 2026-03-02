@@ -1,6 +1,8 @@
 layout {
   tab name="Claude" {
-    pane command="claude"
+    pane command="claude" {
+      start_suspended true
+    }
 
     pane size=1 borderless=true {
       plugin location="zellij:compact-bar"
