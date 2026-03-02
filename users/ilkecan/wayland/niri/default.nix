@@ -13,6 +13,7 @@ in
     ./input.nix
     ./layout.nix
     ./window-rules.nix
+    ./workspaces
   ];
 
   programs.niri = {

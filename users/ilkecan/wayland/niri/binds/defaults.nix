@@ -1,4 +1,4 @@
-# https://yalter.github.io/niri/Configuration:-Key-Bindings.html
+# https://niri-wm.github.io/niri/Configuration:-Key-Bindings.html
 {
   ...
 }:
