@@ -1,21 +1,17 @@
 {
   inputs',
-  lib,
   options,
   pkgs,
   ...
 }:
 
 let
-  inherit (lib)
-    subtractLists
-  ;
-
   opt = options.programs.dank-material-shell;
 in
 {
   imports = [
     ./plugins
+    ./wallpaper.nix
   ];
 
   home.packages = with pkgs; [
