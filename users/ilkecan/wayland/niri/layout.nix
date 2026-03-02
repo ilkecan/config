@@ -1,4 +1,4 @@
-# https://yalter.github.io/niri/Configuration:-Layout
+# https://niri-wm.github.io/niri/Configuration:-Layout
 {
   ...
 }:
