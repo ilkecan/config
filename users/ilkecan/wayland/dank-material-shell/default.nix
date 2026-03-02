@@ -1,9 +1,18 @@
 {
   inputs',
+  lib,
+  options,
   pkgs,
   ...
 }:
 
+let
+  inherit (lib)
+    subtractLists
+  ;
+
+  opt = options.programs.dank-material-shell;
+in
 {
   imports = [
     ./plugins
@@ -32,6 +41,7 @@
     };
 
     niri = {
+      includes.filesToInclude = opt.niri.includes.filesToInclude.default ++ [ "cursor" "windowrules" ];
     };
 
     clipboardSettings = {
