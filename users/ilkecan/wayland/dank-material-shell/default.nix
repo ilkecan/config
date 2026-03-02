@@ -1,15 +1,9 @@
 {
-  config,
   inputs',
   pkgs,
-  self',
   ...
 }:
 
-let
-  niriBindsRelPath = "niri/dms/binds.kdl";
-  user = config.home.username;
-in
 {
   imports = [
     ./plugins
@@ -49,6 +43,4 @@ in
     settings = {
     };
   };
-
-  xdg.configFile.${niriBindsRelPath}.source = "${self'}/users/${user}/dotfiles/.config/${niriBindsRelPath}";
 }
