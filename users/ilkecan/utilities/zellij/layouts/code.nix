@@ -7,21 +7,35 @@
     layout._children = [
       {
         tab = {
-          _props = { hide_floating_panes = true; };
+          _props = { name = "Neovim"; focus = true; };
+          _children = [
+            { pane._props.command = "nvim"; }
+            {
+              pane = {
+                _props = { size = 1; borderless = true; };
+                plugin._props.location = "zellij:compact-bar";
+              };
+            }
+          ];
+        };
+      }
+      {
+        tab = {
+          _props.name = "terminal";
           _children = [
             {
               pane = {
-                _props = { split_direction = "vertical"; };
+                _props.split_direction = "vertical";
                 _children = [
-                  { pane._props = { command = "nvim"; focus = true; size = "75%"; }; }
                   { pane = { }; }
+                  { pane._props = { command = "claude"; }; pane.start_suspended = true; }
                 ];
               };
             }
             {
               pane = {
                 _props = { size = 1; borderless = true; };
-                plugin._props = { location = "zellij:compact-bar"; };
+                plugin._props.location = "zellij:compact-bar";
               };
             }
           ];

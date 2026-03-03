@@ -1,16 +1,30 @@
 layout {
-  tab name="Claude" {
-    pane command="claude" {
-      start_suspended true
-    }
+  tab name="nh" {
+    pane split_direction="horizontal" {
+      pane split_direction="vertical" {
+        pane command="nh" {
+          args "os" "repl"
+          start_suspended true
+        }
 
-    pane size=1 borderless=true {
-      plugin location="zellij:compact-bar"
-    }
-  }
+        pane command="nh" {
+          args "os" "switch"
+          start_suspended true
+        }
+      }
 
-  tab name="shell" {
-    pane
+      pane split_direction="vertical" {
+        pane command="nh" {
+          args "home" "repl"
+          start_suspended true
+        }
+
+        pane command="nh" {
+          args "home" "switch"
+          start_suspended true
+        }
+      }
+    }
 
     pane size=1 borderless=true {
       plugin location="zellij:compact-bar"
@@ -25,28 +39,12 @@ layout {
     }
   }
 
-  tab name="nh" {
-    pane split_direction="horizontal" {
-      pane split_direction="vertical" {
-        pane command="nh" {
-          args "os" "switch"
-          start_suspended true
-        }
-        pane command="nh" {
-          args "os" "repl"
-          start_suspended true
-        }
-      }
+  tab name="terminal" {
+    pane split_direction="vertical" {
+      pane
 
-      pane split_direction="vertical" {
-        pane command="nh" {
-          args "home" "switch"
-          start_suspended true
-        }
-        pane command="nh" {
-          args "home" "repl"
-          start_suspended true
-        }
+      pane command="claude" {
+        start_suspended true
       }
     }
 
