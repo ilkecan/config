@@ -17,8 +17,9 @@ in
   imports = [
     ./angrr.nix
     ./envfs.nix
-    ./nixseparatedebuginfod2.nix
     ./nix-ld.nix
+    ./nixos-cli.nix
+    ./nixseparatedebuginfod2.nix
   ];
 
   nix = {

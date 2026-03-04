@@ -113,6 +113,15 @@
         nixpkgs.follows = "nixpkgs";
       };
     };
+    nixos-cli = {
+      url = "github:nix-community/nixos-cli";
+      inputs = {
+        flake-compat.follows = "flake-compat";
+        flake-parts.follows = "flake-parts";
+        nixpkgs.follows = "nixpkgs";
+        optnix.follows = "optnix";
+      };
+    };
     nvf = {
       url = "github:NotAShelf/nvf/9c75c2a199af39fc95fb203636ce97d070ca3973";
       inputs = {
@@ -141,6 +150,14 @@
     };
     import-tree = {
       url = "github:vic/import-tree";
+    };
+    # TODO: remove after https://github.com/nix-community/nixos-cli/pull/201 is merged
+    optnix = {
+      url = "github:water-sucks/optnix";
+      inputs = {
+        flake-compat.follows = "flake-compat";
+        nixpkgs.follows = "nixpkgs";
+      };
     };
     systems.url = "github:nix-systems/default";
   };

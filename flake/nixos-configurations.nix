@@ -31,6 +31,7 @@ let
             inputs.nix-gaming.nixosModules.pipewireLowLatency
             inputs.nix-gaming.nixosModules.platformOptimizations
             inputs.nix-gaming.nixosModules.wine
+            inputs.nixos-cli.nixosModules.nixos-cli
             inputs.sops-nix.nixosModules.sops
 
             self.nixosModules.default
