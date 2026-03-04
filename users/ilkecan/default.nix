@@ -50,7 +50,7 @@ in
     ruffle # https://github.com/ruffle-rs/ruffle
 
     bottom
-    patched.oscar # https://www.sleepfiles.com/OSCAR/
+    unstable.oscar # https://www.sleepfiles.com/OSCAR/
     brightnessctl
     fd
     file

@@ -45,6 +45,7 @@ in
   programs = {
     nh = {
       enable = true;
+      package = pkgs.unstable.nh;
       flake = "${homeDirectory}/repos/git/github.com/ilkecan/config";
     };
     nix-index.enable = true;
