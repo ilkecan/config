@@ -19,6 +19,7 @@ in
     { argv = [ "io.gitlab.news_flash.NewsFlash" ]; }
     { argv = [ "solaar" "--window=hide" ]; }
     { argv = [ "steam" "-silent" ]; }
+    { argv = [ "thunderbird" ]; }
     { argv = [ "wasistlos" ]; }
   ];
 }
