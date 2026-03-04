@@ -1,7 +1,7 @@
 {
   config,
-  homeConfig,
   lib,
+  userConfig,
   ...
 }:
 
@@ -83,5 +83,5 @@ in
     };
   };
 
-  users.groups.networkmanager.members = [ homeConfig.home.username ];
+  users.groups.networkmanager.members = [ userConfig.home.username ];
 }

@@ -49,7 +49,7 @@ in
         QT_QPA_PLATFORM = "wayland";
       })
       # NOTE: custom keyboard layout doesn't work as of 2026-01-10.
-      # (mkIf osConfig.programs.steam.enable {
+      # (mkIf os.config.programs.steam.enable {
       #   PROTON_ENABLE_WAYLAND = 1;
       # })
     ];
