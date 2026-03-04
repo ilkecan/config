@@ -12,7 +12,6 @@
 
     ../modules/flake # dogfood
 
-    ./args
     ./flake-modules.nix
     ./home-configurations.nix
     ./home-modules.nix
