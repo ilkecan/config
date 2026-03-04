@@ -169,7 +169,7 @@ in
 
       noogle = {
         name = "Noogle";
-        urls = [ { template = "https://noogle.dev?term={searchTerms}"; } ];
+        urls = [ { template = "https://noogle.dev/q?term={searchTerms}"; } ];
         icon = nixSnowflake;
         definedAliases = [ "@noogle" "@nog" ];
       };
