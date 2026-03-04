@@ -215,22 +215,6 @@
         "type": "github"
       }
     },
-    "flake-compat_2": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1767039857,
-        "narHash": "sha256-vNpUSpF5Nuw8xvDLj2KCwwksIbjua2LZCqhV1LNRDns=",
-        "owner": "NixOS",
-        "repo": "flake-compat",
-        "rev": "5edf11c44bc78a0d334f6334cdaf7d60d732daab",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "repo": "flake-compat",
-        "type": "github"
-      }
-    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": [
@@ -287,21 +271,22 @@
         "type": "github"
       }
     },
-    "git-hooks": {
+    "git-hooks-nix": {
       "inputs": {
-        "flake-compat": "flake-compat_2",
+        "flake-compat": [
+          "flake-compat"
+        ],
         "gitignore": "gitignore",
         "nixpkgs": [
-          "nix-gaming",
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1770726378,
-        "narHash": "sha256-kck+vIbGOaM/dHea7aTBxdFYpeUl/jHOy5W3eyRvVx8=",
+        "lastModified": 1772024342,
+        "narHash": "sha256-+eXlIc4/7dE6EcPs9a2DaSY3fTA9AE526hGqkNID3Wg=",
         "owner": "cachix",
         "repo": "git-hooks.nix",
-        "rev": "5eaaedde414f6eb1aea8b8525c466dc37bba95ae",
+        "rev": "6e34e97ed9788b17796ee43ccdbaf871a5c2b476",
         "type": "github"
       },
       "original": {
@@ -313,29 +298,7 @@
     "gitignore": {
       "inputs": {
         "nixpkgs": [
-          "nix-gaming",
-          "git-hooks",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1709087332,
-        "narHash": "sha256-HG2cCnktfHsKV0s4XW83gU3F57gaTljL9KNSuG6bnQs=",
-        "owner": "hercules-ci",
-        "repo": "gitignore.nix",
-        "rev": "637db329424fd7e46cf4185293b9cc8c88c95394",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hercules-ci",
-        "repo": "gitignore.nix",
-        "type": "github"
-      }
-    },
-    "gitignore_2": {
-      "inputs": {
-        "nixpkgs": [
-          "pre-commit",
+          "git-hooks-nix",
           "nixpkgs"
         ]
       },
@@ -588,7 +551,9 @@
         "flake-parts": [
           "flake-parts"
         ],
-        "git-hooks": "git-hooks",
+        "git-hooks": [
+          "git-hooks-nix"
+        ],
         "nixpkgs": [
           "nixpkgs"
         ]
@@ -705,11 +670,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1772614397,
-        "narHash": "sha256-OHHxrtZehbZey4mNuTBkCMAG45239pnJZfc1tjyrzzM=",
+        "lastModified": 1772616218,
+        "narHash": "sha256-ir9yQ0FjsSBII5ZUK4wozSxIGt6Yd6ArAGUUNzANsHA=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "5722ae57d010ae82846f3b33ec6ba8cad95a0602",
+        "rev": "d0cb861b885272204e82a1aba1ffb63a6faf68ac",
         "type": "github"
       },
       "original": {
@@ -750,30 +715,6 @@
         "type": "github"
       }
     },
-    "pre-commit": {
-      "inputs": {
-        "flake-compat": [
-          "flake-compat"
-        ],
-        "gitignore": "gitignore_2",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1772024342,
-        "narHash": "sha256-+eXlIc4/7dE6EcPs9a2DaSY3fTA9AE526hGqkNID3Wg=",
-        "owner": "cachix",
-        "repo": "pre-commit-hooks.nix",
-        "rev": "6e34e97ed9788b17796ee43ccdbaf871a5c2b476",
-        "type": "github"
-      },
-      "original": {
-        "owner": "cachix",
-        "repo": "pre-commit-hooks.nix",
-        "type": "github"
-      }
-    },
     "quickshell": {
       "inputs": {
         "nixpkgs": [
@@ -806,6 +747,7 @@
         "flake-compat": "flake-compat",
         "flake-parts": "flake-parts",
         "flint": "flint",
+        "git-hooks-nix": "git-hooks-nix",
         "home-manager": "home-manager",
         "impermanence": "impermanence",
         "import-tree": "import-tree",
@@ -821,7 +763,6 @@
         "nixpkgs-unstable": "nixpkgs-unstable",
         "nur": "nur",
         "nvf": "nvf",
-        "pre-commit": "pre-commit",
         "sops-nix": "sops-nix",
         "stylix": "stylix",
         "systems": "systems"

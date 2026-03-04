@@ -65,6 +65,13 @@
       url = "github:NotAShelf/flint";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    git-hooks-nix = {
+      url = "github:cachix/git-hooks.nix";
+      inputs = {
+        flake-compat.follows = "flake-compat";
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
     llm-agents = {
       url = "github:numtide/llm-agents.nix";
       inputs = {
@@ -94,6 +101,7 @@
       url = "github:fufexan/nix-gaming";
       inputs = {
         flake-parts.follows = "flake-parts";
+        git-hooks.follows = "git-hooks-nix";
         nixpkgs.follows = "nixpkgs";
       };
     };
@@ -133,13 +141,6 @@
     };
     import-tree = {
       url = "github:vic/import-tree";
-    };
-    pre-commit = {
-      url = "github:cachix/pre-commit-hooks.nix";
-      inputs = {
-        flake-compat.follows = "flake-compat";
-        nixpkgs.follows = "nixpkgs";
-      };
     };
     systems.url = "github:nix-systems/default";
   };

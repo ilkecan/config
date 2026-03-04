@@ -7,6 +7,7 @@
   imports = [
     inputs.flake-parts.flakeModules.flakeModules
     inputs.flake-parts.flakeModules.modules
+    inputs.git-hooks-nix.flakeModule
     inputs.home-manager.flakeModules.default
 
     ../modules/flake # dogfood
@@ -18,6 +19,7 @@
     ./modules.nix
     ./nixos-configurations.nix
     ./nixos-modules.nix
+    ./per-system
   ];
 
   debug = true;
