@@ -1,5 +1,6 @@
 {
   config,
+  inputs',
   lib,
   pkgs,
   ...
@@ -7,10 +8,16 @@
 
 let
   inherit (lib)
+    attrNames
+    elem
+    elemAt
+    length
     versions
   ;
 
   cfg = config.programs.firefox;
+  version = versions.majorMinor cfg.package.version;
+  supportedVersions = attrNames (import "${inputs'.betterfox-nix}/data/firefox");
 in
 {
   imports = [
@@ -30,8 +37,7 @@ in
 
     betterfox = {
       enable = true;
-      # version = versions.majorMinor cfg.package.version;
-      version = "146.0";
+      version = if elem version supportedVersions then version else elemAt supportedVersions (length supportedVersions - 1);
     };
 
     languagePacks = [
