@@ -1,8 +1,8 @@
 {
   config,
-  homeConfig,
   lib,
   pkgs,
+  userConfig,
   ...
 }:
 
@@ -36,7 +36,7 @@ in
         "nix-command"
         "no-url-literals"
       ];
-      trusted-users = [ homeConfig.home.username ];
+      trusted-users = [ userConfig.home.username ];
 
       substituters = mkForce (imap1 (i: x: "${x}?priority=${toString i}") [
         "https://cache.nixos.org"

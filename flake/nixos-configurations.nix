@@ -6,12 +6,7 @@
 }:
 
 let
-  mkNixosConfiguration =
-    {
-      system,
-      root,
-      homeConfig ? null,
-    }:
+  mkNixosConfiguration = system: modulesPath: userConfig:
     let
       module =
         {
@@ -36,11 +31,11 @@ let
 
             self.nixosModules.default
 
-            root
+            modulesPath
           ];
 
           specialArgs = {
-            inherit inputs' lib self' homeConfig;
+            inherit inputs' lib self' userConfig;
           };
         };
     in
@@ -48,6 +43,6 @@ let
 in
 {
   flake.nixosConfigurations = {
-    mephistopheles = mkNixosConfiguration { system = "x86_64-linux"; root = "${self}/hosts/mephistopheles"; homeConfig = self.homeConfigurations.ilkecan.config; };
+    mephistopheles = mkNixosConfiguration "x86_64-linux" "${self}/hosts/mephistopheles" self.homeConfigurations.ilkecan.config;
   };
 }

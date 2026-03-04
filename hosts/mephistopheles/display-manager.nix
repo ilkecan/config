@@ -1,5 +1,5 @@
 {
-  homeConfig,
+  userConfig,
   ...
 }:
 
@@ -8,7 +8,7 @@
     enable = true;
     settings = {
       initial_session = {
-        user = homeConfig.home.username;
+        user = userConfig.home.username;
         command = "niri-session";
       };
     };

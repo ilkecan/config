@@ -1,6 +1,6 @@
 {
-  homeConfig,
   pkgs,
+  userConfig,
   ...
 }:
 
@@ -20,5 +20,5 @@
     };
   };
 
-  users.groups.input.members = [ homeConfig.home.username ];
+  users.groups.input.members = [ userConfig.home.username ];
 }

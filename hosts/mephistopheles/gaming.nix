@@ -1,6 +1,6 @@
 {
-  homeConfig,
   pkgs,
+  userConfig,
   ...
 }:
 
@@ -68,5 +68,5 @@ in
     openFirewall = true;
   };
 
-  users.groups.gamemode.members = [ homeConfig.home.username ];
+  users.groups.gamemode.members = [ userConfig.home.username ];
 }

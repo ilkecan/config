@@ -6,12 +6,7 @@
 }:
 
 let
-  mkHomeConfiguration =
-    {
-      system,
-      root,
-      osConfig ? null,
-    }:
+  mkHomeConfiguration = system: modulesPath: hostConfig:
     let
       module =
         {
@@ -40,11 +35,12 @@ let
 
             self.homeModules.default
 
-            root
+            modulesPath
           ];
 
           extraSpecialArgs = {
-            inherit inputs' self' osConfig;
+            inherit inputs' self' hostConfig;
+            osConfig = hostConfig; # keep this since it is an established HM convention
           };
         };
     in
@@ -52,6 +48,6 @@ let
 in
 {
   flake.homeConfigurations = {
-    ilkecan = mkHomeConfiguration { system = "x86_64-linux"; root = "${self}/users/ilkecan"; osConfig = self.nixosConfigurations.mephistopheles.config; };
+    ilkecan = mkHomeConfiguration "x86_64-linux" "${self}/users/ilkecan" self.nixosConfigurations.mephistopheles.config;
   };
 }
