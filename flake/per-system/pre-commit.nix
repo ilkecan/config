@@ -12,6 +12,8 @@ in
   perSystem = { pkgs, ... }: {
     pre-commit.settings.package = pkgs.unstable.prek;
     pre-commit.settings.hooks = {
+      deadnix.enable = true;
+
       flint = {
         enable = true;
         name = "flint";
