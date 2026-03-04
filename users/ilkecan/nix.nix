@@ -25,21 +25,22 @@ in
 
   home.packages = with pkgs; [
     cachix
-    dix   # https://github.com/faukah/dix
-    nix-alien   # https://github.com/thiagokokada/nix-alien
-    nix-diff  # https://github.com/Gabriella439/nix-diff
-    nix-du  # https://github.com/symphorien/nix-du
-    nix-eval-jobs   # https://github.com/nix-community/nix-eval-jobs
-    nix-fast-build  # https://github.com/Mic92/nix-fast-build
-    nix-melt  # https://github.com/nix-community/nix-melt
-    nix-output-monitor  # https://github.com/maralorn/nix-output-monitor
-    nix-tree  # https://github.com/utdemir/nix-tree
-    nix-update  # https://github.com/Mic92/nix-update/
-    nixos-anywhere  # https://github.com/nix-community/nixos-anywhere
-    nixos-facter  # https://github.com/nix-community/nixos-facter
-    notashelf.flint   # https://github.com/NotAShelf/flint
-    unstable.nixpkgs-review  # https://github.com/Mic92/nixpkgs-review
-    vulnix  # https://github.com/nix-community/vulnix
+    dix # https://github.com/faukah/dix
+    nix-alien # https://github.com/thiagokokada/nix-alien
+    nix-diff # https://github.com/Gabriella439/nix-diff
+    nix-du # https://github.com/symphorien/nix-du
+    nix-eval-jobs # https://github.com/nix-community/nix-eval-jobs
+    nix-fast-build # https://github.com/Mic92/nix-fast-build
+    nix-melt # https://github.com/nix-community/nix-melt
+    nix-output-monitor # https://github.com/maralorn/nix-output-monitor
+    nix-tree # https://github.com/utdemir/nix-tree
+    nix-update # https://github.com/Mic92/nix-update/
+    nixos-anywhere # https://github.com/nix-community/nixos-anywhere
+    nixos-facter # https://github.com/nix-community/nixos-facter
+    nixos-shell # https://github.com/Mic92/nixos-shell
+    notashelf.flint # https://github.com/NotAShelf/flint
+    unstable.nixpkgs-review # https://github.com/Mic92/nixpkgs-review
+    vulnix # https://github.com/nix-community/vulnix
   ];
 
   programs = {
