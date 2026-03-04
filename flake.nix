@@ -96,7 +96,7 @@
         nixpkgs.follows = "nixpkgs";
       };
     };
-    nix-flatpak.url = "github:gmodena/nix-flatpak/v0.6.0";
+    nix-flatpak.url = "github:gmodena/nix-flatpak/v0.7.0";
     nix-gaming = {
       url = "github:fufexan/nix-gaming";
       inputs = {
