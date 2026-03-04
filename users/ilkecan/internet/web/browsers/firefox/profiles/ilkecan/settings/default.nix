@@ -10,6 +10,10 @@ let
   comSepList = concatStringsSep ",";
 in
 {
+  imports = [
+    ./betterfox.nix
+  ];
+
   programs.firefox = {
     profiles.ilkecan.settings = {
       "browser.download.always_ask_before_handling_new_types" = true;
