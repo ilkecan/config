@@ -15,9 +15,11 @@
     };
 
     packages = with pkgs; [
+      _7zz
       inxi
       just
-      libnotify   # `notify-send`
+      libnotify # `notify-send`
+      lz4
       page
       watchexec
       ydotool
