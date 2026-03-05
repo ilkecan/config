@@ -44,6 +44,8 @@ import inputs.nixpkgs {
       notashelf = {
         inherit (inputs.flint.packages.${final.stdenv.hostPlatform.system}) flint;
       };
+
+      inherit (inputs.nix-ast-lint.packages.${final.stdenv.hostPlatform.system}) nix-ast-lint;
     })
 
     inputs.llm-agents.overlays.default
