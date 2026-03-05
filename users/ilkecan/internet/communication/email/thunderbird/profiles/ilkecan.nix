@@ -1,9 +1,25 @@
 {
   config,
+  pkgs,
   ...
 }:
 
 let
+  buildMozillaXpiAddon = pkgs.callPackage pkgs.nur.repos.rycee.lib.mozilla.mkBuildMozillaXpiAddon { };
+
+  darkreader =
+    let
+      version = "4.9.119";
+    in
+    buildMozillaXpiAddon {
+      inherit version;
+      pname = "darkreader";
+      addonId = "addon@darkreader.org";
+      url = "https://services.addons.thunderbird.net/thunderbird/downloads/latest/darkreader/addon-988542-${version}.xpi";
+      sha256 = "sha256-phPXWL3jcs5Hmem/maO5ZZ+6VzbBbJidzdaHjESb5S4=";
+      meta = { };
+    };
+
   name = "ilkecan";
 in
 {
@@ -15,9 +31,10 @@ in
       calendarAccountsOrder = [
       ];
 
-      # TODO: add extensions after https://github.com/nix-community/NUR/pull/1088 is resolved
-      # extensions = pkgs.nur.repos.rycee.thunderbird-addons; [
-      # ];
+      extensions = with pkgs.nur.repos.rycee.thunderbird-addons; [
+        darkreader
+        send-later
+      ];
 
       search = removeAttrs config.programs.firefox.profiles.${name}.search [ "file" ];
 
