@@ -30,6 +30,7 @@ let
             inputs.nix-index-database.homeModules.default
             inputs.nixcord.homeModules.nixcord
             inputs.nvf.homeManagerModules.default
+            inputs.optnix.outputs.homeModules.optnix
             inputs.sops-nix.homeModules.sops
             inputs.stylix.homeModules.stylix
 

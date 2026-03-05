@@ -24,7 +24,7 @@ in
     ./llm.nix
     ./multimedia
     ./networking
-    ./nix.nix
+    ./nix
     ./office.nix
     ./packaging.nix
     ./qt.nix
