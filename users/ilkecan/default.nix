@@ -49,16 +49,16 @@ in
     telegram-desktop
     ruffle # https://github.com/ruffle-rs/ruffle
 
+    ast-grep # https://github.com/ast-grep/ast-grep
     bottom
-    unstable.oscar # https://www.sleepfiles.com/OSCAR/
     brightnessctl
+    fastfetch
     fd
     file
     glow # https://github.com/charmbracelet/glow
     jq
     magic-wormhole
     microfetch
-    fastfetch
     ncdu
     page
     patchelf
@@ -68,6 +68,7 @@ in
     sd
     trash-cli
     tree
+    unstable.oscar # https://www.sleepfiles.com/OSCAR/
     xq-xml
   ];
 
