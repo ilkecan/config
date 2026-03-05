@@ -29,39 +29,14 @@
 
     profiles.ilkecan.settings = {
       # BETTERFOX
-      ## Fastfox
-      ### gfx-rendering-tweaks
-      "gfx.webrender.all" = true;
-      "gfx.webrender.compositor" = true;
-      "gfx.webrender.precache-shaders" = true;
-      "gfx.webrender.software.opengl" = true;
-      "media.ffmpeg.vaapi.enabled" = true;
-      "media.hardware-video-decoding.force-enabled" = true;
-
-      ### memory-cache
-      "dom.storage.default_quota" = 20480;
-
-      ### media-cache
-      "media.memory_caches_combined_limit_pc_sysmem" = 10;
-
-      ### network
-      "network.buffer.cache.size" = 65535;
-      "network.buffer.cache.count" = 48;
-      "network.http.max-persistent-connections-per-proxy" = 48;
-
-      ### tab-unload
-      "browser.tabs.unloadOnLowMemory" = true;
-      "browser.low_commit_space_threshold_percent" = 20;
-
       ## Peskyfox
       ### mozilla-ui
       "browser.tabs.warnOnCloseOtherTabs" = false;
       "widget.gtk.non-native-titlebar-buttons.enabled" = true;
       "browser.urlbar.scotchBonnet.enableOverride" = false;
 
-      ### cookie-banner-handling
-      "cookiebanners.service.mode" = 1;
-      "cookiebanners.service.mode.privateBrowsing" = 1;
+      ### ai
+      "browser.ai.control.translations" = "available";
 
       ### font-appearence
       "gfx.webrender.quality.force-subpixel-aa-where-possible" = true;
