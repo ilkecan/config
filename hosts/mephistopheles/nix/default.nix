@@ -23,7 +23,7 @@ in
   ];
 
   nix = {
-    package = pkgs.nixVersions.stable;
+    package = pkgs.unstable.nixVersions.latest;
     channel.enable = false;
 
     extraOptions = ''
