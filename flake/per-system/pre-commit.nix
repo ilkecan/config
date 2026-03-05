@@ -15,6 +15,8 @@ in
       hooks = {
         deadnix.enable = true;
 
+        flake-checker.enable = true;
+
         flint = {
           enable = true;
           name = "flint";
@@ -23,6 +25,9 @@ in
           files = "^flake\.(nix|lock)$";
           pass_filenames = false;
         };
+
+        nil.enable = true;
+        nixf-diagnose.enable = true;
       };
     };
   };
