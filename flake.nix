@@ -76,7 +76,11 @@
       url = "github:numtide/llm-agents.nix";
       inputs = {
         blueprint.follows = "blueprint";
+        bun2nix.follows = "bun2nix";
+        flake-parts.follows = "flake-parts";
         nixpkgs.follows = "nixpkgs";
+        systems.follows = "systems";
+        treefmt-nix.follows = "treefmt-nix";
       };
     };
     niri-flake = {
@@ -155,6 +159,16 @@
         systems.follows = "systems";
       };
     };
+    bun2nix = {
+      url = "github:nix-community/bun2nix";
+      inputs = {
+        flake-parts.follows = "flake-parts";
+        import-tree.follows = "import-tree";
+        nixpkgs.follows = "nixpkgs";
+        systems.follows = "systems";
+        treefmt-nix.follows = "treefmt-nix";
+      };
+    };
     flake-compat = {
       url = "github:edolstra/flake-compat";
       flake = false;
@@ -163,6 +177,10 @@
       url = "github:vic/import-tree";
     };
     systems.url = "github:nix-systems/default";
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs:
