@@ -96,6 +96,10 @@
         nixpkgs.follows = "nixpkgs";
       };
     };
+    nix-ast-lint = {
+      url = "https://codeberg.org/tlater/nix-ast-lint/archive/main.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nix-flatpak.url = "github:gmodena/nix-flatpak/v0.7.0";
     nix-gaming = {
       url = "github:fufexan/nix-gaming";
