@@ -131,6 +131,13 @@
         systems.follows = "systems";
       };
     };
+    optnix = {
+      url = "github:water-sucks/optnix";
+      inputs = {
+        flake-compat.follows = "flake-compat";
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -150,14 +157,6 @@
     };
     import-tree = {
       url = "github:vic/import-tree";
-    };
-    # TODO: remove after https://github.com/nix-community/nixos-cli/pull/201 is merged
-    optnix = {
-      url = "github:water-sucks/optnix";
-      inputs = {
-        flake-compat.follows = "flake-compat";
-        nixpkgs.follows = "nixpkgs";
-      };
     };
     systems.url = "github:nix-systems/default";
   };
