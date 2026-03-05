@@ -1,5 +1,4 @@
 {
-  pkgs,
   ...
 }:
 
@@ -14,8 +13,5 @@
     sessionVariables = {
       BROWSER = "firefox";
     };
-
-    packages = with pkgs; [
-    ];
   };
 }
