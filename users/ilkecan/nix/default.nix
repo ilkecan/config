@@ -33,8 +33,8 @@ in
     nix-alien # https://github.com/thiagokokada/nix-alien
     nix-diff # https://github.com/Gabriella439/nix-diff
     nix-du # https://github.com/symphorien/nix-du
-    nix-eval-jobs # https://github.com/nix-community/nix-eval-jobs
-    nix-fast-build # https://github.com/Mic92/nix-fast-build
+    unstable.nix-eval-jobs # https://github.com/nix-community/nix-eval-jobs
+    unstable.nix-fast-build # https://github.com/Mic92/nix-fast-build
     nix-melt # https://github.com/nix-community/nix-melt
     nix-output-monitor # https://github.com/maralorn/nix-output-monitor
     nix-tree # https://github.com/utdemir/nix-tree
