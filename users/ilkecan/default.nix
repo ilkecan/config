@@ -46,7 +46,7 @@ in
     unstable.overskride
     pwvucontrol
     wasistlos
-    telegram-desktop
+    unstable.telegram-desktop # https://github.com/NixOS/nixpkgs/issues/497549
     ruffle # https://github.com/ruffle-rs/ruffle
 
     ast-grep # https://github.com/ast-grep/ast-grep
