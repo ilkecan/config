@@ -6,7 +6,7 @@
 {
   home.packages = with pkgs; [
     ffmpeg-full
-    # stremio   # https://github.com/NixOS/nixpkgs/pull/468728
+    unstable.stremio-linux-shell
     vlc
   ];
 
