@@ -15,7 +15,7 @@ let
     mapAttrsToList
   ;
 
-  patchInput = { owner, repo, src, name, pulls }:
+  patchInput = { owner, repo, src, name, pulls, patches ? [ ] }:
     let
       mkPatch = number: sha256:
         {
@@ -23,8 +23,8 @@ let
           name = "${owner}-${repo}-${number}.patch";
           url = "https://github.com/${owner}/${repo}/pull/${number}.patch?full_index=1";
         };
-      patches = map fetchpatch2 (mapAttrsToList mkPatch pulls);
-      src' = applyPatches { inherit name src patches; };
+      patches' = patches ++ map fetchpatch2 (mapAttrsToList mkPatch pulls);
+      src' = applyPatches { inherit name src; patches = patches'; };
 
       flake = import "${src'}/flake.nix";
       outputs = flake.outputs ({ inherit self; } // src.inputs);
