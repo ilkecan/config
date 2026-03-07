@@ -1,4 +1,5 @@
 {
+  config,
   ...
 }:
 
@@ -27,7 +28,7 @@
               pane = {
                 _props.split_direction = "vertical";
                 _children = [
-                  { pane = { }; }
+                  { pane._props.command = config.home.defaultShell.meta.mainProgram; }
                   { pane._props = { command = "claude"; }; pane.start_suspended = true; }
                 ];
               };
