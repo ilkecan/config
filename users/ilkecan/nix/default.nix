@@ -42,9 +42,7 @@ in
     nixos-anywhere # https://github.com/nix-community/nixos-anywhere
     nixos-facter # https://github.com/nix-community/nixos-facter
     nixos-shell # https://github.com/Mic92/nixos-shell
-    notashelf.flint # https://github.com/NotAShelf/flint
     unstable.nixpkgs-review # https://github.com/Mic92/nixpkgs-review
-    vulnix # https://github.com/nix-community/vulnix
   ];
 
   programs = {
