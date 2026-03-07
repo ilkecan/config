@@ -17,7 +17,7 @@
       "sysroot.mount"
     ];
 
-    unitConfig.DefaultDependencies = "no";
+    unitConfig.DefaultDependencies = false;
     serviceConfig.Type = "oneshot";
     script = ''
       mkdir /btrfs_tmp
