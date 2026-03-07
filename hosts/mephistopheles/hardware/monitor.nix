@@ -11,7 +11,7 @@
   ];
 
   boot.extraModulePackages = with config.boot.kernelPackages; [ ddcci-driver ];
-  boot.kernelModules = [ "ddcci-backlight" ];
+  boot.kernelModules = [ "ddcci" ];
 
   services.udev.extraRules = let
     # https://wiki.nixos.org/wiki/Backlight#Via_ddcci-driver
