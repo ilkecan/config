@@ -41,7 +41,7 @@ layout {
 
   tab name="terminal" {
     pane split_direction="vertical" {
-      pane
+      pane command="zsh"
 
       pane command="claude" {
         start_suspended true
