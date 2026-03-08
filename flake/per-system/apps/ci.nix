@@ -8,6 +8,6 @@ pkgs.writeShellApplication {
   runtimeInputs = with pkgs; [ unstable.nix-fast-build ];
 
   text = ''
-    nix-fast-build --no-nom --skip-cached "$@"
+    nix-fast-build --no-nom --skip-cached --cachix-cache ilkecan "$@"
   '';
 }
