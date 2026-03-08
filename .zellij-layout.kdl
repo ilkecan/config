@@ -31,23 +31,22 @@ layout {
     }
   }
 
-  tab focus=true name="Neovim" {
+  tab focus=true name="Neovim" hide_floating_panes=true {
     pane command="nvim"
+
+    floating_panes {
+      pane command="claude" x="10%" y="10%" width="80%" height="80%" {
+        args "--ide"
+      }
+    }
 
     pane size=1 borderless=true {
       plugin location="zellij:compact-bar"
     }
   }
 
-  tab name="terminal" {
-    pane split_direction="vertical" {
-      pane command="zsh"
-
-      pane command="claude" {
-        args "--ide"
-        start_suspended true
-      }
-    }
+  tab name="shell" {
+    pane command="zsh"
 
     pane size=1 borderless=true {
       plugin location="zellij:compact-bar"
