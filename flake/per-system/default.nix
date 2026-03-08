@@ -4,7 +4,7 @@
 
 {
   imports = [
-    ./apps.nix
+    ./apps
     ./args
     ./dev-shells.nix
     ./pre-commit.nix
