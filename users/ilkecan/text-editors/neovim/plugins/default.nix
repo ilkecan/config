@@ -7,6 +7,7 @@
     ./blink-cmp
     ./blink-indent.nix
     # ./blink-pairs.nix
+    ./claudecode-nvim.nix
     ./comment-nvim.nix
     ./direnv-nvim.nix
     ./flash-nvim.nix
