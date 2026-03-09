@@ -83,6 +83,10 @@
         treefmt-nix.follows = "treefmt-nix";
       };
     };
+    mcp-servers-nix = {
+      url = "github:natsukium/mcp-servers-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     niri-flake = {
       url = "github:sodiboo/niri-flake";
       inputs = {

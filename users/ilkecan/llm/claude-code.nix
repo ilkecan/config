@@ -16,6 +16,7 @@
     claude-code = {
       enable = true;
       package = pkgs.llm-agents.claude-code;
+      enableMcpIntegration  = true;
     };
   };
 }

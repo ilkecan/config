@@ -24,6 +24,7 @@ let
             inputs.dms-plugin-registry.homeModules.default
             inputs.dms.homeModules.dank-material-shell
             inputs.dms.homeModules.niri
+            inputs.mcp-servers-nix.homeManagerModules.default
             inputs.niri-flake.homeModules.niri
             inputs.niri-flake.homeModules.stylix
             inputs.nix-flatpak.homeManagerModules.nix-flatpak
