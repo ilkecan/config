@@ -9,12 +9,13 @@ let
   ;
 in
 {
-  perSystem = { pkgs, ... }: {
+  perSystem = { config, pkgs, ... }: {
     pre-commit.settings.hooks = {
       gitleaks = {
         name = "gitleaks";
         description = "Detect hardcoded secrets using Gitleaks";
-        entry = "${getExe pkgs.gitleaks} git --pre-commit --redact --staged --verbose";
+        package = pkgs.gitleaks;
+        entry = "${getExe config.pre-commit.settings.hooks.gitleaks.package} git --pre-commit --redact --staged --verbose";
         pass_filenames = false;
       };
     };
