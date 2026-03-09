@@ -31,7 +31,7 @@ layout {
     }
   }
 
-  tab focus=true name="Neovim" hide_floating_panes=true {
+  tab name="Neovim" focus=true hide_floating_panes=true {
     pane command="nvim"
 
     floating_panes {
