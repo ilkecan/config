@@ -9,12 +9,13 @@ let
   ;
 in
 {
-  perSystem = { pkgs, ... }: {
+  perSystem = { config, pkgs, ... }: {
     pre-commit.settings.hooks = {
       flint = {
         name = "flint";
         description = "Check flake dependencies";
-        entry = "${getExe pkgs.notashelf.flint} --fail-if-multiple-versions";
+        package = pkgs.notashelf.flint;
+        entry = "${getExe config.pre-commit.settings.hooks.flint.package} --fail-if-multiple-versions";
         files = "^flake\.(nix|lock)$";
         pass_filenames = false;
       };
