@@ -33,6 +33,7 @@ in
     settings = {
       experimental-features = [
         "flakes"
+        "impure-derivations"
         "nix-command"
         "no-url-literals"
       ];
