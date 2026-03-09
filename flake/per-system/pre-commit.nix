@@ -13,6 +13,7 @@
         gitleaks.enable = true;
         nil.enable = true;
         nixf-diagnose.enable = true;
+        ripsecrets.enable = true;
       };
     };
   };
