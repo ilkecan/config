@@ -21,7 +21,7 @@ in
     ./home-manager.nix
     ./input
     ./internet
-    ./llm.nix
+    ./llm
     ./multimedia
     ./networking
     ./nix
