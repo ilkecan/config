@@ -32,6 +32,7 @@ in
 
     settings = {
       experimental-features = [
+        "ca-derivations"
         "flakes"
         "impure-derivations"
         "nix-command"
