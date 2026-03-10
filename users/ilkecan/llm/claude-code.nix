@@ -9,7 +9,9 @@
       CLAUDE_CODE_DISABLE_AUTO_MEMORY = 0;
     };
 
-    packages = with pkgs; [ starship ];
+    packages = with pkgs; [
+      starship # https://github.com/starship/starship - https://github.com/martinemde/starship-claude
+    ];
   };
 
   programs = {
