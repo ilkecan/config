@@ -12,7 +12,7 @@
     memory.enable = true;
     nixos.enable = true;
     sequential-thinking.enable = true;
-    serena = { enable = true; context = "claude-code"; enableWebDashboard = true; };
+    serena = { enable = true; args = [ "--project-from-cwd" ]; context = "claude-code"; enableWebDashboard = true; };
     terraform.enable = true;
     time.enable = true;
   };
