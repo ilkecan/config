@@ -14,6 +14,7 @@
     sequential-thinking.enable = true;
     serena = { enable = true; context = "claude-code"; enableWebDashboard = true; };
     terraform.enable = true;
+    time.enable = true;
   };
 
   programs.mcp = {
