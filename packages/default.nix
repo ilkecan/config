@@ -40,6 +40,9 @@ import inputs.nixpkgs {
       nur = (inputs.nur.overlays.default final.unstable final.unstable).nur;
     })
 
+    inputs.llm-agents.overlays.default
+    inputs.nix-alien.overlays.default
+
     (final: _prev: {
       notashelf = {
         inherit (inputs.flint.packages.${final.stdenv.hostPlatform.system}) flint;
@@ -48,7 +51,10 @@ import inputs.nixpkgs {
       inherit (inputs.nix-ast-lint.packages.${final.stdenv.hostPlatform.system}) nix-ast-lint;
     })
 
-    inputs.llm-agents.overlays.default
-    inputs.nix-alien.overlays.default
+    (_final: prev: {
+      unstable = prev.unstable // {
+        nix-fast-build = prev.unstable.callPackage ./nix-fast-build.nix { };
+      };
+    })
   ];
 }

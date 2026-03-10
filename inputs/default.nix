@@ -17,9 +17,9 @@ let
 
   patchInput = { owner, repo, src, name, pulls, patches ? [ ] }:
     let
-      mkPatch = number: sha256:
+      mkPatch = number: hash:
         {
-          inherit sha256;
+          inherit hash;
           name = "${owner}-${repo}-${number}.patch";
           url = "https://github.com/${owner}/${repo}/pull/${number}.patch?full_index=1";
         };
