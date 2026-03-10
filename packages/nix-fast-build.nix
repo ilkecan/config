@@ -14,7 +14,7 @@ nix-fast-build.overrideAttrs (prev: {
     (fetchpatch2 {
       name = "use-nix-build-subcommand.patch";
       url = "https://patch-diff.githubusercontent.com/raw/Mic92/nix-fast-build/pull/301.patch";
-      hash = "sha256-a6c0rq45Brr4JBe2ncqUQmJx3tmr6iqaMT3IwSOzleg=";
+      hash = "sha256-p6QXVDnXIU+smSGfR0BBkAAaGHZoEEvkTRJXIoqEGZs=";
     })
   ];
 })
