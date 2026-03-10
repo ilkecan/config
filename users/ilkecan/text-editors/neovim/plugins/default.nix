@@ -4,6 +4,7 @@
 
 {
   imports = [
+    ./blame-nvim.nix
     ./blink-cmp
     ./blink-indent.nix
     # ./blink-pairs.nix

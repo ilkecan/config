@@ -15,7 +15,7 @@
     keymaps = [
       {
         desc = "Toggle TS context";
-        key = "<F3>";
+        key = "<F5>";
         mode = [ "n" ];
         action = ''function() vim.cmd.TSContext("toggle") end'';
         lua = true;
