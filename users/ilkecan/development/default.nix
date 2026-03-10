@@ -6,6 +6,7 @@
 {
   imports = [
     ./debugging.nix
+    ./lsp.nix
     ./static-program-analysis
     ./version-control
   ];
