@@ -22,7 +22,7 @@ in
     defaultSopsFile = "${self'}/secrets/hosts/${config.networking.hostName}.yaml";
 
     secrets = {
-      github-access-token = {};
+      github-access-token = { };
       ilkecan-hashed-password = { neededForUsers = true; };
     };
 
