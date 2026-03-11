@@ -37,8 +37,8 @@ let
 in
 {
   xdg = {
-    binFile = toXdgFiles "${self'}/users/${user}/dotfiles/.local/bin";
-    configFile = toXdgFiles "${self'}/users/${user}/dotfiles/.config";
-    dataFile = toXdgFiles "${self'}/users/${user}/dotfiles/.local/share";
+    binFile = toXdgFiles "${self'}/nix/users/${user}/dotfiles/.local/bin";
+    configFile = toXdgFiles "${self'}/nix/users/${user}/dotfiles/.config";
+    dataFile = toXdgFiles "${self'}/nix/users/${user}/dotfiles/.local/share";
   };
 }

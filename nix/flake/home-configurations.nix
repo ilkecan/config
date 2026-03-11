@@ -50,6 +50,6 @@ let
 in
 {
   flake.homeConfigurations = {
-    ilkecan = mkHomeConfiguration "x86_64-linux" "${self}/users/ilkecan" self.nixosConfigurations.mephistopheles.config;
+    ilkecan = mkHomeConfiguration "x86_64-linux" "${self}/nix/users/ilkecan" self.nixosConfigurations.mephistopheles.config;
   };
 }
