@@ -7,6 +7,7 @@
     pre-commit.settings = {
       package = pkgs.unstable.prek;
       hooks = {
+        comrak.enable = true;
         deadnix.enable = true;
         flake-checker.enable = true;
         flint.enable = true;
