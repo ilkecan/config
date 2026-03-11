@@ -13,10 +13,11 @@ let
 in
 {
   sops = {
-    age.keyFile = "${homeDirectory}/.config/sops/age/key.txt";
+    age.keyFile = "${homeDirectory}/.config/sops/age/keys.txt";
     defaultSopsFile = "${self'}/secrets/users/${username}.yaml";
 
     secrets = {
+      cachix-auth-token = { };
       github-access-token = { };
     };
 

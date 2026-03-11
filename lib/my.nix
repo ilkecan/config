@@ -4,6 +4,7 @@
 
 let
   inherit (builtins)
+    baseNameOf
     readDir
   ;
 
@@ -87,4 +88,7 @@ in
       else
         root + "/${path'}"
     ;
+
+  storePathName = path:
+    substring 33 (-1) (baseNameOf path);
 }

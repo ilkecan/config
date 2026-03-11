@@ -12,6 +12,7 @@
 
     ../modules/flake # dogfood
 
+    ./cachix.nix
     ./flake-modules.nix
     ./home-configurations.nix
     ./home-modules.nix
