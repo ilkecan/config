@@ -4,17 +4,17 @@
 }:
 
 nix-fast-build.overrideAttrs (prev: {
-  version = "${prev.version}-unstable-2026-03-08";
+  version = "${prev.version}-unstable-2026-03-11";
   src = prev.src.override {
     tag = null;
-    rev = "dde85ca993e9709dce1932c679baa2436cd00127";
-    hash = "sha256-ZPlRNdkgKBeo6J0S51JZRFBGq/tFfd7oVqAz2a9ytuM=";
+    rev = "f5ca03a4387aecd739d60c77ae26e567481c3013";
+    hash = "sha256-mInYAyDT49w0ux7Jgg4Ny3igyEKlRvqzG2KAG9YVmsg=";
   };
   patches = (prev.patches or []) ++ [
     (fetchpatch2 {
-      name = "use-nix-build-subcommand.patch";
+      name = "support-impure-derivations.patch";
       url = "https://patch-diff.githubusercontent.com/raw/Mic92/nix-fast-build/pull/301.patch";
-      hash = "sha256-p6QXVDnXIU+smSGfR0BBkAAaGHZoEEvkTRJXIoqEGZs=";
+      hash = "sha256-E2nffS/w3IRgr5r2VB/m5HgZkzDO4Ukn9f8n9gzkI8g=";
     })
   ];
 })
