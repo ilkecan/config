@@ -7,11 +7,11 @@
 let
   inherit (lib)
     mkOrder
-  ;
+    ;
 
   inherit (config.xdg)
     stateHome
-  ;
+    ;
 
   cfg = config.programs.zsh;
 in

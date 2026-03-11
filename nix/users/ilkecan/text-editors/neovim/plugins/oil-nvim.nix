@@ -6,13 +6,13 @@
 let
   inherit (lib.generators)
     mkLuaInline
-  ;
+    ;
 in
 {
   programs.nvf.settings.vim = {
     utility = {
       oil-nvim = {
-        enable = true;  # https://github.com/stevearc/oil.nvim
+        enable = true; # https://github.com/stevearc/oil.nvim
         setupOpts = {
           delete_to_trash = true;
           skip_confirm_for_simple_edits = true;
@@ -23,7 +23,7 @@ in
           };
         };
 
-        gitStatus.enable = true;  # https://github.com/refractalize/oil-git-status.nvim
+        gitStatus.enable = true; # https://github.com/refractalize/oil-git-status.nvim
       };
     };
 

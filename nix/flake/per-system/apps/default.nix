@@ -13,10 +13,12 @@ let
   };
 in
 {
-  perSystem = { self', pkgs, ... }: {
-    apps = {
-      ci = mkApp (import ./ci.nix { inherit pkgs; });
-      default = self'.apps.ci;
+  perSystem =
+    { self', pkgs, ... }:
+    {
+      apps = {
+        ci = mkApp (import ./ci.nix { inherit pkgs; });
+        default = self'.apps.ci;
+      };
     };
-  };
 }

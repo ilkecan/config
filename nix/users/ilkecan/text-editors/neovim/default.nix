@@ -20,7 +20,7 @@
     enable = true;
     settings = {
       vim = {
-        enableLuaLoader = true;   # https://github.com/lewis6991/impatient.nvim
+        enableLuaLoader = true; # https://github.com/lewis6991/impatient.nvim
 
         withNodeJs = true;
         withPython3 = true;

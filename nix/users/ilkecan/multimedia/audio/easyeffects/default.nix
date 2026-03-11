@@ -6,11 +6,11 @@
 let
   inherit (lib.my-pkgs)
     callExpression
-  ;
+    ;
 
   inherit (lib.my)
     importTree
-  ;
+    ;
 in
 {
   services.easyeffects = {
@@ -18,6 +18,10 @@ in
     enable = true;
 
     # https://github.com/wwmm/easyeffects/wiki/Community-Presets
-    extraPresets = importTree { root = ./presets; importFn = callExpression; depth = 1; };
+    extraPresets = importTree {
+      root = ./presets;
+      importFn = callExpression;
+      depth = 1;
+    };
   };
 }

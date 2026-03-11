@@ -43,11 +43,9 @@ in
         "privacy.donottrackheader.enabled" = true;
       };
 
-      userChrome = ''
-      '';
+      userChrome = "";
 
-      userContent = ''
-      '';
+      userContent = "";
     };
   };
 }

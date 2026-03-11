@@ -10,7 +10,7 @@
     ];
 
     after = [
-      "initrd-root-device.target"   # https://discourse.nixos.org/t/impermanence-vs-systemd-initrd-w-tpm-unlocking/25167/7
+      "initrd-root-device.target" # https://discourse.nixos.org/t/impermanence-vs-systemd-initrd-w-tpm-unlocking/25167/7
     ];
 
     before = [
@@ -43,16 +43,16 @@
     allowTrash = true;
     directories = [
       "/etc/NetworkManager/system-connections" # networking.networkmanager.enable
-      "/var/lib/bluetooth"  # hardware.bluetooth.enable
-      "/var/lib/fprint"  # services.fprintd.enable
-      "/var/lib/fwupd"  # fwupdmgr update
-      "/var/lib/iwd"  # networking.wireless.iwd.enable
+      "/var/lib/bluetooth" # hardware.bluetooth.enable
+      "/var/lib/fprint" # services.fprintd.enable
+      "/var/lib/fwupd" # fwupdmgr update
+      "/var/lib/iwd" # networking.wireless.iwd.enable
       "/var/lib/nixos" # https://nixos.org/manual/nixos/unstable/#sec-state-users
-      "/var/lib/systemd"  # https://nixos.org/manual/nixos/unstable/#sec-var-systemd
+      "/var/lib/systemd" # https://nixos.org/manual/nixos/unstable/#sec-var-systemd
     ];
     files = [
-      "/etc/adjtime"  # https://man.archlinux.org/man/adjtime_config.5.en
-      "/etc/machine-id"   # https://nixos.org/manual/nixos/unstable/#sec-machine-id
+      "/etc/adjtime" # https://man.archlinux.org/man/adjtime_config.5.en
+      "/etc/machine-id" # https://nixos.org/manual/nixos/unstable/#sec-machine-id
 
       # to avoid "WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!"
       "/etc/ssh/ssh_host_ed25519_key"

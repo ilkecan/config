@@ -1,5 +1,5 @@
 {
-  inputs
+  inputs,
 }:
 
 let
@@ -9,31 +9,46 @@ let
   inherit (inputs.nixpkgs.legacyPackages.${system})
     applyPatches
     fetchpatch2
-  ;
+    ;
 
   inherit (inputs.nixpkgs.lib)
     mapAttrsToList
-  ;
+    ;
 
-  patchInput = { owner, repo, src, name, pulls, patches ? [ ] }:
+  patchInput =
+    {
+      owner,
+      repo,
+      src,
+      name,
+      pulls,
+      patches ? [ ],
+    }:
     let
-      mkPatch = number: hash:
-        {
-          inherit hash;
-          name = "${owner}-${repo}-${number}.patch";
-          url = "https://github.com/${owner}/${repo}/pull/${number}.patch?full_index=1";
-        };
+      mkPatch = number: hash: {
+        inherit hash;
+        name = "${owner}-${repo}-${number}.patch";
+        url = "https://github.com/${owner}/${repo}/pull/${number}.patch?full_index=1";
+      };
       patches' = patches ++ map fetchpatch2 (mapAttrsToList mkPatch pulls);
-      src' = applyPatches { inherit name src; patches = patches'; };
+      src' = applyPatches {
+        inherit name src;
+        patches = patches';
+      };
 
       flake = import "${src'}/flake.nix";
       outputs = flake.outputs ({ inherit self; } // src.inputs);
-      sourceInfo = src.sourceInfo // { inherit (src') outPath; };
-      self = outputs // sourceInfo // {
-        _type = "flake";
-        inherit (src) inputs;
-        inherit sourceInfo outputs;
+      sourceInfo = src.sourceInfo // {
+        inherit (src') outPath;
       };
+      self =
+        outputs
+        // sourceInfo
+        // {
+          _type = "flake";
+          inherit (src) inputs;
+          inherit sourceInfo outputs;
+        };
     in
     self;
 
@@ -45,4 +60,10 @@ let
     nixpkgs-patched = patchInput (import ./nixpkgs-patched.nix args);
   };
 in
-inputs // newAttrs // { self = inputs.self // { inputs = inputs.self.inputs // newAttrs; }; }
+inputs
+// newAttrs
+// {
+  self = inputs.self // {
+    inputs = inputs.self.inputs // newAttrs;
+  };
+}

@@ -13,7 +13,7 @@ let
     elemAt
     length
     versions
-  ;
+    ;
 
   cfg = config.programs.firefox;
   version = versions.majorMinor cfg.package.version;
@@ -26,18 +26,22 @@ in
   ];
 
   home.packages = with pkgs; [
-    nur.repos.vladexa.mozlz4  # https://github.com/jusw85/mozlz4
+    nur.repos.vladexa.mozlz4 # https://github.com/jusw85/mozlz4
   ];
 
   programs.firefox = {
     enable = true;
     package = pkgs.wrapFirefox (pkgs.firefox-unwrapped.override {
       pipewireSupport = true;
-    }) {};
+    }) { };
 
     betterfox = {
       enable = true;
-      version = if elem version supportedVersions then version else elemAt supportedVersions (length supportedVersions - 1);
+      version =
+        if elem version supportedVersions then
+          version
+        else
+          elemAt supportedVersions (length supportedVersions - 1);
     };
 
     languagePacks = [

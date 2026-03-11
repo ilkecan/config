@@ -6,7 +6,7 @@
 let
   inherit (lib)
     mkDefault
-  ;
+    ;
 in
 {
   location.provider = "geoclue2";

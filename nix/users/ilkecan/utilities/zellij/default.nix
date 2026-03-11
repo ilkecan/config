@@ -6,7 +6,7 @@
 let
   inherit (lib)
     mkOrder
-  ;
+    ;
 in
 {
   imports = [
@@ -21,7 +21,7 @@ in
 
       settings = {
         web_client = {
-          font = ["monospace"];
+          font = [ "monospace" ];
         };
 
         show_startup_tips = false;

@@ -8,7 +8,7 @@
 let
   inherit (lib.generators)
     mkLuaInline
-  ;
+    ;
 in
 {
   programs.nvf.settings.vim.extraPackages = with pkgs; [
@@ -64,7 +64,9 @@ in
       '';
       min_keyword_length = 3;
       opts = {
-        dictionary_files = [ "${pkgs.nur.repos.moraxyc.english-words}/share/english-words/words_alpha.txt" ];
+        dictionary_files = [
+          "${pkgs.nur.repos.moraxyc.english-words}/share/english-words/words_alpha.txt"
+        ];
       };
     };
 

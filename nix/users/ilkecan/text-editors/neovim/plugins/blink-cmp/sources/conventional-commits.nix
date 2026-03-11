@@ -8,7 +8,7 @@
 let
   inherit (lib.generators)
     mkLuaInline
-  ;
+    ;
 in
 {
   programs.nvf.settings.vim.autocomplete.blink-cmp = {

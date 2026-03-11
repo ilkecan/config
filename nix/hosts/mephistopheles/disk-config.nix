@@ -27,26 +27,45 @@
               end = "-32G";
               content = {
                 type = "btrfs";
-                extraArgs = [ "-L" "nixos" "-f" ]; # Override existing partition
+                extraArgs = [
+                  "-L"
+                  "nixos"
+                  "-f"
+                ]; # Override existing partition
                 subvolumes = {
                   "/root" = {
                     mountpoint = "/";
-                    mountOptions = [ "compress=zstd" "noatime" ];
+                    mountOptions = [
+                      "compress=zstd"
+                      "noatime"
+                    ];
                   };
                   "/home" = {
-                    mountOptions = [ "compress=zstd" "noatime" ];
+                    mountOptions = [
+                      "compress=zstd"
+                      "noatime"
+                    ];
                     mountpoint = "/home";
                   };
                   "/nix" = {
-                    mountOptions = [ "compress=zstd" "noatime" ];
+                    mountOptions = [
+                      "compress=zstd"
+                      "noatime"
+                    ];
                     mountpoint = "/nix";
                   };
                   "/persist" = {
-                    mountOptions = [ "compress=zstd" "noatime" ];
+                    mountOptions = [
+                      "compress=zstd"
+                      "noatime"
+                    ];
                     mountpoint = "/persist";
                   };
                   "/log" = {
-                    mountOptions = [ "compress=zstd" "noatime" ];
+                    mountOptions = [
+                      "compress=zstd"
+                      "noatime"
+                    ];
                     mountpoint = "/var/log";
                   };
                 };

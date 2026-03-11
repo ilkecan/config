@@ -6,7 +6,7 @@
 let
   inherit (inputs'.nvf.lib.nvim)
     dag
-  ;
+    ;
 in
 
 {

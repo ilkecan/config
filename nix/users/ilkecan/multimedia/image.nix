@@ -7,7 +7,7 @@
   home.packages = with pkgs; [
     imagemagick
     krita
-    libjxl  # `cjxl` & `jxlinfo`
+    libjxl # `cjxl` & `jxlinfo`
   ];
 
   programs = {

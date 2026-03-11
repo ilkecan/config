@@ -14,7 +14,7 @@
       configuration._props.location = "zellij:configuration";
       filepicker = {
         _props.location = "zellij:strider";
-        cwd = ["/"];
+        cwd = [ "/" ];
       };
       plugin-manager._props.location = "zellij:plugin-manager";
       session-manager._props.location = "zellij:session-manager";

@@ -70,7 +70,10 @@
       {
         desc = "delete the last word";
         key = "<C-h>";
-        mode = [ "c" "i" ];
+        mode = [
+          "c"
+          "i"
+        ];
         action = "<C-w>";
       }
       {

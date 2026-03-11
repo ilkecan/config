@@ -9,11 +9,11 @@ let
     attrNames
     attrValues
     concatMap
-  ;
+    ;
 
   inherit (lib)
     genAttrs
-  ;
+    ;
 
   cfg = config.programs.firefox;
   extensionIds = concatMap (x: attrNames x.extensions.settings) (attrValues cfg.profiles);
@@ -49,13 +49,18 @@ in
       Value = true;
       Locked = true;
       Category = "strict";
-      Exceptions = [];
+      Exceptions = [ ];
       BaselineExceptions = true;
       ConvenienceExceptions = true;
     };
     ExtensionSettings = {
       "*".installation_mode = "blocked";
-    } // genAttrs extensionIds (_: { installation_mode = "force_installed"; private_browsing = true; default_area = "navbar"; });
+    }
+    // genAttrs extensionIds (_: {
+      installation_mode = "force_installed";
+      private_browsing = true;
+      default_area = "navbar";
+    });
     ExtensionUpdate = false;
     FirefoxHome = {
       Search = false;

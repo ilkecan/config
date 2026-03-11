@@ -6,7 +6,7 @@
 let
   inherit (config.xdg)
     dataHome
-  ;
+    ;
 in
 {
   programs.gpg = {

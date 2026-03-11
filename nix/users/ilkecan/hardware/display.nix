@@ -3,7 +3,7 @@
 }:
 
 {
- services.wluma = {
+  services.wluma = {
     enable = true;
     settings = {
       als.time = {

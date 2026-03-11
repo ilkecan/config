@@ -19,7 +19,7 @@
     zoxide = {
       # https://github.com/ajeetdsouza/zoxide
       enable = true;
-      options = [];
+      options = [ ];
     };
   };
 }

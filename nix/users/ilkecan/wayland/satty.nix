@@ -8,7 +8,7 @@
 let
   inherit (lib)
     mkIf
-  ;
+    ;
 in
 {
   home.sessionVariables = mkIf config.programs.dank-material-shell.enable {

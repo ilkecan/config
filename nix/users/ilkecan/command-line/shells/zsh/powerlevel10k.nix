@@ -10,11 +10,11 @@ let
   inherit (lib)
     mkBefore
     mkMerge
-  ;
+    ;
 
   inherit (config.xdg)
     cacheHome
-  ;
+    ;
 
   pkg = pkgs.zsh-powerlevel10k;
 in

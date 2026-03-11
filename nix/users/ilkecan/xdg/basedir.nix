@@ -8,28 +8,35 @@
 let
   inherit (builtins)
     readDir
-  ;
+    ;
 
   inherit (lib)
     flatten
     listToAttrs
     mapAttrsToList
-  ;
+    ;
 
   # https://github.com/nix-community/home-manager/issues/3849#issuecomment-2115899992
-  listFilesRecursive = dir:
+  listFilesRecursive =
+    dir:
     let
-      internalFunc = acc:
+      internalFunc =
+        acc:
         (mapAttrsToList (
           name: type: if type == "directory" then internalFunc "${acc}${name}/" else "${acc}${name}"
         ) (readDir "${dir}/${acc}"));
     in
     flatten (internalFunc "");
 
-  toXdgFiles = dir:
+  toXdgFiles =
+    dir:
     let
-      toXdgFile = name:
-        { inherit name; value = { source = "${dir}/${name}"; }; };
+      toXdgFile = name: {
+        inherit name;
+        value = {
+          source = "${dir}/${name}";
+        };
+      };
     in
     listToAttrs (map toXdgFile (listFilesRecursive dir));
 

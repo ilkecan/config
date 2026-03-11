@@ -17,7 +17,7 @@
       package = pkgs.unstable.zathura;
 
       mappings = {
-        "<S-Space>" = "scroll half-up";   # Shift modifier does not work on Wayland for some reason
+        "<S-Space>" = "scroll half-up"; # Shift modifier does not work on Wayland for some reason
         "<Space>" = "scroll half-down";
       };
 
@@ -26,7 +26,7 @@
         guioptions = "sv";
         # defaults to the system font
         font = "x 16";
-        selection-clipboard =	"clipboard";
+        selection-clipboard = "clipboard";
         window-title-home-tilde = true;
         statusbar-home-tilde = true;
       };

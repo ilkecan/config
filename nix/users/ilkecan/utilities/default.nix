@@ -19,7 +19,7 @@
         enable = true;
       };
 
-      forceOverwriteSettings  = true;
+      forceOverwriteSettings = true;
       settings = {
         enter_accept = true;
       };

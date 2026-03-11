@@ -12,6 +12,6 @@
   ];
 
   home.packages = with pkgs; [
-    bandwhich   # https://github.com/imsnif/bandwhich
+    bandwhich # https://github.com/imsnif/bandwhich
   ];
 }

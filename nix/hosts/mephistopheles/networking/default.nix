@@ -8,7 +8,7 @@
 let
   inherit (lib)
     optional
-  ;
+    ;
 
   # https://userbase.kde.org/KDEConnect#I_have_two_devices_running_KDE_Connect_on_the_same_network,_but_they_can't_see_each_other
   kdeConnectPortRange = {
@@ -71,8 +71,8 @@ in
         listen_addresses = [ "127.0.0.1:53" ] ++ optional config.networking.enableIPv6 "[::1]:53";
         dnscrypt_servers = false;
         require_dnssec = true;
-        http3 = true;   # https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Configuration#http3-support-configuration
-        block_ipv6 = true;  # https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Performance#ipv6-blocking
+        http3 = true; # https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Configuration#http3-support-configuration
+        block_ipv6 = true; # https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Performance#ipv6-blocking
 
         # monitoring_ui = {
         #   enabled = true;

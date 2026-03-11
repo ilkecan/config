@@ -5,8 +5,8 @@
 
 {
   home.packages = with pkgs; [
-    asar  # https://github.com/electron/asar
-    dpkg  # for `dpkg-deb`
-    icoutils  # for `icotool`
+    asar # https://github.com/electron/asar
+    dpkg # for `dpkg-deb`
+    icoutils # for `icotool`
   ];
 }

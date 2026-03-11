@@ -5,7 +5,7 @@
 {
   programs.nvf.settings.vim = {
     lsp = {
-      lightbulb.enable = true;  # https://github.com/kosayoda/nvim-lightbulb
+      lightbulb.enable = true; # https://github.com/kosayoda/nvim-lightbulb
     };
 
     keymaps = [

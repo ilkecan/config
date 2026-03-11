@@ -17,9 +17,9 @@
 
   qt = {
     enable = true;
-    kde.settings = {};
-    qt5ctSettings = {};
-    qt6ctSettings = {};
+    kde.settings = { };
+    qt5ctSettings = { };
+    qt6ctSettings = { };
     style.name = "adwaita-dark";
   };
 }

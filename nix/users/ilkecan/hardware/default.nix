@@ -17,9 +17,9 @@
     hw-probe
     hwinfo
     libva-utils
-    mesa-demos  # for `eglinfo`
+    mesa-demos # for `eglinfo`
     pciutils
-    usbutils  # for `lsusb`
+    usbutils # for `lsusb`
     vulkan-tools
   ];
 }

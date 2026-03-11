@@ -8,12 +8,13 @@ let
     functionArgs
     intersectAttrs
     isFunction
-  ;
+    ;
 in
 {
   callExpression =
     let
-      callExpressionWith = autoArgs: fn:
+      callExpressionWith =
+        autoArgs: fn:
         let
           f = if isFunction fn then fn else import fn;
           fargs = functionArgs f;

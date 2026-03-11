@@ -115,7 +115,7 @@ in
 
   programs.ssh = {
     enable = true;
-    enableDefaultConfig = false;  # TODO get rid of this
+    enableDefaultConfig = false; # TODO get rid of this
   };
 
   # This value determines the Home Manager release that your

@@ -25,7 +25,7 @@ in
         enable = true;
       };
 
-      protontricks.enable = true;   # https://github.com/Matoking/protontricks
+      protontricks.enable = true; # https://github.com/Matoking/protontricks
 
       gamescopeSession = {
         # https://github.com/Plagman/gamescope

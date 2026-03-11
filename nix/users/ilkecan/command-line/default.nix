@@ -31,7 +31,11 @@
     theme = "solarized_dark";
     settings = {
       keyboard.bindings = [
-        { key = "Return"; mods = "Shift"; chars = "\n"; }
+        {
+          key = "Return";
+          mods = "Shift";
+          chars = "\n";
+        }
       ];
     };
   };

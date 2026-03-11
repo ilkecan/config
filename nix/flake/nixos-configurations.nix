@@ -6,7 +6,8 @@
 }:
 
 let
-  mkNixosConfiguration = system: modulesPath: userConfig:
+  mkNixosConfiguration =
+    system: modulesPath: userConfig:
     let
       module =
         {
@@ -35,7 +36,12 @@ let
           ];
 
           specialArgs = {
-            inherit inputs' lib self' userConfig;
+            inherit
+              inputs'
+              lib
+              self'
+              userConfig
+              ;
           };
         };
     in
@@ -43,6 +49,8 @@ let
 in
 {
   flake.nixosConfigurations = {
-    mephistopheles = mkNixosConfiguration "x86_64-linux" "${self}/nix/hosts/mephistopheles" self.homeConfigurations.ilkecan.config;
+    mephistopheles =
+      mkNixosConfiguration "x86_64-linux" "${self}/nix/hosts/mephistopheles"
+        self.homeConfigurations.ilkecan.config;
   };
 }

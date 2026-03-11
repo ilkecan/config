@@ -12,7 +12,7 @@ let
     mkIf
     mkOption
     types
-  ;
+    ;
 
   mkApp = drv: {
     type = "app";
@@ -34,18 +34,22 @@ in
   };
 
   config = {
-    perSystem = { pkgs, ... }: {
-      apps = mkIf (cfg.push != { }) {
-        cachix-push = mkApp (pkgs.writeShellApplication {
-          name = "cachix-push";
-          runtimeInputs = [ pkgs.cachix ];
-          text = concatStringsSep "\n" (
-            mapAttrsToList (
-              cache: paths: "cachix push ${cache} ${concatStringsSep " " (map toString paths)}"
-            ) cfg.push
+    perSystem =
+      { pkgs, ... }:
+      {
+        apps = mkIf (cfg.push != { }) {
+          cachix-push = mkApp (
+            pkgs.writeShellApplication {
+              name = "cachix-push";
+              runtimeInputs = [ pkgs.cachix ];
+              text = concatStringsSep "\n" (
+                mapAttrsToList (
+                  cache: paths: "cachix push ${cache} ${concatStringsSep " " (map toString paths)}"
+                ) cfg.push
+              );
+            }
           );
-        });
+        };
       };
-    };
   };
 }
