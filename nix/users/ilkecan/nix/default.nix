@@ -8,7 +8,7 @@
 let
   inherit (config.home)
     homeDirectory
-  ;
+    ;
 in
 {
   imports = [
@@ -19,7 +19,7 @@ in
     inherit (inputs')
       nixpkgs
       nixpkgs-unstable
-    ;
+      ;
   };
 
   home.sessionVariables = {

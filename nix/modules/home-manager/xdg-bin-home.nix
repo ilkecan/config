@@ -13,17 +13,18 @@ let
     mkOption
     nameValuePair
     types
-  ;
+    ;
 
   cfg = config.xdg;
 
   inherit (config.home)
     homeDirectory
-  ;
+    ;
 
-  fileType = (import "${inputs'.home-manager}/modules/lib/file-type.nix" {
-    inherit homeDirectory lib pkgs;
-  }).fileType;
+  fileType =
+    (import "${inputs'.home-manager}/modules/lib/file-type.nix" {
+      inherit homeDirectory lib pkgs;
+    }).fileType;
 in
 {
   options = {

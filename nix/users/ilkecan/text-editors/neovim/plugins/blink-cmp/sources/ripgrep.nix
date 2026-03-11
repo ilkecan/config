@@ -7,7 +7,7 @@
 let
   inherit (config.home)
     homeDirectory
-  ;
+    ;
 in
 {
   programs.nvf.settings.vim.autocomplete.blink-cmp = {

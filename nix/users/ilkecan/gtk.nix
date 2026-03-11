@@ -8,7 +8,7 @@
 let
   inherit (lib)
     attrVals
-  ;
+    ;
 
   toUri = protocol: path: "${protocol}://${path}";
   toFile = toUri "file";

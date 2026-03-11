@@ -6,7 +6,7 @@
 let
   inherit (lib.generators)
     mkLuaInline
-  ;
+    ;
 in
 
 {

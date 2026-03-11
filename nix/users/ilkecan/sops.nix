@@ -8,7 +8,7 @@ let
   inherit (config.home)
     homeDirectory
     username
-  ;
+    ;
   cfg = config.sops;
 in
 {

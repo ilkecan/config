@@ -4,11 +4,11 @@
 }:
 
 {
-  perSystem = { pkgs, ... }:
+  perSystem =
+    { pkgs, ... }:
     let
       args = { inherit pkgs self; };
-      mkCheck = file:
-        import file args;
+      mkCheck = file: import file args;
     in
     {
       checks = {

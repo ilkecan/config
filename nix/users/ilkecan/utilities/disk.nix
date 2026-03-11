@@ -5,6 +5,6 @@
 
 {
   home.packages = with pkgs; [
-      gdu   # https://github.com/dundee/gdu
+    gdu # https://github.com/dundee/gdu
   ];
 }

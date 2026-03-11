@@ -5,7 +5,7 @@
 
 {
   home.packages = with pkgs; [
-    upterm  # https://github.com/owenthereal/upterm
+    upterm # https://github.com/owenthereal/upterm
   ];
 
   services.ssh-agent = {

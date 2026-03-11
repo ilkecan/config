@@ -6,7 +6,7 @@
 let
   inherit (lib)
     mkForce
-  ;
+    ;
 in
 {
   security = {
@@ -20,7 +20,7 @@ in
       sudo.fprintAuth = false;
     };
 
-    rtkit.enable = true;  # allows Pipewire to use the realtime scheduler for increased performance
+    rtkit.enable = true; # allows Pipewire to use the realtime scheduler for increased performance
 
     sudo-rs = {
       # https://github.com/trifectatechfoundation/sudo-rs

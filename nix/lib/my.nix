@@ -6,7 +6,7 @@ let
   inherit (builtins)
     baseNameOf
     readDir
-  ;
+    ;
 
   inherit (lib)
     id
@@ -15,28 +15,28 @@ let
     mapAttrs'
     nameValuePair
     substring
-  ;
+    ;
 
   inherit (lib.my)
     importTree
     mkAbsolute
-  ;
+    ;
 
   INFINITY = 1.0e308 * 2;
 in
 {
-  flattenAttrs = sep: attrs:
+  flattenAttrs =
+    sep: attrs:
     let
-      flatten = prefix: attrs:
-        lib.foldlAttrs (acc: name: value:
+      flatten =
+        prefix: attrs:
+        lib.foldlAttrs (
+          acc: name: value:
           let
             name' = if prefix == "" then name else "${prefix}${sep}${name}";
           in
-          if isAttrs value then
-            acc // flatten name' value
-          else
-            acc // { ${name'} = value; }
-        ) {} attrs;
+          if isAttrs value then acc // flatten name' value else acc // { ${name'} = value; }
+        ) { } attrs;
     in
     flatten "" attrs;
 
@@ -53,29 +53,30 @@ in
       normalizeNameFn ? id,
     }:
     let
-      importFile = path:
-        importFn (mkAbsolute root path);
-      importDir = path:
-        mapAttrs' (name: type:
+      importFile = path: importFn (mkAbsolute root path);
+      importDir =
+        path:
+        mapAttrs' (
+          name: type:
           let
             name' = normalizeNameFn name;
             value =
               if type == "directory" then
-                importTree { root = mkAbsolute root name; depth = depth - 1; inherit normalizeNameFn importFn; }
+                importTree {
+                  root = mkAbsolute root name;
+                  depth = depth - 1;
+                  inherit normalizeNameFn importFn;
+                }
               else
-                importFile name
-              ;
+                importFile name;
           in
           nameValuePair name' value
         ) (readDir path);
     in
-    if depth <= 0 then
-      importFile root
-    else
-      importDir root
-    ;
+    if depth <= 0 then importFile root else importDir root;
 
-  mkAbsolute = root: path:
+  mkAbsolute =
+    root: path:
     if isPath path then
       path
     else
@@ -83,12 +84,7 @@ in
         path' = toString path;
         firstChar = substring 0 1 path';
       in
-      if firstChar == "/" then
-        path'
-      else
-        root + "/${path'}"
-    ;
+      if firstChar == "/" then path' else root + "/${path'}";
 
-  storePathName = path:
-    substring 33 (-1) (baseNameOf path);
+  storePathName = path: substring 33 (-1) (baseNameOf path);
 }

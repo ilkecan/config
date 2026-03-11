@@ -11,7 +11,7 @@ let
   inherit (lib)
     imap1
     mkForce
-  ;
+    ;
 in
 {
   imports = [
@@ -40,17 +40,19 @@ in
       ];
       trusted-users = [ userConfig.home.username ];
 
-      substituters = mkForce (imap1 (i: x: "${x}?priority=${toString i}") [
-        "https://cache.nixos.org"
-        "https://nix-community.cachix.org"
+      substituters = mkForce (
+        imap1 (i: x: "${x}?priority=${toString i}") [
+          "https://cache.nixos.org"
+          "https://nix-community.cachix.org"
 
-        "https://cache.numtide.com"
-        "https://nix-gaming.cachix.org"
+          "https://cache.numtide.com"
+          "https://nix-gaming.cachix.org"
 
-        # NUR
-        "https://ilkecan.cachix.org"
-        "https://rycee.cachix.org"
-      ]);
+          # NUR
+          "https://ilkecan.cachix.org"
+          "https://rycee.cachix.org"
+        ]
+      );
 
       trusted-public-keys = [
         "ilkecan.cachix.org-1:hXb7Vo9EzaXiEb0elvG6Tt5TrP3zrcadyoX8c+lbeCY="
@@ -61,7 +63,7 @@ in
       ];
 
       auto-optimise-store = true;
-      http-connections = 128;   # default: 25
+      http-connections = 128; # default: 25
       keep-going = true;
       keep-outputs = true;
       max-substitution-jobs = 128; # default: 16

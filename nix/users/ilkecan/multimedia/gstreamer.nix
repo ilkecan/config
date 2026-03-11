@@ -7,7 +7,7 @@
 let
   inherit (config.home)
     profileDirectory
-  ;
+    ;
 in
 {
   home.sessionVariables = {

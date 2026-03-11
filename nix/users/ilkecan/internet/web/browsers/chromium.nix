@@ -8,14 +8,19 @@
 let
   inherit (builtins)
     fetchurl
-  ;
+    ;
 
   inherit (lib)
     versions
-  ;
+    ;
 
   browserVersion = versions.major config.programs.chromium.package.version;
-  createChromiumExtension = { id, sha256, version }:
+  createChromiumExtension =
+    {
+      id,
+      sha256,
+      version,
+    }:
     {
       inherit id;
       crxPath = fetchurl {

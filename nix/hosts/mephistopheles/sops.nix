@@ -9,7 +9,7 @@ let
   inherit (lib)
     mapAttrsToList
     concatStringsSep
-  ;
+    ;
 
   cfg = config.sops;
 
@@ -23,7 +23,9 @@ in
 
     secrets = {
       github-access-token = { };
-      ilkecan-hashed-password = { neededForUsers = true; };
+      ilkecan-hashed-password = {
+        neededForUsers = true;
+      };
     };
 
     templates = {

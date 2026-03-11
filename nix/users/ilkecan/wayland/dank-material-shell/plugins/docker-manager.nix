@@ -7,7 +7,7 @@
 let
   inherit (lib)
     mkIf
-  ;
+    ;
 in
 {
   programs.dank-material-shell.plugins.dockerManager = {

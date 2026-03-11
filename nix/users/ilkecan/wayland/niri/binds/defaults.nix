@@ -17,7 +17,7 @@
 
     # Mod-Shift-/, which is usually the same as Mod-?,
     # shows a list of important hotkeys.
-    "Mod+Shift+Slash".action.show-hotkey-overlay = [];
+    "Mod+Shift+Slash".action.show-hotkey-overlay = [ ];
 
     # Suggested binds for running programs: terminal, app launcher, screen locker.
     "Mod+T" = {
@@ -47,38 +47,72 @@
     # Using spawn-sh allows to pass multiple arguments together with the command.
     # "-l 1.0" limits the volume to 100%.
     "XF86AudioRaiseVolume" = {
-      action.spawn = [ "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+" "-l" "1.0" ];
+      action.spawn = [
+        "wpctl"
+        "set-volume"
+        "@DEFAULT_AUDIO_SINK@"
+        "0.1+"
+        "-l"
+        "1.0"
+      ];
       allow-when-locked = true;
     };
     "XF86AudioLowerVolume" = {
-      action.spawn = [ "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-" ];
+      action.spawn = [
+        "wpctl"
+        "set-volume"
+        "@DEFAULT_AUDIO_SINK@"
+        "0.1-"
+      ];
       allow-when-locked = true;
     };
     "XF86AudioMute" = {
-      action.spawn = [ "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle" ];
+      action.spawn = [
+        "wpctl"
+        "set-mute"
+        "@DEFAULT_AUDIO_SINK@"
+        "toggle"
+      ];
       allow-when-locked = true;
     };
     "XF86AudioMicMute" = {
-      action.spawn = [ "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle" ];
+      action.spawn = [
+        "wpctl"
+        "set-mute"
+        "@DEFAULT_AUDIO_SOURCE@"
+        "toggle"
+      ];
       allow-when-locked = true;
     };
 
     # Example media keys mapping using playerctl.
     # This will work with any MPRIS-enabled media player.
     "XF86AudioPlay" = {
-      action.spawn = [ "playerctld" "play-pause" ];
+      action.spawn = [
+        "playerctld"
+        "play-pause"
+      ];
       allow-when-locked = true;
     };
     "XF86AudioStop" = {
-      action.spawn = [ "playerctld" "stop" ];
+      action.spawn = [
+        "playerctld"
+        "stop"
+      ];
       allow-when-locked = true;
     };
     "XF86AudioPrev" = {
-      action.spawn = [ "playerctld" "previous" ];
+      action.spawn = [
+        "playerctld"
+        "previous"
+      ];
       allow-when-locked = true;
     };
     "XF86AudioNext" = {
-      action.spawn = [ "playerctld" "next" ];
+      action.spawn = [
+        "playerctld"
+        "next"
+      ];
       allow-when-locked = true;
     };
 
@@ -86,11 +120,21 @@
     # You can use regular spawn with multiple arguments too (to avoid going through "sh"),
     # but you need to manually put each argument in separate "" quotes.
     "XF86MonBrightnessUp" = {
-      action.spawn = [ "brightnessctl" "--class=backlight" "set" "+10%" ];
+      action.spawn = [
+        "brightnessctl"
+        "--class=backlight"
+        "set"
+        "+10%"
+      ];
       allow-when-locked = true;
     };
     "XF86MonBrightnessDown" = {
-      action.spawn = [ "brightnessctl" "--class=backlight" "set" "10%-" ];
+      action.spawn = [
+        "brightnessctl"
+        "--class=backlight"
+        "set"
+        "10%-"
+      ];
       allow-when-locked = true;
     };
 
@@ -98,33 +142,32 @@
     # You can also move the mouse into the top-left hot corner,
     # or do a four-finger swipe up on a touchpad.
     "Mod+O" = {
-      action.toggle-overview = [];
+      action.toggle-overview = [ ];
       repeat = false;
     };
 
     "Mod+Q" = {
-      action.close-window = [];
+      action.close-window = [ ];
       repeat = false;
     };
 
-    "Mod+Left".action.focus-column-left = [];
-    "Mod+Down".action.focus-window-down = [];
-    "Mod+Up".action.focus-window-up = [];
-    "Mod+Right".action.focus-column-right = [];
-    "Mod+H".action.focus-column-left = [];
-    "Mod+J".action.focus-window-down = [];
-    "Mod+K".action.focus-window-up = [];
-    "Mod+L".action.focus-column-right = [];
+    "Mod+Left".action.focus-column-left = [ ];
+    "Mod+Down".action.focus-window-down = [ ];
+    "Mod+Up".action.focus-window-up = [ ];
+    "Mod+Right".action.focus-column-right = [ ];
+    "Mod+H".action.focus-column-left = [ ];
+    "Mod+J".action.focus-window-down = [ ];
+    "Mod+K".action.focus-window-up = [ ];
+    "Mod+L".action.focus-column-right = [ ];
 
-    "Mod+Ctrl+Left".action.move-column-left = [];
-    "Mod+Ctrl+Down".action.move-window-down = [];
-    "Mod+Ctrl+Up".action.move-window-up = [];
-    "Mod+Ctrl+Right".action.move-column-right = [];
-    "Mod+Ctrl+H".action.move-column-left = [];
-    "Mod+Ctrl+J".action.move-window-down = [];
-    "Mod+Ctrl+K".action.move-window-up = [];
-    "Mod+Ctrl+L".action.move-column-right = [];
-
+    "Mod+Ctrl+Left".action.move-column-left = [ ];
+    "Mod+Ctrl+Down".action.move-window-down = [ ];
+    "Mod+Ctrl+Up".action.move-window-up = [ ];
+    "Mod+Ctrl+Right".action.move-column-right = [ ];
+    "Mod+Ctrl+H".action.move-column-left = [ ];
+    "Mod+Ctrl+J".action.move-window-down = [ ];
+    "Mod+Ctrl+K".action.move-window-up = [ ];
+    "Mod+Ctrl+L".action.move-column-right = [ ];
 
     # Alternative commands that move across workspaces when reaching
     # the first or last window in a column.
@@ -133,29 +176,28 @@
     # "Mod+Ctrl+J".action.move-window-down-or-to-workspace-down = [];
     # "Mod+Ctrl+K".action.move-window-up-or-to-workspace-up = [];
 
-    "Mod+Home".action.focus-column-first = [];
-    "Mod+End".action.focus-column-last = [];
-    "Mod+Ctrl+Home".action.move-column-to-first = [];
-    "Mod+Ctrl+End".action.move-column-to-last = [];
+    "Mod+Home".action.focus-column-first = [ ];
+    "Mod+End".action.focus-column-last = [ ];
+    "Mod+Ctrl+Home".action.move-column-to-first = [ ];
+    "Mod+Ctrl+End".action.move-column-to-last = [ ];
 
-    "Mod+Shift+Left".action.focus-monitor-left = [];
-    "Mod+Shift+Down".action.focus-monitor-down = [];
-    "Mod+Shift+Up".action.focus-monitor-up = [];
-    "Mod+Shift+Right".action.focus-monitor-right = [];
-    "Mod+Shift+H".action.focus-monitor-left = [];
-    "Mod+Shift+J".action.focus-monitor-down = [];
-    "Mod+Shift+K".action.focus-monitor-up = [];
-    "Mod+Shift+L".action.focus-monitor-right = [];
+    "Mod+Shift+Left".action.focus-monitor-left = [ ];
+    "Mod+Shift+Down".action.focus-monitor-down = [ ];
+    "Mod+Shift+Up".action.focus-monitor-up = [ ];
+    "Mod+Shift+Right".action.focus-monitor-right = [ ];
+    "Mod+Shift+H".action.focus-monitor-left = [ ];
+    "Mod+Shift+J".action.focus-monitor-down = [ ];
+    "Mod+Shift+K".action.focus-monitor-up = [ ];
+    "Mod+Shift+L".action.focus-monitor-right = [ ];
 
-    "Mod+Shift+Ctrl+Left".action.move-column-to-monitor-left = [];
-    "Mod+Shift+Ctrl+Down".action.move-column-to-monitor-down = [];
-    "Mod+Shift+Ctrl+Up".action.move-column-to-monitor-up = [];
-    "Mod+Shift+Ctrl+Right".action.move-column-to-monitor-right = [];
-    "Mod+Shift+Ctrl+H".action.move-column-to-monitor-left = [];
-    "Mod+Shift+Ctrl+J".action.move-column-to-monitor-down = [];
-    "Mod+Shift+Ctrl+K".action.move-column-to-monitor-up = [];
-    "Mod+Shift+Ctrl+L".action.move-column-to-monitor-right = [];
-
+    "Mod+Shift+Ctrl+Left".action.move-column-to-monitor-left = [ ];
+    "Mod+Shift+Ctrl+Down".action.move-column-to-monitor-down = [ ];
+    "Mod+Shift+Ctrl+Up".action.move-column-to-monitor-up = [ ];
+    "Mod+Shift+Ctrl+Right".action.move-column-to-monitor-right = [ ];
+    "Mod+Shift+Ctrl+H".action.move-column-to-monitor-left = [ ];
+    "Mod+Shift+Ctrl+J".action.move-column-to-monitor-down = [ ];
+    "Mod+Shift+Ctrl+K".action.move-column-to-monitor-up = [ ];
+    "Mod+Shift+Ctrl+L".action.move-column-to-monitor-right = [ ];
 
     # Alternatively, there are commands to move just a single window:
     # "Mod+Shift+Ctrl+Left".action.move-window-to-monitor-left = [];
@@ -165,23 +207,23 @@
     # "Mod+Shift+Ctrl+Left".action.move-workspace-to-monitor-left = [];
     # ...
 
-    "Mod+Page_Down".action.focus-workspace-down = [];
-    "Mod+Page_Up".action.focus-workspace-up = [];
-    "Mod+U".action.focus-workspace-down = [];
-    "Mod+I".action.focus-workspace-up = [];
-    "Mod+Ctrl+Page_Down".action.move-column-to-workspace-down = [];
-    "Mod+Ctrl+Page_Up".action.move-column-to-workspace-up = [];
-    "Mod+Ctrl+U".action.move-column-to-workspace-down = [];
-    "Mod+Ctrl+I".action.move-column-to-workspace-up = [];
+    "Mod+Page_Down".action.focus-workspace-down = [ ];
+    "Mod+Page_Up".action.focus-workspace-up = [ ];
+    "Mod+U".action.focus-workspace-down = [ ];
+    "Mod+I".action.focus-workspace-up = [ ];
+    "Mod+Ctrl+Page_Down".action.move-column-to-workspace-down = [ ];
+    "Mod+Ctrl+Page_Up".action.move-column-to-workspace-up = [ ];
+    "Mod+Ctrl+U".action.move-column-to-workspace-down = [ ];
+    "Mod+Ctrl+I".action.move-column-to-workspace-up = [ ];
 
     # Alternatively, there are commands to move just a single window:
     # "Mod+Ctrl+Page_Down".action.move-window-to-workspace-down = [];
     # ...
 
-    "Mod+Shift+Page_Down".action.move-workspace-down = [];
-    "Mod+Shift+Page_Up".action.move-workspace-up = [];
-    "Mod+Shift+U".action.move-workspace-down = [];
-    "Mod+Shift+I".action.move-workspace-up = [];
+    "Mod+Shift+Page_Down".action.move-workspace-down = [ ];
+    "Mod+Shift+Page_Up".action.move-workspace-up = [ ];
+    "Mod+Shift+U".action.move-workspace-down = [ ];
+    "Mod+Shift+I".action.move-workspace-up = [ ];
 
     # You can bind mouse wheel scroll ticks using the following syntax.
     # These binds will change direction based on the natural-scroll setting.
@@ -190,33 +232,33 @@
     # the cooldown-ms property. The bind will be rate-limited to this value.
     # You can set a cooldown on any bind, but it's most useful for the wheel.
     "Mod+WheelScrollDown" = {
-      action.focus-workspace-down = [];
+      action.focus-workspace-down = [ ];
       cooldown-ms = 150;
     };
     "Mod+WheelScrollUp" = {
-      action.focus-workspace-up = [];
+      action.focus-workspace-up = [ ];
       cooldown-ms = 150;
     };
     "Mod+Ctrl+WheelScrollDown" = {
-      action.move-column-to-workspace-down = [];
+      action.move-column-to-workspace-down = [ ];
       cooldown-ms = 150;
     };
     "Mod+Ctrl+WheelScrollUp" = {
-      action.move-column-to-workspace-up = [];
+      action.move-column-to-workspace-up = [ ];
       cooldown-ms = 150;
     };
 
-    "Mod+WheelScrollRight".action.focus-column-right = [];
-    "Mod+WheelScrollLeft".action.focus-column-left = [];
-    "Mod+Ctrl+WheelScrollRight".action.move-column-right = [];
-    "Mod+Ctrl+WheelScrollLeft".action.move-column-left = [];
+    "Mod+WheelScrollRight".action.focus-column-right = [ ];
+    "Mod+WheelScrollLeft".action.focus-column-left = [ ];
+    "Mod+Ctrl+WheelScrollRight".action.move-column-right = [ ];
+    "Mod+Ctrl+WheelScrollLeft".action.move-column-left = [ ];
 
     # Usually scrolling up and down with Shift in applications results in
     # horizontal scrolling; these binds replicate that.
-    "Mod+Shift+WheelScrollDown".action.focus-column-right = [];
-    "Mod+Shift+WheelScrollUp".action.focus-column-left = [];
-    "Mod+Ctrl+Shift+WheelScrollDown".action.move-column-right = [];
-    "Mod+Ctrl+Shift+WheelScrollUp".action.move-column-left = [];
+    "Mod+Shift+WheelScrollDown".action.focus-column-right = [ ];
+    "Mod+Shift+WheelScrollUp".action.focus-column-left = [ ];
+    "Mod+Ctrl+Shift+WheelScrollDown".action.move-column-right = [ ];
+    "Mod+Ctrl+Shift+WheelScrollUp".action.move-column-left = [ ];
 
     # Similarly, you can bind touchpad scroll "ticks".
     # Touchpad scrolling is continuous, so for these binds it is split into
@@ -263,36 +305,36 @@
     # The following binds move the focused window in and out of a column.
     # If the window is alone, they will consume it into the nearby column to the side.
     # If the window is already in a column, they will expel it out.
-    "Mod+BracketLeft".action.consume-or-expel-window-left = [];
-    "Mod+BracketRight".action.consume-or-expel-window-right = [];
+    "Mod+BracketLeft".action.consume-or-expel-window-left = [ ];
+    "Mod+BracketRight".action.consume-or-expel-window-right = [ ];
 
     # Consume one window from the right to the bottom of the focused column.
-    "Mod+Comma".action.consume-window-into-column = [];
+    "Mod+Comma".action.consume-window-into-column = [ ];
     # Expel the bottom window from the focused column to the right.
-    "Mod+Period".action.expel-window-from-column = [];
+    "Mod+Period".action.expel-window-from-column = [ ];
 
-    "Mod+R".action.switch-preset-column-width = [];
+    "Mod+R".action.switch-preset-column-width = [ ];
     # Cycling through the presets in reverse order is also possible.
     # "Mod+R".action.switch-preset-column-width-back = [];
-    "Mod+Shift+R".action.switch-preset-window-height = [];
-    "Mod+Ctrl+R".action.reset-window-height = [];
-    "Mod+F".action.maximize-column = [];
-    "Mod+Shift+F".action.fullscreen-window = [];
+    "Mod+Shift+R".action.switch-preset-window-height = [ ];
+    "Mod+Ctrl+R".action.reset-window-height = [ ];
+    "Mod+F".action.maximize-column = [ ];
+    "Mod+Shift+F".action.fullscreen-window = [ ];
 
     # While maximize-column leaves gaps and borders around the window,
     # maximize-window-to-edges doesn't: the window expands to the edges of the screen.
     # This bind corresponds to normal window maximizing,
     # e.g. by double-clicking on the titlebar.
-    "Mod+M".action.maximize-window-to-edges = [];
+    "Mod+M".action.maximize-window-to-edges = [ ];
 
     # Expand the focused column to space not taken up by other fully visible columns.
     # Makes the column "fill the rest of the space".
-    "Mod+Ctrl+F".action.expand-column-to-available-width = [];
+    "Mod+Ctrl+F".action.expand-column-to-available-width = [ ];
 
-    "Mod+C".action.center-column = [];
+    "Mod+C".action.center-column = [ ];
 
     # Center all fully visible columns on screen.
-    "Mod+Ctrl+C".action.center-visible-columns = [];
+    "Mod+Ctrl+C".action.center-visible-columns = [ ];
 
     # Finer width adjustments.
     # This command can also:
@@ -310,13 +352,13 @@
     "Mod+Shift+Equal".action.set-window-height = "+10%";
 
     # Move the focused window between the floating and the tiling layout.
-    "Mod+V".action.toggle-window-floating = [];
-    "Mod+Shift+V".action.switch-focus-between-floating-and-tiling = [];
+    "Mod+V".action.toggle-window-floating = [ ];
+    "Mod+Shift+V".action.switch-focus-between-floating-and-tiling = [ ];
 
     # Toggle tabbed column display mode.
     # Windows in this column will appear as vertical tabs,
     # rather than stacked on top of each other.
-    "Mod+W".action.toggle-column-tabbed-display = [];
+    "Mod+W".action.toggle-column-tabbed-display = [ ];
 
     # Actions to switch layouts.
     # Note: if you uncomment these, make sure you do NOT have
@@ -326,9 +368,9 @@
     "Mod+Space".action.switch-layout = [ "next" ];
     "Mod+Shift+Space".action.switch-layout = [ "prev" ];
 
-    "Print".action.screenshot = [];
-    "Ctrl+Print".action.screenshot-screen = [];
-    "Alt+Print".action.screenshot-window = [];
+    "Print".action.screenshot = [ ];
+    "Ctrl+Print".action.screenshot-screen = [ ];
+    "Alt+Print".action.screenshot-window = [ ];
 
     # Applications such as remote-desktop clients and software KVM switches may
     # request that niri stops processing the keyboard shortcuts defined here
@@ -339,16 +381,16 @@
     # The allow-inhibiting=false property can be applied to other binds as well,
     # which ensures niri always processes them, even when an inhibitor is active.
     "Mod+Escape" = {
-      action.toggle-keyboard-shortcuts-inhibit = [];
+      action.toggle-keyboard-shortcuts-inhibit = [ ];
       allow-inhibiting = false;
     };
 
     # The quit action will show a confirmation dialog to avoid accidental exits.
-    "Mod+Shift+E".action.quit = [];
-    "Ctrl+Alt+Delete".action.quit = [];
+    "Mod+Shift+E".action.quit = [ ];
+    "Ctrl+Alt+Delete".action.quit = [ ];
 
     # Powers off the monitors. To turn them back on, do any input like
     # moving the mouse or pressing any other key.
-    "Mod+Shift+P".action.power-off-monitors = [];
+    "Mod+Shift+P".action.power-off-monitors = [ ];
   };
 }

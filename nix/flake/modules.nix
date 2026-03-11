@@ -9,11 +9,11 @@ let
     id
     removeSuffix
     toCamelCase
-  ;
+    ;
 
   inherit (lib.my)
     importTree
-  ;
+    ;
 in
 {
   flake.modules = importTree {

@@ -8,7 +8,7 @@
 let
   inherit (lib.generators)
     mkLuaInline
-  ;
+    ;
 in
 {
   programs.nvf.settings.vim = {
@@ -28,8 +28,14 @@ in
     autocmds = [
       {
         event = [ "FileType" ];
-        pattern = [ "NvimTree" "neo-tree" "oil" "minifiles" "netrw" ];
-        callback =  mkLuaInline ''
+        pattern = [
+          "NvimTree"
+          "neo-tree"
+          "oil"
+          "minifiles"
+          "netrw"
+        ];
+        callback = mkLuaInline ''
           function()
             vim.keymap.set("n", "<Leader>as", vim.cmd.ClaudeCodeTreeAdd, { desc = "Add file", buffer = true })
           end

@@ -26,8 +26,8 @@
   ];
 
   services = {
-    gvfs.enable = true;   # required for "Trash"
-    udisks2.enable = true;  # required for udiskie
+    gvfs.enable = true; # required for "Trash"
+    udisks2.enable = true; # required for udiskie
   };
 
   # Select internationalisation properties.

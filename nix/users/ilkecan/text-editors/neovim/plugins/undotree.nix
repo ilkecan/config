@@ -5,7 +5,7 @@
 {
   programs.nvf.settings.vim = {
     utility.undotree = {
-      enable = true;  # https://github.com/mbbill/undotree
+      enable = true; # https://github.com/mbbill/undotree
     };
 
     keymaps = [

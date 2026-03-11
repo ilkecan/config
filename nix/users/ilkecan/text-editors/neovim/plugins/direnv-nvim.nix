@@ -5,7 +5,7 @@
 {
   programs.nvf.settings.vim = {
     utility = {
-      direnv.enable = true;   # https://github.com/direnv/direnv.vim
+      direnv.enable = true; # https://github.com/direnv/direnv.vim
     };
   };
 }

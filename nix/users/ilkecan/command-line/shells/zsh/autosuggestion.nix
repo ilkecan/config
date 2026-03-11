@@ -7,7 +7,7 @@
 let
   inherit (lib)
     mkOrder
-  ;
+    ;
 in
 {
   home.packages = with pkgs; [ zsh-autosuggestions ];

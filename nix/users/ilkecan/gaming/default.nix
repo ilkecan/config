@@ -9,11 +9,11 @@
   ];
 
   home.packages = with pkgs; [
-    goverlay  # github.com/benjamimgois/goverlay
+    goverlay # github.com/benjamimgois/goverlay
     hyperion-ng
     itch
     moonlight-qt
-    protonplus  # https://github.com/Vysp3r/ProtonPlus
+    protonplus # https://github.com/Vysp3r/ProtonPlus
   ];
 
   programs = {

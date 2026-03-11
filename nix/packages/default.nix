@@ -17,7 +17,7 @@ import inputs.nixpkgs {
       inherit (final.unstable)
         logitech-udev-rules
         solaar
-      ;
+        ;
     })
 
     (final: _prev: {

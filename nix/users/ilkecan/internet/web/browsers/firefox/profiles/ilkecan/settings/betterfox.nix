@@ -42,8 +42,8 @@
       "gfx.webrender.quality.force-subpixel-aa-where-possible" = true;
 
       ### url-bar
-      "browser.urlbar.suggest.engines" = false;   # about:preferences#search > Address Bar > Suggest search engines to use
-      "browser.urlbar.suggest.topsites" = false;  # about:preferences#search > Address Bar > Shortcuts
+      "browser.urlbar.suggest.engines" = false; # about:preferences#search > Address Bar > Suggest search engines to use
+      "browser.urlbar.suggest.topsites" = false; # about:preferences#search > Address Bar > Shortcuts
       "browser.urlbar.maxRichResults" = 5;
 
       ### autoplay
@@ -60,7 +60,7 @@
       "widget.gtk.hide-pointer-while-typing.enabled" = false;
 
       ### keyboard-and-shortcuts
-      "browser.ctrlTab.sortByRecentlyUsed" = true;  # Ctrl+Tab cycles through tabs in recently used order
+      "browser.ctrlTab.sortByRecentlyUsed" = true; # Ctrl+Tab cycles through tabs in recently used order
 
       ### accessibility-and-usability
       "reader.parse-on-load.enabled" = false;

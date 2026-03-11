@@ -5,7 +5,7 @@
 let
   inherit (builtins)
     concatStringsSep
-  ;
+    ;
 
   comSepList = concatStringsSep ",";
 in
@@ -16,19 +16,25 @@ in
       cursorline = true;
       expandtab = true; # https://neovim.io/doc/user/options.html#'expandtab'
       foldenable = false; # disable folds by default
-      ignorecase = true;  # https://neovim.io/doc/user/options.html#'ignorecase'
+      ignorecase = true; # https://neovim.io/doc/user/options.html#'ignorecase'
       laststatus = 3;
       lazyredraw = true;
       mouse = "a";
       scrolloff = 2;
-      shiftwidth = 0;   # https://neovim.io/doc/user/options.html#'shiftwidth'
+      shiftwidth = 0; # https://neovim.io/doc/user/options.html#'shiftwidth'
       sidescrolloff = 2;
       signcolumn = "number";
       smartcase = true;
-      tabstop = 2;  # https://neovim.io/doc/user/options.html#'tabstop'
+      tabstop = 2; # https://neovim.io/doc/user/options.html#'tabstop'
       title = true;
-      viewoptions = comSepList [ "folds" "cursor" ];
-      wildmode = comSepList [ "longest:full" "full" ];
+      viewoptions = comSepList [
+        "folds"
+        "cursor"
+      ];
+      wildmode = comSepList [
+        "longest:full"
+        "full"
+      ];
       wrap = false;
     };
   };

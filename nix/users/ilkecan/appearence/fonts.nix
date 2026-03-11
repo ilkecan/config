@@ -9,9 +9,18 @@
     antialiasing = true;
     hinting = "slight";
     defaultFonts = {
-      monospace = [ "Noto Sans Mono" "Noto Sans Math" ];
-      sansSerif = [ "Noto Sans" "Noto Sans Math" ];
-      serif = [ "Noto Serif" "Noto Sans Math" ];
+      monospace = [
+        "Noto Sans Mono"
+        "Noto Sans Math"
+      ];
+      sansSerif = [
+        "Noto Sans"
+        "Noto Sans Math"
+      ];
+      serif = [
+        "Noto Serif"
+        "Noto Sans Math"
+      ];
     };
   };
 

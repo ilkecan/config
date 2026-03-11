@@ -6,30 +6,30 @@
   programs.nvf.settings.vim = {
     statusline = {
       lualine = {
-        enable = true;  # https://github.com/nvim-lualine/lualine.nvim
+        enable = true; # https://github.com/nvim-lualine/lualine.nvim
         activeSection = {
           a = [
-            '' "mode" ''
+            ''"mode" ''
           ];
           b = [
-            '' "branch" ''
-            '' "diff" ''
-            '' "diagnostics" ''
+            ''"branch" ''
+            ''"diff" ''
+            ''"diagnostics" ''
           ];
           c = [
-            '' { "filename", path = 1 } ''
+            ''{ "filename", path = 1 } ''
           ];
 
           x = [
-            '' "filetype" ''
-            '' "encoding" ''
-            '' "fileformat" ''
+            ''"filetype" ''
+            ''"encoding" ''
+            ''"fileformat" ''
           ];
           y = [
-            '' "progress" ''
+            ''"progress" ''
           ];
           z = [
-            '' "location" ''
+            ''"location" ''
           ];
         };
 

@@ -10,13 +10,18 @@ let
     id
     mkIf
     mkMerge
-  ;
+    ;
 
   inherit (builtins)
     any
-  ;
+    ;
 
-  mozEnabled = any id (map (x: config.programs.${x}.enable) ["firefox" "thunderbird"]);
+  mozEnabled = any id (
+    map (x: config.programs.${x}.enable) [
+      "firefox"
+      "thunderbird"
+    ]
+  );
 in
 {
   imports = [
@@ -26,7 +31,7 @@ in
   ];
 
   dbus.packages = [
-    pkgs.nautilus   # required for xdg-desktop-portal-gnome's FileChooser to work properly
+    pkgs.nautilus # required for xdg-desktop-portal-gnome's FileChooser to work properly
   ];
 
   home = {

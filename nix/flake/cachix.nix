@@ -9,14 +9,13 @@ let
     attrValues
     concatLists
     filter
-  ;
+    ;
 
   inherit (lib.my)
     storePathName
-  ;
+    ;
 
-  isPatchedInput = x:
-    storePathName x != "source";
+  isPatchedInput = x: storePathName x != "source";
 in
 {
   flake.cachix = {

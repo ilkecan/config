@@ -11,12 +11,12 @@ let
     mapAttrsToList
     mkMerge
     mkOrder
-  ;
+    ;
 
   inherit (config.xdg)
     cacheHome
     configHome
-  ;
+    ;
 
   keyBindings = {
     "^H" = "vi-backward-kill-word";

@@ -5,7 +5,7 @@
 let
   inherit (builtins)
     concatStringsSep
-  ;
+    ;
 
   comSepList = concatStringsSep ",";
 in
@@ -20,11 +20,15 @@ in
       "browser.download.forbid_open_with" = true;
       "browser.newtabpage.activity-stream.newtabWallpapers.wallpaper" = "firefox-b";
       "browser.quitShortcut.disabled" = true;
-      "browser.translations.automaticallyPopup" = false;  # disable "Always offer to translate"
+      "browser.translations.automaticallyPopup" = false; # disable "Always offer to translate"
       "browser.urlbar.suggest.quickactions" = false; # about:preferences#search > Address Bar > Quick Actions
       "devtools.anti-tracking.enabled" = true;
       "devtools.toolbox.host" = "right";
-      "intl.accept_languages" = comSepList [ "en" "en-us" "tr" ];
+      "intl.accept_languages" = comSepList [
+        "en"
+        "en-us"
+        "tr"
+      ];
       "media.videocontrols.picture-in-picture.enabled" = false;
       # https://github.com/arkenfox/user.js/issues/1080#issue-774750296
       "privacy.clearHistory.browsingHistoryAndDownloads" = false;
@@ -37,7 +41,6 @@ in
       "widget.use-xdg-desktop-portal.mime-handler" = 1;
       "widget.use-xdg-desktop-portal.open-uri" = 1;
       "widget.use-xdg-desktop-portal.settings" = 1;
-
 
       "extensions.ml.enabled" = false;
       "pdfjs.enableAltTextModelDownload" = false;

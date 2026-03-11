@@ -7,7 +7,7 @@
 let
   inherit (lib.generators)
     mkLuaInline
-  ;
+    ;
 in
 
 {
@@ -18,7 +18,7 @@ in
 
   programs.nvf.settings.vim = {
     treesitter = {
-      enable = true;  # https://github.com/nvim-treesitter/nvim-treesitter
+      enable = true; # https://github.com/nvim-treesitter/nvim-treesitter
       fold = true;
       grammars = pkgs.vimPlugins.nvim-treesitter.allGrammars;
       highlight = {

@@ -6,22 +6,22 @@
 {
   programs.niri.settings.window-rules = [
     {
-      matches = [ { app-id = ''^alacritty-config$''; } ];
+      matches = [ { app-id = "^alacritty-config$"; } ];
       open-maximized = true;
       open-on-workspace = "config";
     }
     {
-      matches = [ { app-id = ''^alacritty-nixpkgs$''; } ];
+      matches = [ { app-id = "^alacritty-nixpkgs$"; } ];
       open-maximized = true;
       open-on-workspace = "nixpkgs";
     }
     {
-      matches = [ { app-id = ''^alacritty-review$''; } ];
+      matches = [ { app-id = "^alacritty-review$"; } ];
       open-maximized = true;
       open-on-workspace = "review";
     }
     {
-      matches = [ { app-id = ''^chromium-browser$''; } ];
+      matches = [ { app-id = "^chromium-browser$"; } ];
       open-maximized = true;
       open-on-workspace = "browser";
     }
@@ -36,17 +36,17 @@
       open-on-workspace = "settings";
     }
     {
-      matches = [ { app-id = ''^org.quickshell$''; } ];
+      matches = [ { app-id = "^org.quickshell$"; } ];
       open-maximized = true;
       open-on-workspace = "settings";
     }
     {
-      matches = [ { app-id = ''^firefox$''; } ];
+      matches = [ { app-id = "^firefox$"; } ];
       open-maximized = true;
       open-on-workspace = "browser";
     }
     {
-      matches = [ { app-id = ''^fluffychat$''; } ];
+      matches = [ { app-id = "^fluffychat$"; } ];
       block-out-from = "screen-capture";
       open-maximized = true;
       open-on-workspace = "messaging";
@@ -62,7 +62,7 @@
       open-on-workspace = "news";
     }
     {
-      matches = [ { app-id = ''^itch$''; } ];
+      matches = [ { app-id = "^itch$"; } ];
       open-maximized = true;
       open-on-workspace = "gaming";
     }
@@ -84,12 +84,12 @@
       open-on-workspace = "messaging";
     }
     {
-      matches = [ { app-id = ''^solaar$''; } ];
+      matches = [ { app-id = "^solaar$"; } ];
       open-maximized = true;
       open-on-workspace = "settings";
     }
     {
-      matches = [ { app-id = ''^steam$''; } ];
+      matches = [ { app-id = "^steam$"; } ];
       block-out-from = "screen-capture";
       open-on-workspace = "gaming";
     }
@@ -100,13 +100,13 @@
       open-on-workspace = "gaming";
     }
     {
-      matches = [ { app-id = ''^thunderbird$''; } ];
+      matches = [ { app-id = "^thunderbird$"; } ];
       block-out-from = "screen-capture";
       open-maximized = true;
       open-on-workspace = "news";
     }
     {
-      matches = [ { app-id = ''^wasistlos$''; } ];
+      matches = [ { app-id = "^wasistlos$"; } ];
       block-out-from = "screen-capture";
       open-maximized = true;
       open-on-workspace = "messaging";
