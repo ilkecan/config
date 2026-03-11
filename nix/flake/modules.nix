@@ -17,7 +17,7 @@ let
 in
 {
   flake.modules = importTree {
-    root = "${self}/modules";
+    root = "${self}/nix/modules";
     depth = 2;
     importFn = id;
     normalizeNameFn = x: toCamelCase (removeSuffix ".nix" x);

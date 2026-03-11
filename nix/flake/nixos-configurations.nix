@@ -43,6 +43,6 @@ let
 in
 {
   flake.nixosConfigurations = {
-    mephistopheles = mkNixosConfiguration "x86_64-linux" "${self}/hosts/mephistopheles" self.homeConfigurations.ilkecan.config;
+    mephistopheles = mkNixosConfiguration "x86_64-linux" "${self}/nix/hosts/mephistopheles" self.homeConfigurations.ilkecan.config;
   };
 }
