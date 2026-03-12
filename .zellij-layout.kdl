@@ -1,5 +1,5 @@
 layout {
-  tab name="nh" {
+  tab name="nh" hide_floating_panes=true {
     pane split_direction="horizontal" {
       pane split_direction="vertical" {
         pane command="nh" {
@@ -26,6 +26,10 @@ layout {
       }
     }
 
+    floating_panes {
+      pane command="zsh" x="10%" y="10%" width="80%" height="80%"
+    }
+
     pane size=1 borderless=true {
       plugin location="zellij:compact-bar"
     }
@@ -45,8 +49,12 @@ layout {
     }
   }
 
-  tab name="shell" {
+  tab name="shell" hide_floating_panes=true {
     pane command="zsh"
+
+    floating_panes {
+      pane command="codex" x="10%" y="10%" width="80%" height="80%"
+    }
 
     pane size=1 borderless=true {
       plugin location="zellij:compact-bar"
