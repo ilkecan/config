@@ -187,12 +187,13 @@
     };
   };
 
-  outputs = inputs:
+  outputs =
+    inputs:
     let
       lib = import ./nix/lib { inherit (inputs.nixpkgs) lib; };
     in
     inputs.flake-parts.lib.mkFlake {
-      inputs = import ./nix/inputs { inherit inputs; };
+      inputs = import ./nix/inputs { inherit inputs lib; };
       specialArgs = { inherit lib; };
     } { imports = [ ./nix/flake ]; };
 }
