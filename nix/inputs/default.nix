@@ -26,7 +26,7 @@ let
         fetchpatch2 {
           inherit hash;
           name = "${owner}-${repo}-${number}.patch";
-          url = "https://github.com/${owner}/${repo}/pull/${number}.patch?full_index=1";
+          url = "https://github.com/${owner}/${repo}/pull/${number}.diff?full_index=1";
         };
       patches' = patches ++ map mkPatch pulls;
       src' = applyPatches {
