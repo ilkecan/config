@@ -7,6 +7,7 @@
   home = {
     sessionVariables = {
       CLAUDE_CODE_DISABLE_AUTO_MEMORY = 0;
+      ENABLE_TOOL_SEARCH = "true";
     };
 
     packages = with pkgs; [
@@ -28,6 +29,8 @@
             }; # to fix `attribute 'ryoppippi' missing`
           });
       enableMcpIntegration = true;
+      settings = {
+      };
     };
   };
 }
