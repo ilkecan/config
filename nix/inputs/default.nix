@@ -11,10 +11,6 @@ let
     fetchpatch2
     ;
 
-  inherit (inputs.nixpkgs.lib)
-    mapAttrsToList
-    ;
-
   patchInput =
     {
       owner,
@@ -25,12 +21,14 @@ let
       patches ? [ ],
     }:
     let
-      mkPatch = number: hash: {
-        inherit hash;
-        name = "${owner}-${repo}-${number}.patch";
-        url = "https://github.com/${owner}/${repo}/pull/${number}.patch?full_index=1";
-      };
-      patches' = patches ++ map fetchpatch2 (mapAttrsToList mkPatch pulls);
+      mkPatch =
+        { number, hash }:
+        fetchpatch2 {
+          inherit hash;
+          name = "${owner}-${repo}-${number}.patch";
+          url = "https://github.com/${owner}/${repo}/pull/${number}.patch?full_index=1";
+        };
+      patches' = patches ++ map mkPatch pulls;
       src' = applyPatches {
         inherit name src;
         patches = patches';
