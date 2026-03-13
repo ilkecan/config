@@ -1,11 +1,6 @@
 {
-  inputs,
-}:
-
-{
   owner = "AvengeMedia";
   repo = "DankMaterialShell";
-  src = inputs.dms;
   name = "dms";
   pulls = [
     {
