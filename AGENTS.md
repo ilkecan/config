@@ -43,7 +43,6 @@ nix flake check            # Check for evaluation errors
           dev-shells.nix     # devShells (pre-commit shell)
           pre-commit.nix     # git-hooks-nix pre-commit config
       inputs/                # Applies patches to flake inputs
-        default.nix          # Merges patched inputs over raw inputs
         nixpkgs.nix          # nixpkgs patches (module-level changes)
         nixpkgs-patched.nix  # nixpkgs-unstable patches (package-level changes)
         home-manager.nix     # home-manager patches
@@ -58,6 +57,7 @@ nix flake check            # Check for evaluation errors
         home-manager/        # Home Manager modules (homeModules)
         nixos/               # NixOS modules (nixosModules)
       packages/              # Custom pkgs instantiation (overlays applied here)
+      inputs.nix             # Merges patched inputs over raw inputs
     secrets/                 # sops-nix encrypted secrets
 
 ## Key Architectural Patterns

@@ -193,7 +193,7 @@
       lib = import ./nix/lib { inherit (inputs.nixpkgs) lib; };
     in
     inputs.flake-parts.lib.mkFlake {
-      inputs = import ./nix/inputs { inherit inputs lib; };
+      inputs = import ./nix/inputs.nix { inherit inputs lib; };
       specialArgs = { inherit lib; };
     } { imports = [ ./nix/flake ]; };
 }
