@@ -13,6 +13,11 @@ let
     mapAttrs
     mapAttrs'
     nameValuePair
+    removeSuffix
+    ;
+
+  inherit (lib.my)
+    importTree
     ;
 
   # NOTE: unfortunately there is no way to avoid hard-coded `system` yet
@@ -84,11 +89,11 @@ let
   inherit (inputs) self;
   inputs' = removeAttrs inputs [ "self" ];
 
-  patchedInputs = {
-    dms = patchInput (import ./dms.nix);
-    home-manager = patchInput (import ./home-manager.nix);
-    nixpkgs = patchInput (import ./nixpkgs.nix);
-    nixpkgs-patched = patchInput (import ./nixpkgs-patched.nix);
+  patchedInputs = importTree {
+    root = ./inputs;
+    depth = 1;
+    importFn = x: patchInput (import x);
+    normalizeNameFn = removeSuffix ".nix";
   };
 
   # Use the original realized source path as the replacement identity so
