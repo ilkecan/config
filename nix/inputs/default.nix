@@ -51,9 +51,9 @@ let
     {
       owner,
       repo,
-      src,
       name,
       pulls,
+      input ? name,
       patches ? [ ],
     }:
     let
@@ -64,10 +64,11 @@ let
           name = "${owner}-${repo}-${number}.patch";
           url = "https://github.com/${owner}/${repo}/pull/${number}.diff?full_index=1";
         };
-      patches' = patches ++ map mkPatch pulls;
+
+      src = inputs.${input};
       src' = applyPatches {
         inherit name src;
-        patches = patches';
+        patches = patches ++ map mkPatch pulls;
       };
 
       sourceInfo = src.sourceInfo // {
@@ -83,12 +84,11 @@ let
   inherit (inputs) self;
   inputs' = removeAttrs inputs [ "self" ];
 
-  args = { inherit inputs; };
   patchedInputs = {
-    dms = patchInput (import ./dms.nix args);
-    home-manager = patchInput (import ./home-manager.nix args);
-    nixpkgs = patchInput (import ./nixpkgs.nix args);
-    nixpkgs-patched = patchInput (import ./nixpkgs-patched.nix args);
+    dms = patchInput (import ./dms.nix);
+    home-manager = patchInput (import ./home-manager.nix);
+    nixpkgs = patchInput (import ./nixpkgs.nix);
+    nixpkgs-patched = patchInput (import ./nixpkgs-patched.nix);
   };
 
   # Use the original realized source path as the replacement identity so

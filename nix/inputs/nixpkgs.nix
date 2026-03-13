@@ -1,11 +1,6 @@
 {
-  inputs,
-}:
-
-{
   owner = "NixOS";
   repo = "nixpkgs";
-  src = inputs.nixpkgs;
   name = "nixpkgs";
   pulls = [
     {
