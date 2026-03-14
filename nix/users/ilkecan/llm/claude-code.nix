@@ -11,6 +11,8 @@
     };
 
     packages = with pkgs; [
+      llm-agents.ccstatusline # https://github.com/sirmalloc/ccstatusline
+      llm-agents.ccusage # https://github.com/ryoppippi/ccusage
       starship # https://github.com/starship/starship - https://github.com/martinemde/starship-claude
     ];
   };
