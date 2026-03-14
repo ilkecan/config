@@ -1,8 +1,18 @@
 {
   inputs,
+  lib,
   system,
 }:
 
+let
+  inherit (lib)
+    removeSuffix
+    ;
+
+  inherit (lib.my)
+    importTree
+    ;
+in
 import inputs.nixpkgs {
   localSystem = { inherit system; };
 
@@ -52,9 +62,14 @@ import inputs.nixpkgs {
     })
 
     (_final: prev: {
-      patched = prev.patched // {
-        nix-fast-build = prev.patched.callPackage ./patched/nix-fast-build.nix { };
-      };
+      patched =
+        prev.patched
+        // importTree {
+          root = ./patched;
+          depth = 1;
+          importFn = x: prev.patched.callPackage x { };
+          normalizeNameFn = removeSuffix ".nix";
+        };
     })
   ];
 }
