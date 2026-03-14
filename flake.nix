@@ -122,6 +122,7 @@
       inputs = {
         flake-compat.follows = "flake-compat";
         flake-parts.follows = "flake-parts";
+        nixpkgs-nixcord.follows = "nixpkgs";
         nixpkgs.follows = "nixpkgs";
       };
     };
