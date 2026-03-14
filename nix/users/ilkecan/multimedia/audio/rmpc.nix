@@ -41,6 +41,7 @@
             ),
             keybinds: (
                 global: {
+                    "?":       ShowHelp,
                     ":":       CommandMode,
                     ",":       VolumeDown,
                     "s":       Stop,
