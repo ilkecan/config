@@ -9,6 +9,7 @@
     };
 
     packages = with pkgs; [
+      llm-agents.ccusage-codex # https://github.com/ryoppippi/ccusage
       nodejs_latest # https://github.com/nodejs/node - /experimental -> JavaScript REPL
     ];
   };
