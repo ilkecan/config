@@ -13,8 +13,8 @@ nix-fast-build.overrideAttrs (prev: {
   patches = (prev.patches or [ ]) ++ [
     (fetchpatch2 {
       name = "support-impure-derivations.patch";
-      url = "https://patch-diff.githubusercontent.com/raw/Mic92/nix-fast-build/pull/301.patch";
-      hash = "sha256-E2nffS/w3IRgr5r2VB/m5HgZkzDO4Ukn9f8n9gzkI8g=";
+      url = "https://github.com/Mic92/nix-fast-build/pull/301.diff?full_index=1";
+      hash = "sha256-xVN5nOUIDTrCJ6jBeKp/MiYkHULYvj0xgBFqiQ34f+U=";
     })
   ];
 })

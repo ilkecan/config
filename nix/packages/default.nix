@@ -52,8 +52,8 @@ import inputs.nixpkgs {
     })
 
     (_final: prev: {
-      unstable = prev.unstable // {
-        nix-fast-build = prev.unstable.callPackage ./nix-fast-build.nix { };
+      patched = prev.patched // {
+        nix-fast-build = prev.patched.callPackage ./patched/nix-fast-build.nix { };
       };
     })
   ];
