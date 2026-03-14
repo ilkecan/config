@@ -5,7 +5,9 @@
 let
   inherit (builtins)
     baseNameOf
+    convertHash
     readDir
+    hashString
     ;
 
   inherit (lib)
@@ -25,6 +27,32 @@ let
   INFINITY = 1.0e308 * 2;
 in
 {
+  flakeInputStorePath =
+    { narHash, ... }:
+    let
+      narHashHex = convertHash {
+        hash = narHash;
+        toHashFormat = "base16";
+      };
+
+      # The fingerprint Nix uses for source (content-addressed) paths
+      fingerprint = "source:sha256:${narHashHex}:/nix/store:source";
+
+      fullHashHex = hashString "sha256" fingerprint;
+
+      # Nix truncates to 160 bits (20 bytes = 40 hex chars)
+      truncatedHex = substring 0 40 fullHashHex;
+
+      # Trick: sha1 is also 160 bits, so convertHash will accept
+      # our 40-char hex string and produce the correct nix32 encoding
+      storeHash = convertHash {
+        hash = truncatedHex;
+        hashAlgo = "sha1";
+        toHashFormat = "nix32";
+      };
+    in
+    "/nix/store/${storeHash}-source";
+
   flattenAttrs =
     sep: attrs:
     let
