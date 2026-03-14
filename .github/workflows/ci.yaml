@@ -20,7 +20,7 @@ jobs:
       - uses: nixbuild/nix-quick-install-action@v34
         with:
           nix_conf: |
-            experimental-features = ca-derivations flakes impure-derivations nix-command no-url-literals
+            experimental-features = ca-derivations flakes impure-derivations nix-command
 
       - run: nix run
         env:

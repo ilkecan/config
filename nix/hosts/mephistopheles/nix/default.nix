@@ -36,7 +36,6 @@ in
         "flakes"
         "impure-derivations"
         "nix-command"
-        "no-url-literals"
       ];
       trusted-users = [ userConfig.home.username ];
 
@@ -66,8 +65,10 @@ in
       http-connections = 128; # default: 25
       keep-going = true;
       keep-outputs = true;
+      # lint-absolute-path-literals = "warn";
+      # lint-short-path-literals = "warn";
+      lint-url-literals = "fatal";
       max-substitution-jobs = 128; # default: 16
-      # warn-short-path-literals = true;
     };
 
     gc = {
