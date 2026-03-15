@@ -12,10 +12,8 @@ let
     ;
 
   inherit (lib.my)
-    storePathName
+    isPatchedInput
     ;
-
-  isPatchedInput = x: storePathName x != "source";
 in
 {
   flake.cachix = {

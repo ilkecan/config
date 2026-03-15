@@ -4,11 +4,16 @@
 }:
 
 let
-  inherit (builtins)
-    unsafeDiscardStringContext
-    ;
-
   inherit (lib)
+    any
+    attrNames
+    attrValues
+    elem
+    filterAttrs
+    foldl'
+    importJSON
+    intersectAttrs
+    isString
     map
     mapAttrs
     mapAttrs'
@@ -18,6 +23,8 @@ let
 
   inherit (lib.my)
     importTree
+    isFlake
+    isPatchedInput
     ;
 
   # NOTE: unfortunately there is no way to avoid hard-coded `system` yet
@@ -83,62 +90,109 @@ let
     mkFlake {
       srcPath = src';
       inherit sourceInfo;
-      inputs' = mapAttrs (_: resolveInput) src.inputs;
+      inputs' = mapAttrs (
+        localName: resolveInput (resolveNodeName nodes.${topLevelNodeNames.${input}}.inputs.${localName})
+      ) src.inputs;
     };
 
-  inherit (inputs) self;
-  inputs' = removeAttrs inputs [ "self" ];
-
-  patchedInputs = importTree {
+  # Patch configurations from ./inputs/ that actually apply changes. importFn
+  # calls patchInput for every spec file; isPatchedInput filters out specs with
+  # no patches (where applyPatches returns the original src unchanged).
+  patchedInputs = filterAttrs (_: isPatchedInput) (importTree {
     root = ./inputs;
     depth = 1;
     importFn = x: patchInput (import x);
     normalizeNameFn = removeSuffix ".nix";
-  };
+  });
 
-  # Use the original realized source path as the replacement identity so
-  # aliases such as nixpkgs-lib and nixpkgs-stable collapse to one node.
-  inputKey = x: unsafeDiscardStringContext x.outPath;
+  # Resolve a lock node reference to its canonical node name.
+  # String refs are already node names; array refs are follow-paths from root
+  # (e.g. ["nixpkgs"] resolves root→nixpkgs, ["bar","foo"] resolves root→bar→foo).
+  resolveNodeName =
+    inputSpec:
+    if isString inputSpec then
+      inputSpec
+    else
+      foldl' (nodeName: inputName: resolveNodeName nodes.${nodeName}.inputs.${inputName}) root inputSpec;
 
-  # Rebuild a non-patched flake against resolved child inputs.
-  # Top-level canonical inputs are handled separately through replacementMapping.
+  lockFile = importJSON ../flake.lock;
+  inherit (lockFile) nodes root;
+
+  rootInputs = nodes.${root}.inputs;
+  resolveTopLevelNodeName = name: resolveNodeName rootInputs.${name};
+
+  inputs' = removeAttrs inputs [ "self" ];
+
+  # Node key for each top-level input (resolved via lock, not outPath).
+  topLevelNodeNames = mapAttrs (name: _: resolveTopLevelNodeName name) inputs';
+
+  # Shadowed inputs are those whose name also appears in inputs'. Additive
+  # patches (e.g. nixpkgs-patched) are excluded — they add a name not present
+  # in inputs', so they have no corresponding lock node to mark dirty.
+  shadowedInputNames = attrNames (intersectAttrs inputs' patchedInputs);
+  shadowedNodeNames = map resolveTopLevelNodeName shadowedInputNames;
+
+  # Self-referential lazy map: a lock node is dirty if it is directly patched
+  # or any of its lock-declared inputs resolves to a dirty node.
+  # Terminates because flake.lock is a DAG. Pattern validated by Nix's own
+  # call-flake.nix (allNodes), adapted here with a nodeDirtiness check instead
+  # of unconditionally rebuilding everything.
+  nodeDirtiness = mapAttrs (
+    name: node:
+    elem name shadowedNodeNames
+    || any (inputSpec: nodeDirtiness.${resolveNodeName inputSpec}) (attrValues (node.inputs or { }))
+  ) nodes;
+
+  # Rebuild a dirty flake against resolved child inputs. Each child's lock node
+  # name is used to look up its canonical resolved version via resolveInput.
   resolveFlake =
-    input:
-    if input ? inputs then
+    nodeName: input:
+    if isFlake input then
       mkFlake {
         srcPath = input.outPath;
         sourceInfo = input.sourceInfo;
-        inputs' = mapAttrs (_: resolveInput) input.inputs;
+        inputs' = mapAttrs (
+          localName: resolveInput (resolveNodeName nodes.${nodeName}.inputs.${localName})
+        ) input.inputs;
       }
     else
       input;
 
-  # These are the canonical nodes for every raw top-level input. Any transitive
-  # dependency that is shared across the graph is expected to follow one of
-  # these exact top-level nodes.
-  resolvedTopLevel = mapAttrs (name: input: patchedInputs.${name} or (resolveFlake input)) inputs';
-
-  # Map each original top-level source identity to its canonical resolved node.
-  # This only covers raw top-level inputs: additive patched inputs such as
-  # nixpkgs-patched are intentionally excluded because their pre-patch source
-  # identity collides with another raw input (for example nixpkgs-unstable),
-  # and they are only meant to be consumed directly by self.
-  replacementMapping = mapAttrs' (
-    name: input: nameValuePair (inputKey input) (resolvedTopLevel.${name})
+  # Canonical resolved version of every raw top-level input: patched inputs use
+  # their patched version; dirty inputs are rebuilt via resolveFlake; clean
+  # inputs are returned as-is (no mkFlake, no flake.outputs re-evaluation).
+  resolvedTopLevel = mapAttrs (
+    name: input:
+    patchedInputs.${name} or (
+      let
+        nodeName = topLevelNodeNames.${name};
+      in
+      if nodeDirtiness.${nodeName} then resolveFlake nodeName input else input
+    )
   ) inputs';
 
-  # Repository invariant: if a dependency is shared in multiple places, it
-  # should have a canonical representative at the top level and all repeats
-  # should follow that node. In that common case we reuse the canonical thunk
-  # through replacementMapping; the fallback only rebuilds non-canonical inputs
-  # that are not expected to be shared transitively.
-  resolveInput = input: replacementMapping.${inputKey input} or (resolveFlake input);
+  # Maps each top-level input's lock node name → its canonical resolved version.
+  # Transitive followers share the same lock node name, so they get the same thunk.
+  nodeNameMapping = mapAttrs' (
+    name: _: nameValuePair topLevelNodeNames.${name} resolvedTopLevel.${name}
+  ) inputs';
 
-  # to include additive patched inputs like `nixpkgs-patched`
+  # Resolve any input by its lock node name to its canonical version.
+  # Top-level canonical nodes are served from nodeNameMapping; transitive
+  # non-canonical nodes fall back to resolveFlake if dirty, or are returned
+  # as-is if clean.
+  resolveInput =
+    nodeName: input:
+    nodeNameMapping.${nodeName}
+      or (if nodeDirtiness.${nodeName} then resolveFlake nodeName input else input);
+
+  # Merges additive patched inputs (e.g. nixpkgs-patched) with the resolved
+  # top-level inputs. Additive inputs are not present in inputs' so they would
+  # otherwise be dropped; this merge ensures they are exported alongside the rest.
   resolvedInputs = patchedInputs // resolvedTopLevel;
 in
 {
-  self = self // {
+  self = inputs.self // {
     inputs = resolvedInputs;
   };
 }

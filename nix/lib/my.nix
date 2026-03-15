@@ -22,6 +22,7 @@ let
   inherit (lib.my)
     importTree
     mkAbsolute
+    storePathName
     ;
 
   INFINITY = 1.0e308 * 2;
@@ -102,6 +103,10 @@ in
         ) (readDir path);
     in
     if depth <= 0 then importFile root else importDir root;
+
+  isFlake = x: x._type or null == "flake";
+
+  isPatchedInput = x: storePathName x != "source";
 
   mkAbsolute =
     root: path:
