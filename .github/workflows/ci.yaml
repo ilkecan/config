@@ -21,6 +21,11 @@ jobs:
         with:
           nix_conf: |
             experimental-features = ca-derivations flakes impure-derivations nix-command
+            extra-substituters = https://ilkecan.cachix.org?priority=41 https://nix-community.cachix.org?priority=42
+            extra-trusted-public-keys = ilkecan.cachix.org-1:hXb7Vo9EzaXiEb0elvG6Tt5TrP3zrcadyoX8c+lbeCY= nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=
+            http-connections = 128
+            lint-url-literals = fatal
+            max-substitution-jobs = 128
 
       - run: nix run
         env:
