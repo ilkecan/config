@@ -72,14 +72,13 @@ There are three nixpkgs inputs with distinct purposes:
 
 ### Input Patching
 
-`nix/inputs/default.nix` applies upstream PRs to inputs and makes patched versions transparent by overwriting the originals under `inputs.*` (except `nixpkgs-patched`, which is always a separate additive input). Modules consume patched inputs the same way as stock ones.
+`nix/inputs.nix` applies upstream PRs to inputs and makes patched versions transparent by overwriting the originals under `inputs.*` (except `nixpkgs-patched`, which is always a separate additive input). Modules consume patched inputs the same way as stock ones.
 
-Transitive flake inputs are rewritten recursively: `replacementMapping` maps each top-level input's `outPath` to its resolved counterpart, so `follows` aliases like `nixpkgs-lib` or `nixpkgs-stable` are transparently replaced with the correct canonical node.
+Transitive flake inputs are rewritten selectively using `flake.lock` node names. `nodeDirtiness` is a self-referential lazy map over all lock nodes: a node is dirty if it is directly patched or any of its lock-declared inputs resolves to a dirty node. Only dirty inputs are rebuilt via `mkFlake`; clean inputs are returned as-is, avoiding unnecessary `flake.outputs` re-evaluations. `nodeNameMapping` maps each top-level input's lock node name to its canonical resolved version, ensuring that `follows` aliases pointing to the same node share the same thunk.
 
-Important invariants when editing `nix/inputs/default.nix`:
+Important invariants when editing `nix/inputs.nix`:
 
 - **Top-level canonical nodes** — if a dependency is shared in multiple places, it should have a canonical representative at the top level and all repeats should follow that node.
-- **Additive patched inputs must not be flake inputs** — `nixpkgs-patched` is excluded from `resolvedTopLevel` and `replacementMapping` because it is not declared in `flake.nix`'s inputs. This is by design: its pre-patch source `outPath` would collide with `nixpkgs-unstable` in `replacementMapping`. It enters the final result via the `patchedInputs // resolvedTopLevel` merge and is only consumed directly by self.
 - **`self` is special-cased** — the recursive rewrite applies to external inputs, but `self` itself is not rebuilt through that recursion. Only `self.inputs` is updated with the rewritten/exported input set to avoid recursive self-reimport.
 
 ### Custom pkgs Overlays
