@@ -39,9 +39,7 @@ layout {
     pane command="nvim"
 
     floating_panes {
-      pane command="claude" x="10%" y="10%" width="80%" height="80%" {
-        args "--ide"
-      }
+      pane command="codex" x="10%" y="10%" width="80%" height="80%"
     }
 
     pane size=1 borderless=true {
@@ -53,7 +51,7 @@ layout {
     pane command="zsh"
 
     floating_panes {
-      pane command="codex" x="10%" y="10%" width="80%" height="80%"
+      pane command="zsh" x="10%" y="10%" width="80%" height="80%"
     }
 
     pane size=1 borderless=true {
