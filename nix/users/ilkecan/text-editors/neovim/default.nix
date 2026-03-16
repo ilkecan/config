@@ -1,20 +1,16 @@
 # https://github.com/NotAShelf/nvf/
 {
+  lib,
   ...
 }:
 
+let
+  inherit (lib.my)
+    collectImports
+    ;
+in
 {
-  imports = [
-    ./autocmds.nix
-    ./globals.nix
-    ./keymaps.nix
-    ./languages.nix
-    ./lsp.nix
-    ./lua.nix
-    ./options.nix
-    ./plugins
-    ./treesitter
-  ];
+  imports = collectImports ./.;
 
   programs.nvf = {
     enable = true;

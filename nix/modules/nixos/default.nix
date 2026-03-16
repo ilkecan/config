@@ -1,9 +1,13 @@
 {
+  lib,
   ...
 }:
 
+let
+  inherit (lib.my)
+    collectImports
+    ;
+in
 {
-  imports = [
-    ./fix-automatic-timezoned.nix
-  ];
+  imports = collectImports ./.;
 }

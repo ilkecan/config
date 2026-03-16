@@ -1,13 +1,16 @@
 {
+  lib,
   pkgs,
   ...
 }:
 
+let
+  inherit (lib.my)
+    collectImports
+    ;
+in
 {
-  imports = [
-    ./gpg.nix
-    ./keepassxc.nix
-  ];
+  imports = collectImports ./.;
 
   home.packages = with pkgs; [
     age

@@ -1,6 +1,7 @@
 {
   config,
   inputs',
+  lib,
   pkgs,
   ...
 }:
@@ -9,11 +10,13 @@ let
   inherit (config.home)
     homeDirectory
     ;
+
+  inherit (lib.my)
+    collectImports
+    ;
 in
 {
-  imports = [
-    ./optnix.nix
-  ];
+  imports = collectImports ./.;
 
   nix.channels = {
     inherit (inputs')

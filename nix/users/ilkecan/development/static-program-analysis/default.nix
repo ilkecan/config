@@ -1,12 +1,16 @@
 {
+  lib,
   pkgs,
   ...
 }:
 
+let
+  inherit (lib.my)
+    collectImports
+    ;
+in
 {
-  imports = [
-    ./nix.nix
-  ];
+  imports = collectImports ./.;
 
   home.packages = with pkgs; [
     keep-sorted # https://github.com/google/keep-sorted

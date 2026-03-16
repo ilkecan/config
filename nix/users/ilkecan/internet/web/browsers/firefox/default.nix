@@ -15,15 +15,16 @@ let
     versions
     ;
 
+  inherit (lib.my)
+    collectImports
+    ;
+
   cfg = config.programs.firefox;
   version = versions.majorMinor cfg.package.version;
   supportedVersions = attrNames (import "${inputs'.betterfox-nix}/data/firefox");
 in
 {
-  imports = [
-    ./policies.nix
-    ./profiles
-  ];
+  imports = collectImports ./.;
 
   home.packages = with pkgs; [
     nur.repos.vladexa.mozlz4 # https://github.com/jusw85/mozlz4

@@ -1,12 +1,16 @@
 {
+  lib,
   pkgs,
   ...
 }:
 
+let
+  inherit (lib.my)
+    collectImports
+    ;
+in
 {
-  imports = [
-    ./git.nix
-  ];
+  imports = collectImports ./.;
 
   home.packages = with pkgs; [
     gh

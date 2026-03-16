@@ -1,10 +1,13 @@
 {
+  lib,
   ...
 }:
 
+let
+  inherit (lib.my)
+    collectImports
+    ;
+in
 {
-  imports = [
-    ./keyboard.nix
-    ./webcam.nix
-  ];
+  imports = collectImports ./.;
 }

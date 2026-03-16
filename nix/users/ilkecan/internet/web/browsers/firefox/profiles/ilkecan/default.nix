@@ -1,13 +1,13 @@
 {
+  lib,
   ...
 }:
 
+let
+  inherit (lib.my)
+    collectImports
+    ;
+in
 {
-  imports = [
-    ./bookmarks.nix
-    ./containers.nix
-    ./extensions
-    ./search.nix
-    ./settings
-  ];
+  imports = collectImports ./.;
 }

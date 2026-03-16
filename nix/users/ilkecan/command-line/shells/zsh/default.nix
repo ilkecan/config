@@ -13,6 +13,10 @@ let
     mkOrder
     ;
 
+  inherit (lib.my)
+    collectImports
+    ;
+
   inherit (config.xdg)
     cacheHome
     configHome
@@ -34,13 +38,7 @@ let
   };
 in
 {
-  imports = [
-    ./autosuggestion.nix
-    ./history.nix
-    ./options.nix
-    ./powerlevel10k.nix
-    ./syntax-highlighting.nix
-  ];
+  imports = collectImports ./.;
 
   programs.zsh = {
     enable = true;

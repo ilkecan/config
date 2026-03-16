@@ -1,12 +1,16 @@
 {
+  lib,
   pkgs,
   ...
 }:
 
+let
+  inherit (lib.my)
+    collectImports
+    ;
+in
 {
-  imports = [
-    ./steam.nix
-  ];
+  imports = collectImports ./.;
 
   home.packages = with pkgs; [
     goverlay # github.com/benjamimgois/goverlay

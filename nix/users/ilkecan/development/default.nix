@@ -1,15 +1,16 @@
 {
+  lib,
   pkgs,
   ...
 }:
 
+let
+  inherit (lib.my)
+    collectImports
+    ;
+in
 {
-  imports = [
-    ./debugging.nix
-    ./lsp.nix
-    ./static-program-analysis
-    ./version-control
-  ];
+  imports = collectImports ./.;
 
   home.packages = with pkgs; [
     unstable.devenv

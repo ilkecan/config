@@ -1,13 +1,15 @@
 {
+  lib,
   ...
 }:
 
+let
+  inherit (lib.my)
+    collectImports
+    ;
+in
 {
-  imports = [
-    ./coreutils.nix
-    ./disk.nix
-    ./zellij
-  ];
+  imports = collectImports ./.;
 
   programs = {
     atuin = {

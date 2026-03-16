@@ -1,12 +1,16 @@
 {
+  lib,
   pkgs,
   ...
 }:
 
+let
+  inherit (lib.my)
+    collectImports
+    ;
+in
 {
-  imports = [
-    ./shells
-  ];
+  imports = collectImports ./.;
 
   home = {
     sessionVariables = {

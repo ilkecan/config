@@ -12,6 +12,10 @@ let
     mkMerge
     ;
 
+  inherit (lib.my)
+    collectImports
+    ;
+
   inherit (builtins)
     any
     ;
@@ -24,11 +28,7 @@ let
   );
 in
 {
-  imports = [
-    ./dank-material-shell
-    ./niri
-    ./satty.nix
-  ];
+  imports = collectImports ./.;
 
   dbus.packages = [
     pkgs.nautilus # required for xdg-desktop-portal-gnome's FileChooser to work properly

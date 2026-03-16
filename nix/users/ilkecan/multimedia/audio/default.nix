@@ -1,11 +1,13 @@
 {
+  lib,
   ...
 }:
 
+let
+  inherit (lib.my)
+    collectImports
+    ;
+in
 {
-  imports = [
-    ./easyeffects
-    ./mpd.nix
-    ./rmpc.nix
-  ];
+  imports = collectImports ./.;
 }

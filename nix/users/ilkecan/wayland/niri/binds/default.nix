@@ -1,11 +1,15 @@
 {
+  lib,
   ...
 }:
 
+let
+  inherit (lib.my)
+    collectImports
+    ;
+in
 {
-  imports = [
-    ./defaults.nix
-  ];
+  imports = collectImports ./.;
 
   programs.niri.settings.binds = {
     "Ctrl+WheelScrollLeft".action.focus-monitor-left = [ ];

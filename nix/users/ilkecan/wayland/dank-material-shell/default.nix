@@ -1,5 +1,6 @@
 {
   inputs',
+  lib,
   options,
   pkgs,
   ...
@@ -7,12 +8,13 @@
 
 let
   opt = options.programs.dank-material-shell;
+
+  inherit (lib.my)
+    collectImports
+    ;
 in
 {
-  imports = [
-    ./plugins
-    ./wallpaper.nix
-  ];
+  imports = collectImports ./.;
 
   home.packages = with pkgs; [
     unstable.dsearch

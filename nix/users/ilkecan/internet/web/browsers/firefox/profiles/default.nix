@@ -1,11 +1,15 @@
 {
+  lib,
   ...
 }:
 
+let
+  inherit (lib.my)
+    collectImports
+    ;
+in
 {
-  imports = [
-    ./ilkecan
-  ];
+  imports = collectImports ./.;
 
   programs.firefox.profiles.ilkecan = {
     id = 0;

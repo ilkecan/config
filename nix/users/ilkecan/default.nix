@@ -1,41 +1,20 @@
 {
   config,
+  lib,
   pkgs,
   ...
 }:
 
 let
   cfg = config.home;
+
+  inherit (lib.my)
+    collectImports
+    ;
 in
 
 {
-  imports = [
-    ./appearence
-    ./command-line
-    ./development
-    ./file-managers
-    ./flatpak.nix
-    ./gaming
-    ./gtk.nix
-    ./hardware
-    ./home-manager.nix
-    ./input
-    ./internet
-    ./llm
-    ./multimedia
-    ./networking
-    ./nix
-    ./office.nix
-    ./packaging.nix
-    ./qt.nix
-    ./security
-    ./sops.nix
-    ./text-editors
-    ./utilities
-    ./virtualization
-    ./wayland
-    ./xdg
-  ];
+  imports = collectImports ./.;
 
   # Home Manager needs a bit of information about you and the
   # paths it should manage.

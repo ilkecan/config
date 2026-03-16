@@ -1,16 +1,16 @@
 {
+  lib,
   pkgs,
   ...
 }:
 
+let
+  inherit (lib.my)
+    collectImports
+    ;
+in
 {
-  imports = [
-    ./audio
-    ./gstreamer.nix
-    ./image.nix
-    ./video.nix
-    ./wireplumber
-  ];
+  imports = collectImports ./.;
 
   home.packages = with pkgs; [
     exiftool
