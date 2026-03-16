@@ -4,13 +4,17 @@
 
 let
   inherit (builtins)
+    attrNames
     baseNameOf
     convertHash
+    pathExists
     readDir
     hashString
     ;
 
   inherit (lib)
+    filterAttrs
+    hasSuffix
     id
     isAttrs
     isPath
@@ -28,6 +32,19 @@ let
   INFINITY = 1.0e308 * 2;
 in
 {
+  collectImports =
+    dir:
+    let
+      isImportable =
+        name: type:
+        if type == "directory" then
+          pathExists (dir + "/${name}/default.nix")
+        else
+          hasSuffix ".nix" name && name != "default.nix";
+      entries = filterAttrs isImportable (readDir dir);
+    in
+    map (name: dir + "/${name}") (attrNames entries);
+
   flakeInputStorePath =
     { narHash, ... }:
     let
