@@ -16,15 +16,12 @@
           _children = [
             { pane._props.command = "nvim"; }
             {
-              floating_panes.pane = {
-                _props = {
-                  command = "claude";
-                  x = "10%";
-                  y = "10%";
-                  width = "80%";
-                  height = "80%";
-                };
-                args = [ "--ide" ];
+              floating_panes.pane._props = {
+                command = "codex";
+                x = "10%";
+                y = "10%";
+                width = "80%";
+                height = "80%";
               };
             }
             {
@@ -49,7 +46,7 @@
             { pane._props.command = config.home.defaultShell.meta.mainProgram; }
             {
               floating_panes.pane._props = {
-                command = "codex";
+                command = "zsh";
                 x = "10%";
                 y = "10%";
                 width = "80%";
