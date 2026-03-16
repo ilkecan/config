@@ -8,13 +8,14 @@ let
   inherit (lib.generators)
     mkLuaInline
     ;
+
+  inherit (lib.my)
+    collectImports
+    ;
 in
 
 {
-  imports = [
-    ./context.nix
-    ./textobjects.nix
-  ];
+  imports = collectImports ./.;
 
   programs.nvf.settings.vim = {
     treesitter = {

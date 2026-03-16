@@ -12,15 +12,13 @@ let
     imap1
     mkForce
     ;
+
+  inherit (lib.my)
+    collectImports
+    ;
 in
 {
-  imports = [
-    ./angrr.nix
-    ./envfs.nix
-    ./nix-ld.nix
-    ./nixos-cli.nix
-    ./nixseparatedebuginfod2.nix
-  ];
+  imports = collectImports ./.;
 
   nix = {
     package = pkgs.unstable.nixVersions.latest;

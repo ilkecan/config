@@ -1,18 +1,15 @@
 {
+  lib,
   ...
 }:
 
+let
+  inherit (lib.my)
+    collectImports
+    ;
+in
 {
-  imports = [
-    ./alarm-clock.nix
-    ./command-runner.nix
-    ./dank-battery-alerts.nix
-    ./dank-kde-connect.nix
-    ./dank-pomodoro-timer.nix
-    ./developer-utilities.nix
-    ./docker-manager.nix
-    ./emoji-launcher.nix
-  ];
+  imports = collectImports ./.;
 
   programs.dank-material-shell = {
     managePluginSettings = true;

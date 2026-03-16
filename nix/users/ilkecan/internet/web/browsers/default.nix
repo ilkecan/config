@@ -1,13 +1,15 @@
 {
+  lib,
   ...
 }:
 
+let
+  inherit (lib.my)
+    collectImports
+    ;
+in
 {
-  imports = [
-    ./chromium.nix
-    ./firefox
-    ./qutebrowser.nix
-  ];
+  imports = collectImports ./.;
 
   home = {
     sessionVariables = {

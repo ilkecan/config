@@ -1,10 +1,13 @@
 {
+  lib,
   ...
 }:
 
+let
+  inherit (lib.my)
+    collectImports
+    ;
+in
 {
-  imports = [
-    ./default-shell.nix
-    ./xdg-bin-home.nix
-  ];
+  imports = collectImports ./.;
 }

@@ -1,13 +1,17 @@
 {
   config,
+  lib,
   pkgs,
   ...
 }:
 
+let
+  inherit (lib.my)
+    collectImports
+    ;
+in
 {
-  imports = [
-    ./fonts.nix
-  ];
+  imports = collectImports ./.;
 
   stylix = {
     enable = true;

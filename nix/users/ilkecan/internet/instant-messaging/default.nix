@@ -1,10 +1,13 @@
 {
+  lib,
   ...
 }:
 
+let
+  inherit (lib.my)
+    collectImports
+    ;
+in
 {
-  imports = [
-    ./discord.nix
-    ./matrix.nix
-  ];
+  imports = collectImports ./.;
 }

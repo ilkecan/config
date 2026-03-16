@@ -7,13 +7,13 @@ let
   inherit (lib)
     mkOrder
     ;
+
+  inherit (lib.my)
+    collectImports
+    ;
 in
 {
-  imports = [
-    ./keybindings.nix
-    ./layouts
-    ./plugins
-  ];
+  imports = collectImports ./.;
 
   programs = {
     zellij = {

@@ -1,11 +1,13 @@
 {
+  lib,
   ...
 }:
 
+let
+  inherit (lib.my)
+    collectImports
+    ;
+in
 {
-  imports = [
-    ./claude-code.nix
-    ./codex.nix
-    ./mcp.nix
-  ];
+  imports = collectImports ./.;
 }

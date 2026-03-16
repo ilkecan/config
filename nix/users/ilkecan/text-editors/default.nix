@@ -1,12 +1,15 @@
 {
+  lib,
   ...
 }:
 
+let
+  inherit (lib.my)
+    collectImports
+    ;
+in
 {
-  imports = [
-    ./neovide.nix
-    ./neovim
-  ];
+  imports = collectImports ./.;
 
   home.sessionVariables = {
     EDITOR = "nvim";

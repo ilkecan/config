@@ -1,9 +1,13 @@
 {
+  lib,
   ...
 }:
 
+let
+  inherit (lib.my)
+    collectImports
+    ;
+in
 {
-  imports = [
-    ./podman.nix
-  ];
+  imports = collectImports ./.;
 }

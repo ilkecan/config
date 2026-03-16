@@ -1,11 +1,15 @@
 {
+  lib,
   ...
 }:
 
+let
+  inherit (lib.my)
+    collectImports
+    ;
+in
 {
-  imports = [
-    ./profiles
-  ];
+  imports = collectImports ./.;
 
   programs.thunderbird = {
     enable = true;

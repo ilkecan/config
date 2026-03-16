@@ -1,11 +1,15 @@
 {
+  lib,
   ...
 }:
 
+let
+  inherit (lib.my)
+    collectImports
+    ;
+in
 {
-  imports = [
-    ./ilkecan.nix
-  ];
+  imports = collectImports ./.;
 
   programs.thunderbird.profiles.ilkecan.isDefault = true;
 }

@@ -1,29 +1,15 @@
 {
+  lib,
   ...
 }:
 
+let
+  inherit (lib.my)
+    collectImports
+    ;
+in
 {
-  imports = [
-    ./android.nix
-    ./bluetooth.nix
-    ./boot
-    ./disk-config.nix
-    ./display-manager.nix
-    ./file-systems.nix
-    ./fonts.nix
-    ./gaming.nix
-    ./gnome.nix
-    ./hardware
-    ./impermanence.nix
-    ./input.nix
-    ./locale.nix
-    ./multimedia.nix
-    ./networking
-    ./nix
-    ./security.nix
-    ./sops.nix
-    ./users.nix
-  ];
+  imports = collectImports ./.;
 
   services = {
     gvfs.enable = true; # required for "Trash"

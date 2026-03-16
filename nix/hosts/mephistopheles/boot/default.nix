@@ -1,14 +1,16 @@
 {
+  lib,
   pkgs,
   ...
 }:
 
+let
+  inherit (lib.my)
+    collectImports
+    ;
+in
 {
-  imports = [
-    ./plymouth.nix
-    ./regdomain.nix
-    ./zswap.nix
-  ];
+  imports = collectImports ./.;
 
   boot = {
     initrd.systemd.enable = true;

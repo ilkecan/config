@@ -1,21 +1,19 @@
 {
   config,
+  lib,
   pkgs,
   ...
 }:
 
 let
   cfg = config.programs.niri;
+
+  inherit (lib.my)
+    collectImports
+    ;
 in
 {
-  imports = [
-    ./autostart.nix
-    ./binds
-    ./input.nix
-    ./layout.nix
-    ./window-rules.nix
-    ./workspaces
-  ];
+  imports = collectImports ./.;
 
   programs.niri = {
     enable = true;

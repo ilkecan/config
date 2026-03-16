@@ -12,11 +12,13 @@ let
   inherit (lib.generators)
     mkLuaInline
     ;
+
+  inherit (lib.my)
+    collectImports
+    ;
 in
 {
-  imports = [
-    ./sources
-  ];
+  imports = collectImports ./.;
 
   programs.nvf.settings.vim.autocomplete.blink-cmp = {
     enable = true;

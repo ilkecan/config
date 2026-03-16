@@ -11,6 +11,7 @@
 {
   imports = [
     inputs'.nixpkgs.nixosModules.notDetected
+    inputs'.nixos-hardware.nixosModules.lenovo-thinkpad-e14-intel-gen7
   ];
 
   boot.initrd.availableKernelModules = [

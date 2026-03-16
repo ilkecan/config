@@ -1,11 +1,15 @@
 {
+  lib,
   ...
 }:
 
+let
+  inherit (lib.my)
+    collectImports
+    ;
+in
 {
-  imports = [
-    ./zellij-autolock.nix
-  ];
+  imports = collectImports ./.;
 
   programs.zellij.settings = {
     plugins = {

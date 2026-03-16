@@ -1,22 +1,17 @@
 {
   config,
-  inputs',
+  lib,
   userConfig,
   ...
 }:
 
+let
+  inherit (lib.my)
+    collectImports
+    ;
+in
 {
-  imports = [
-    ./battery.nix
-    ./configuration.nix
-    ./graphics.nix
-    ./keyboard.nix
-    ./monitor.nix
-    ./mouse.nix
-    ./printer.nix
-    ./thunderbolt.nix
-    inputs'.nixos-hardware.nixosModules.lenovo-thinkpad-e14-intel-gen7
-  ];
+  imports = collectImports ./.;
 
   # TODO switch to facter after NixOS 26.05
   # hardware.facter.reportPath = ./facter.json;

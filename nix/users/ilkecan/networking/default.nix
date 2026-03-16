@@ -1,12 +1,16 @@
 {
+  lib,
   pkgs,
   ...
 }:
 
+let
+  inherit (lib.my)
+    collectImports
+    ;
+in
 {
-  imports = [
-    ./secure-shell.nix
-  ];
+  imports = collectImports ./.;
 
   home = {
     sessionVariables = {

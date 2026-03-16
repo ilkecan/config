@@ -1,13 +1,16 @@
 {
   config,
+  lib,
   ...
 }:
 
+let
+  inherit (lib.my)
+    collectImports
+    ;
+in
 {
-  imports = [
-    ./nushell.nix
-    ./zsh
-  ];
+  imports = collectImports ./.;
 
   home.defaultShell = config.programs.zsh.package;
 }

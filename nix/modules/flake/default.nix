@@ -1,12 +1,13 @@
 {
+  lib,
   ...
 }:
 
+let
+  inherit (lib.my)
+    collectImports
+    ;
+in
 {
-  imports = [
-    ./cachix-push.nix
-    ./flint-git-hook.nix
-    ./gitleaks-git-hook.nix
-    ./per-system-flake-inputs.nix
-  ];
+  imports = collectImports ./.;
 }

@@ -1,15 +1,16 @@
 {
+  lib,
   pkgs,
   ...
 }:
 
+let
+  inherit (lib.my)
+    collectImports
+    ;
+in
 {
-  imports = [
-    ./communication
-    ./download.nix
-    ./instant-messaging
-    ./web
-  ];
+  imports = collectImports ./.;
 
   home.packages = with pkgs; [
     bandwhich # https://github.com/imsnif/bandwhich

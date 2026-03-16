@@ -1,4 +1,5 @@
 {
+  lib,
   ...
 }:
 
@@ -7,12 +8,14 @@ let
     concatStringsSep
     ;
 
+  inherit (lib.my)
+    collectImports
+    ;
+
   comSepList = concatStringsSep ",";
 in
 {
-  imports = [
-    ./betterfox.nix
-  ];
+  imports = collectImports ./.;
 
   programs.firefox = {
     profiles.ilkecan.settings = {

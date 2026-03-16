@@ -1,15 +1,13 @@
 {
+  lib,
   ...
 }:
 
+let
+  inherit (lib.my)
+    collectImports
+    ;
+in
 {
-  imports = [
-    ./conventional-commits.nix
-    ./dictionary.nix
-    ./emoji.nix
-    ./env.nix
-    ./nerdfont.nix
-    ./npm.nix
-    ./ripgrep.nix
-  ];
+  imports = collectImports ./.;
 }
