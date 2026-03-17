@@ -6,6 +6,8 @@
 {
   home.packages = with pkgs; [
     ffmpeg-full
+    gpu-screen-recorder
+    gpu-screen-recorder-gtk
     unstable.stremio-linux-shell
     vlc
   ];
