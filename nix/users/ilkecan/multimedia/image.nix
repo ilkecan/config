@@ -5,6 +5,7 @@
 
 {
   home.packages = with pkgs; [
+    exiftool
     imagemagick
     krita
     libjxl # `cjxl` & `jxlinfo`
