@@ -3,6 +3,10 @@
 }:
 
 {
+  programs = {
+    gpu-screen-recorder.enable = true;
+  };
+
   services = {
     pipewire = {
       enable = true;

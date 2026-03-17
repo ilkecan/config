@@ -1,6 +1,5 @@
 {
   lib,
-  pkgs,
   ...
 }:
 
@@ -11,10 +10,6 @@ let
 in
 {
   imports = collectImports ./.;
-
-  home.packages = with pkgs; [
-    exiftool
-  ];
 
   services = {
     playerctld.enable = true;
