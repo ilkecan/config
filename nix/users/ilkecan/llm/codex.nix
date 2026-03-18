@@ -27,8 +27,8 @@ in
       # enableMcpIntegration = true; # disable until lazy loading is implemented https://github.com/openai/codex/issues/9266
       settings = {
         model = "gpt-5.4";
-        model_reasoning_effort = "medium";
-        plan_mode_reasoning_effort = "high";
+        model_reasoning_effort = "high";
+        plan_mode_reasoning_effort = "xhigh";
         personality = "pragmatic";
 
         features = {

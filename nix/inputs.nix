@@ -107,7 +107,7 @@ let
 
   # Resolve a lock node reference to its canonical node name.
   # String refs are already node names; array refs are follow-paths from root
-  # (e.g. ["nixpkgs"] resolves root→nixpkgs, ["bar","foo"] resolves root→bar→foo).
+  # (e.g. ["nixpkgs"] resolves root -> nixpkgs, ["bar","foo"] resolves root -> bar -> foo).
   resolveNodeName =
     inputSpec:
     if isString inputSpec then
@@ -127,7 +127,7 @@ let
   topLevelNodeNames = mapAttrs (name: _: resolveTopLevelNodeName name) inputs';
 
   # Shadowed inputs are those whose name also appears in inputs'. Additive
-  # patches (e.g. nixpkgs-patched) are excluded — they add a name not present
+  # patches (e.g. nixpkgs-patched) are excluded - they add a name not present
   # in inputs', so they have no corresponding lock node to mark dirty.
   shadowedInputNames = attrNames (intersectAttrs inputs' patchedInputs);
   shadowedNodeNames = map resolveTopLevelNodeName shadowedInputNames;
@@ -171,7 +171,7 @@ let
     )
   ) inputs';
 
-  # Maps each top-level input's lock node name → its canonical resolved version.
+  # Maps each top-level input's lock node name ->  its canonical resolved version.
   # Transitive followers share the same lock node name, so they get the same thunk.
   nodeNameMapping = mapAttrs' (
     name: _: nameValuePair topLevelNodeNames.${name} resolvedTopLevel.${name}
