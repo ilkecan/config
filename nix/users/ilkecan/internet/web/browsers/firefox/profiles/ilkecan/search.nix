@@ -53,12 +53,16 @@ in
       "archlinux"
       "aur"
 
+      "python"
+      "pypi"
+
       "rails"
       "ruby"
       "rubygems"
 
-      "python"
-      "pypi"
+      "crates"
+      "docs-rs"
+      "rust"
     ];
 
     engines =
@@ -86,6 +90,20 @@ in
           urls = [ { template = "https://aur.archlinux.org/packages?K={searchTerms}"; } ];
           iconMapObj."16" = "https://aur.archlinux.org/static/images/favicon.ico";
           definedAliases = [ "@aur" ];
+        };
+
+        crates = {
+          name = "crates.io";
+          urls = [ { template = "https://crates.io/search?q={searchTerms}"; } ];
+          iconMapObj."48" = "https://crates.io/favicon.ico";
+          definedAliases = [ "@crates" ];
+        };
+
+        docs-rs = {
+          name = "Docs.rs";
+          urls = [ { template = "https://docs.rs/releases/search?query={searchTerms}"; } ];
+          iconMapObj."32" = "https://docs.rs/-/static/favicon.ico";
+          definedAliases = [ "@docs-rs" ];
         };
 
         duckduckgo = {
@@ -261,6 +279,16 @@ in
             "@rubygems"
             "@rg"
             "@gem"
+          ];
+        };
+
+        rust = {
+          name = "std - Rust";
+          urls = [ { template = "https://doc.rust-lang.org/std/index.html?search={searchTerms}"; } ];
+          iconMapObj."196" = "https://doc.rust-lang.org/favicon.ico";
+          definedAliases = [
+            "@rust"
+            "rs"
           ];
         };
 
