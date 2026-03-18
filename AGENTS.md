@@ -66,9 +66,9 @@ nix flake check            # Check for evaluation errors
 
 There are three nixpkgs inputs with distinct purposes:
 
-- **`nixpkgs`** (stable, `nixos-25.11`) — base system. Patched in-place (overwrites itself in `inputs`) with **module-level** changes only (no package rebuilds).
-- **`nixpkgs-unstable`** — always the original unpatched unstable channel. Exposed as `pkgs.unstable` overlay for select tools that need newer versions.
-- **`nixpkgs-patched`** — patched version of `nixpkgs-unstable`, stored as a separate input. Used for **package-level** changes to contain cascade rebuilds: patching a package in `nixpkgs-unstable` directly could trigger rebuilds for all dependents; isolating it in a named input limits the blast radius to what explicitly uses `pkgs.patched`.
+- **`nixpkgs`** (stable, `nixos-25.11`) - base system. Patched in-place (overwrites itself in `inputs`) with **module-level** changes only (no package rebuilds).
+- **`nixpkgs-unstable`** - always the original unpatched unstable channel. Exposed as `pkgs.unstable` overlay for select tools that need newer versions.
+- **`nixpkgs-patched`** - patched version of `nixpkgs-unstable`, stored as a separate input. Used for **package-level** changes to contain cascade rebuilds: patching a package in `nixpkgs-unstable` directly could trigger rebuilds for all dependents; isolating it in a named input limits the blast radius to what explicitly uses `pkgs.patched`.
 
 ### Input Patching
 
@@ -78,18 +78,18 @@ Transitive flake inputs are rewritten selectively using `flake.lock` node names.
 
 Important invariants when editing `nix/inputs.nix`:
 
-- **Top-level canonical nodes** — if a dependency is shared in multiple places, it should have a canonical representative at the top level and all repeats should follow that node.
-- **`self` is special-cased** — the recursive rewrite applies to external inputs, but `self` itself is not rebuilt through that recursion. Only `self.inputs` is updated with the rewritten/exported input set to avoid recursive self-reimport.
+- **Top-level canonical nodes** - if a dependency is shared in multiple places, it should have a canonical representative at the top level and all repeats should follow that node.
+- **`self` is special-cased** - the recursive rewrite applies to external inputs, but `self` itself is not rebuilt through that recursion. Only `self.inputs` is updated with the rewritten/exported input set to avoid recursive self-reimport.
 
 ### Custom pkgs Overlays
 
 `nix/packages/default.nix` instantiates nixpkgs with several overlays, making these package sets available everywhere:
 
-- `pkgs.unstable` — nixos-unstable packages
-- `pkgs.patched` — nixpkgs-unstable with package-level patches applied
-- `pkgs.nur` — NUR packages
-- `pkgs.notashelf` — packages from the flint flake
-- `pkgs.llm-agents.*` — LLM agent tools
+- `pkgs.unstable` - nixos-unstable packages
+- `pkgs.patched` - nixpkgs-unstable with package-level patches applied
+- `pkgs.nur` - NUR packages
+- `pkgs.notashelf` - packages from the flint flake
+- `pkgs.llm-agents.*` - LLM agent tools
 
 ### lib.my.importTree
 
@@ -105,26 +105,26 @@ Managed with `sops-nix`. Encrypted secrets live in `secrets/`.
 
 ### Key Inputs
 
-- **nvf** — Neovim configuration framework (used for all neovim config under `nix/users/ilkecan/text-editors/neovim/`)
-- **stylix** — System-wide theming
-- **niri-flake** — Niri Wayland compositor
-- **disko** — Declarative disk partitioning
-- **impermanence** — Ephemeral root filesystem support
-- **sops-nix** — Secrets management (encrypted secrets in `secrets/`)
-- **dms** — DankMaterialShell, a desktop shell for Wayland compositors, built with Quickshell
-- **betterfox-nix** — Firefox user.js optimization
-- **git-hooks-nix** — Pre-commit hooks framework (comrak, deadnix, flake-checker, flint, gitleaks, nil, nixf-diagnose, nixfmt, ripsecrets)
-- **nixos-cli** — NixOS CLI tool
-- **mcp-servers-nix** — MCP server configuration for Home Manager
-- **optnix** — Nix option analysis tool
+- **nvf** - Neovim configuration framework (used for all neovim config under `nix/users/ilkecan/text-editors/neovim/`)
+- **stylix** - System-wide theming
+- **niri-flake** - Niri Wayland compositor
+- **disko** - Declarative disk partitioning
+- **impermanence** - Ephemeral root filesystem support
+- **sops-nix** - Secrets management (encrypted secrets in `secrets/`)
+- **dms** - DankMaterialShell, a desktop shell for Wayland compositors, built with Quickshell
+- **betterfox-nix** - Firefox user.js optimization
+- **git-hooks-nix** - Pre-commit hooks framework (comrak, deadnix, flake-checker, flint, gitleaks, nil, nixf-diagnose, nixfmt, ripsecrets)
+- **nixos-cli** - NixOS CLI tool
+- **mcp-servers-nix** - MCP server configuration for Home Manager
+- **optnix** - Nix option analysis tool
 
 ### Flake Module Outputs
 
 Modules under `nix/modules/` are exposed as flake outputs via `nix/flake/modules.nix`:
 
-- `flakeModules` — from `nix/modules/flake/`
-- `homeModules` — from `nix/modules/home-manager/`
-- `nixosModules` — from `nix/modules/nixos/`
+- `flakeModules` - from `nix/modules/flake/`
+- `homeModules` - from `nix/modules/home-manager/`
+- `nixosModules` - from `nix/modules/nixos/`
 
 The `cachix-push` flake module (in `nix/modules/flake/`) provides a `flake.cachix.push` option and generates a `perSystem.apps.cachix-push` app for pushing packages to Cachix caches.
 
