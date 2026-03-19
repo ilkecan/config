@@ -81,6 +81,7 @@ let
       src' = applyPatches {
         inherit name src;
         patches = patches ++ map mkPatch pulls;
+        allowSubstitutes = true;
       };
 
       sourceInfo = src.sourceInfo // {
