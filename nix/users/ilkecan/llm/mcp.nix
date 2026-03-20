@@ -18,7 +18,6 @@
     serena = {
       enable = true;
       args = [ "--project-from-cwd" ];
-      context = "claude-code";
       enableWebDashboard = true;
     };
     terraform.enable = true;
