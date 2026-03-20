@@ -16,28 +16,28 @@ let
 
   inherit (inputs'.optnix.mkLib pkgs) mkOptionsList;
 
-  mkFlakePartsScope = self': {
+  mkFlakePartsScope = flake: {
     description = "flake-parts top level configuration";
     options-list-file = mkOptionsList {
-      inherit (self'.debug) options;
+      inherit (flake.debug) options;
       excluded = [ "perSystem" ];
     };
-    evaluator = "nix eval ${self'}#debug.config.{{ .Option }}";
+    evaluator = "nix eval ${flake}#debug.config.{{ .Option }}";
   };
-  mkFlakePartsPerSystemScope = self': system: {
+  mkFlakePartsPerSystemScope = flake: system: {
     description = "flake-parts `perSystem` configuration for `${system}`";
-    options-list-file = mkOptionsList { inherit (self'.allSystems.${system}.debug) options; };
-    evaluator = "nix eval ${self'}#allSystems.${system}.debug.config.{{ .Option }}";
+    options-list-file = mkOptionsList { inherit (flake.allSystems.${system}.debug) options; };
+    evaluator = "nix eval ${flake}#allSystems.${system}.debug.config.{{ .Option }}";
   };
-  mkHomeManagerScope = name: value: {
+  mkHomeManagerScope = flake: name: value: {
     description = "Home Manager configuration for `${name}`";
     options-list-file = mkOptionsList { inherit (value) options; };
-    evaluator = "nix eval ${self'}#homeConfigurations.${name}.config.{{ .Option }}";
+    evaluator = "nix eval ${flake}#homeConfigurations.${name}.config.{{ .Option }}";
   };
-  mkNixosScope = name: value: {
+  mkNixosScope = flake: name: value: {
     description = "NixOS configuration for `${name}`";
     options-list-file = mkOptionsList { inherit (value) options; };
-    evaluator = "nix eval ${self'}#nixosConfigurations.${name}.config.{{ .Option }}";
+    evaluator = "nix eval ${flake}#nixosConfigurations.${name}.config.{{ .Option }}";
   };
 in
 {
@@ -56,8 +56,8 @@ in
           (genAttrs' self'.debug.systems (
             x: nameValuePair "flake-parts.${x}" (mkFlakePartsPerSystemScope self' x)
           ))
-          (mapAttrs mkHomeManagerScope self'.homeConfigurations)
-          (mapAttrs mkNixosScope self'.nixosConfigurations)
+          (mapAttrs (mkHomeManagerScope self') self'.homeConfigurations)
+          (mapAttrs (mkNixosScope self') self'.nixosConfigurations)
         ];
       };
     };
