@@ -1,8 +1,8 @@
 {
-  self,
+  config,
   ...
 }:
 
 {
-  flake.nixosModules = self.modules.nixos;
+  flake.nixosModules = config.flake.modules.nixos;
 }

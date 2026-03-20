@@ -21,7 +21,7 @@ let
 in
 {
   perSystem =
-    { self', pkgs, ... }:
+    { config, pkgs, ... }:
     {
       apps =
         importTree {
@@ -31,7 +31,7 @@ in
           normalizeNameFn = removeSuffix ".nix";
         }
         // {
-          default = self'.apps.ci;
+          default = config.apps.ci;
         };
     };
 }

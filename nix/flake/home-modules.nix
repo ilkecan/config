@@ -1,8 +1,8 @@
 {
-  self,
+  config,
   ...
 }:
 
 {
-  flake.homeModules = self.modules.homeManager;
+  flake.homeModules = config.flake.modules.homeManager;
 }

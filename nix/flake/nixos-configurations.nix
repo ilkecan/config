@@ -1,4 +1,5 @@
 {
+  config,
   inputs,
   self,
   withSystem,
@@ -30,7 +31,7 @@ let
             inputs.nixos-cli.nixosModules.nixos-cli
             inputs.sops-nix.nixosModules.sops
 
-            self.nixosModules.default
+            config.flake.nixosModules.default
 
             modulesPath
           ];
@@ -51,6 +52,6 @@ in
   flake.nixosConfigurations = {
     mephistopheles =
       mkNixosConfiguration "x86_64-linux" "${self}/nix/hosts/mephistopheles"
-        self.homeConfigurations.ilkecan.config;
+        config.flake.homeConfigurations.ilkecan.config;
   };
 }
