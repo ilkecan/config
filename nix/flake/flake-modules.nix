@@ -1,8 +1,8 @@
 {
-  self,
+  config,
   ...
 }:
 
 {
-  flake.flakeModules = self.modules.flake;
+  flake.flakeModules = config.flake.modules.flake;
 }

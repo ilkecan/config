@@ -1,4 +1,5 @@
 {
+  config,
   inputs,
   self,
   withSystem,
@@ -36,7 +37,7 @@ let
             inputs.sops-nix.homeModules.sops
             inputs.stylix.homeModules.stylix
 
-            self.homeModules.default
+            config.flake.homeModules.default
 
             modulesPath
           ];
@@ -53,6 +54,6 @@ in
   flake.homeConfigurations = {
     ilkecan =
       mkHomeConfiguration "x86_64-linux" "${self}/nix/users/ilkecan"
-        self.nixosConfigurations.mephistopheles.config;
+        config.flake.nixosConfigurations.mephistopheles.config;
   };
 }
