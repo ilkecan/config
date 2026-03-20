@@ -17,6 +17,7 @@
           nil.enable = true;
           nixf-diagnose.enable = true;
           nixfmt.enable = true;
+          pre-commit-hook-ensure-sops.enable = true;
           ripsecrets.enable = true;
         };
       };
