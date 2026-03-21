@@ -43,6 +43,12 @@ in
     { argv = [ "io.gitlab.news_flash.NewsFlash" ]; }
     {
       argv = [
+        "nautilus"
+        homeDirectory
+      ];
+    }
+    {
+      argv = [
         "solaar"
         "--window=hide"
       ];
