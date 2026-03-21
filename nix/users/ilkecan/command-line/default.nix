@@ -26,7 +26,6 @@ in
       lz4
       page
       watchexec
-      ydotool
     ];
   };
 
