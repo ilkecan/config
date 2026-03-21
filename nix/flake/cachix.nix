@@ -1,4 +1,5 @@
 {
+  config,
   inputs,
   lib,
   ...
@@ -9,6 +10,7 @@ let
     attrValues
     concatLists
     filter
+    mapAttrsToList
     ;
 
   inherit (lib.my)
@@ -20,6 +22,7 @@ in
     push = {
       ilkecan = concatLists [
         (filter isPatchedInput (attrValues inputs))
+        (mapAttrsToList (_: v: v.apps.ci.program) config.allSystems)
       ];
     };
   };

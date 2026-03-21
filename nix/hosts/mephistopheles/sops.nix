@@ -31,7 +31,7 @@ in
     templates = {
       nix-access-tokens = {
         content = ''
-          access-tokens = ${concatStringsSep " " (mapAttrsToList (k: v: "${k}=${v}") nixAccessTokens)}
+          access-tokens = ${concatStringsSep " " (mapAttrsToList (n: v: "${n}=${v}") nixAccessTokens)}
         '';
         group = config.users.groups.wheel.name;
         mode = "0440";
