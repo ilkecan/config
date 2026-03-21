@@ -1,5 +1,4 @@
 {
-  inputs',
   lib,
   options,
   pkgs,
@@ -22,9 +21,6 @@ in
 
   programs.dank-material-shell = {
     enable = true;
-    package = inputs'.dms.packages.dms-shell.overrideAttrs {
-      vendorHash = "sha256-cVUJXgzYMRSM0od1xzDVkMTdxHu3OIQX2bQ8AJbGQ1Q=";
-    };
 
     dgop.package = pkgs.unstable.dgop;
 
