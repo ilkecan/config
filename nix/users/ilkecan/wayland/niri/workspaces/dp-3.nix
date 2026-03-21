@@ -2,9 +2,10 @@
   output = "DP-3";
   workspaces = [
     "config"
-    "nixpkgs"
-    "review"
+    "α"
+    "β"
     "browser"
     "files"
+    "nixpkgs"
   ];
 }
