@@ -16,9 +16,9 @@
       open-on-workspace = "nixpkgs";
     }
     {
-      matches = [ { app-id = "^alacritty-review$"; } ];
+      matches = [ { app-id = "^alacritty-nixpkgs-review$"; } ];
       open-maximized = true;
-      open-on-workspace = "review";
+      open-on-workspace = "nixpkgs";
     }
     {
       matches = [ { app-id = "^chromium-browser$"; } ];
