@@ -26,7 +26,7 @@ in
   options = {
     flake.cachix = {
       push = mkOption {
-        type = types.attrsOf (types.listOf types.package);
+        type = with types; attrsOf (listOf pathInStore);
         default = { };
         description = "Attrset mapping Cachix cache names to lists of derivations to push.";
       };
