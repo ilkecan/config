@@ -34,7 +34,7 @@ in
       argv = [
         "alacritty"
         "--class"
-        "alacritty-review"
+        "alacritty-nixpkgs-review"
         "--working-directory"
         "${githubDir}/NixOS/nixpkgs/review"
       ];
