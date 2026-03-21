@@ -157,7 +157,7 @@ in
                 q = "{searchTerms}";
                 udm = "14"; # https://udm14.org/
               };
-              query = concatStringsSep "&" (mapAttrsToList (k: v: "${k}=${v}") queryParams);
+              query = concatStringsSep "&" (mapAttrsToList (n: v: "${n}=${v}") queryParams);
             in
             [ { template = "https://www.google.com/search?${query}"; } ];
           iconMapObj."32" = "https://www.google.com/favicon.ico";
