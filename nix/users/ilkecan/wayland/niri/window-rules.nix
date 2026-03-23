@@ -95,9 +95,13 @@
     }
     {
       matches = [ { app-id = ''^steam_app_\d*$''; } ];
-      block-out-from = "screen-capture";
       open-maximized = true;
       open-on-workspace = "gaming";
+    }
+    {
+      matches = [ { app-id = ''^steam_app_\d*$''; } ];
+      excludes = [ { app-id = "^steam_app_1973530$"; } ];
+      block-out-from = "screen-capture";
     }
     {
       matches = [ { app-id = "^thunderbird$"; } ];
