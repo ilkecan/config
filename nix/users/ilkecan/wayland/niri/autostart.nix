@@ -8,6 +8,10 @@ let
     homeDirectory
     ;
 
+  inherit (config.xdg)
+    userDirs
+    ;
+
   githubDir = "${homeDirectory}/repos/git/github.com";
 in
 {
@@ -44,7 +48,7 @@ in
     {
       argv = [
         "nautilus"
-        homeDirectory
+        userDirs.download
       ];
     }
     {
