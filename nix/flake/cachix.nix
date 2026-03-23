@@ -23,6 +23,7 @@ in
       ilkecan = concatLists [
         (filter isPatchedInput (attrValues inputs))
         (mapAttrsToList (_: v: v.apps.ci.program) config.allSystems)
+        (concatLists (mapAttrsToList (_: v: attrValues v.checks) config.allSystems))
       ];
     };
   };
