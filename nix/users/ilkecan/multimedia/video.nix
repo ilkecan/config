@@ -8,7 +8,7 @@
     ffmpeg-full
     gpu-screen-recorder
     gpu-screen-recorder-gtk
-    unstable.stremio-linux-shell
+    stremio-linux-shell
     vlc
   ];
 
