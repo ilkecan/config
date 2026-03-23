@@ -7,6 +7,7 @@
 let
   inherit (lib)
     concatStringsSep
+    filter
     getExe
     mapAttrsToList
     mkIf
@@ -19,6 +20,14 @@ let
     program = getExe drv;
     inherit (drv) meta;
   };
+
+  mkCachixPush =
+    cache: objects:
+    let
+      pureObjects = filter (x: !x ? __impure) objects;
+      paths = map toString pureObjects;
+    in
+    "cachix push ${cache} ${concatStringsSep " " paths}";
 
   cfg = config.flake.cachix;
 in
@@ -42,11 +51,7 @@ in
             pkgs.writeShellApplication {
               name = "cachix-push";
               runtimeInputs = [ pkgs.cachix ];
-              text = concatStringsSep "\n" (
-                mapAttrsToList (
-                  cache: paths: "cachix push ${cache} ${concatStringsSep " " (map toString paths)}"
-                ) cfg.push
-              );
+              text = concatStringsSep "\n" (mapAttrsToList mkCachixPush cfg.push);
             }
           );
         };
