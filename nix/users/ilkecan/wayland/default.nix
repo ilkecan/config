@@ -30,16 +30,18 @@ in
 {
   imports = collectImports ./.;
 
-  dbus.packages = [
-    pkgs.nautilus # required for xdg-desktop-portal-gnome's FileChooser to work properly
+  dbus.packages = with pkgs; [
+    nautilus # required for xdg-desktop-portal-gnome's FileChooser to work properly
   ];
 
   home = {
     packages = with pkgs; [
+      slurp # https://github.com/emersion/slurp
+      unstable.xwayland-satellite
+      wayfreeze # https://github.com/Jappie3/wayfreeze
       wev
       wl-clipboard-rs
       xeyes
-      unstable.xwayland-satellite
     ];
 
     sessionVariables = mkMerge [
