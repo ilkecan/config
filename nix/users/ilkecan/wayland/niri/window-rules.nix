@@ -110,6 +110,10 @@
       open-on-workspace = "news";
     }
     {
+      matches = [ { app-id = "^vlc$"; } ];
+      open-maximized = true;
+    }
+    {
       matches = [ { app-id = "^wasistlos$"; } ];
       block-out-from = "screen-capture";
       open-maximized = true;
