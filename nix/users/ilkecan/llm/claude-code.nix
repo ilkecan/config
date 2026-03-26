@@ -6,7 +6,7 @@
 {
   home = {
     sessionVariables = {
-      CLAUDE_CODE_DISABLE_AUTO_MEMORY = 0;
+      CLAUDE_CODE_DISABLE_AUTO_MEMORY = 1;
       ENABLE_TOOL_SEARCH = "true";
     };
 
