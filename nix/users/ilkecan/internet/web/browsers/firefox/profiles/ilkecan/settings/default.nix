@@ -23,6 +23,7 @@ in
       "browser.download.forbid_open_with" = true;
       "browser.newtabpage.activity-stream.newtabWallpapers.wallpaper" = "firefox-b";
       "browser.quitShortcut.disabled" = true;
+      "browser.startup.page" = 3; # there is a bug/regression with Firefox 149 that makes it ignore `Homepage.StartPage = "previous-session"` (?)
       "browser.translations.automaticallyPopup" = false; # disable "Always offer to translate"
       "browser.urlbar.suggest.quickactions" = false; # about:preferences#search > Address Bar > Quick Actions
       "devtools.anti-tracking.enabled" = true;
