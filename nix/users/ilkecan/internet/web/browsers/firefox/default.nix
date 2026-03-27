@@ -1,27 +1,13 @@
 {
-  config,
-  inputs',
   lib,
   pkgs,
   ...
 }:
 
 let
-  inherit (lib)
-    attrNames
-    elem
-    elemAt
-    length
-    versions
-    ;
-
   inherit (lib.my)
     collectImports
     ;
-
-  cfg = config.programs.firefox;
-  version = versions.majorMinor cfg.package.version;
-  supportedVersions = attrNames (import "${inputs'.betterfox-nix}/data/firefox");
 in
 {
   imports = collectImports ./.;
@@ -38,11 +24,6 @@ in
 
     betterfox = {
       enable = true;
-      version =
-        if elem version supportedVersions then
-          version
-        else
-          elemAt supportedVersions (length supportedVersions - 1);
     };
 
     languagePacks = [
