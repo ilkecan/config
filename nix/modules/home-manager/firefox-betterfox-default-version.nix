@@ -22,7 +22,7 @@ let
     if elem firefoxVersion supportedVersions then
       firefoxVersion
     else
-      elemAt supportedVersions (length supportedVersions - 1);
+      elemAt supportedVersions (length supportedVersions - 2); # zero-based numbering & `last` is "main"
 in
 {
   programs.firefox.betterfox.version = mkDefault version;
