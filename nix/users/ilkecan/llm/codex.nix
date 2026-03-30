@@ -33,6 +33,7 @@ in
 
         features = {
           # guardian_approval = true; # to prevent wasting tokens (?)
+          fast_mode = false;
           js_repl = true;
           multi_agent = true;
           use_linux_sandbox_bwrap = true;
