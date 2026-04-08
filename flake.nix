@@ -78,7 +78,7 @@
         blueprint.follows = "blueprint";
         bun2nix.follows = "bun2nix";
         flake-parts.follows = "flake-parts";
-        nixpkgs.follows = "nixpkgs";
+        nixpkgs.follows = "nixpkgs-unstable";
         systems.follows = "systems";
         treefmt-nix.follows = "treefmt-nix";
       };
@@ -131,7 +131,7 @@
       inputs = {
         flake-compat.follows = "flake-compat";
         flake-parts.follows = "flake-parts";
-        nixpkgs.follows = "nixpkgs";
+        nixpkgs.follows = "nixpkgs-unstable";
         optnix.follows = "optnix";
       };
     };
