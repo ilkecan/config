@@ -6,6 +6,12 @@
 {
   programs.niri.settings.window-rules = [
     {
+      matches = [ { app-id = "^Dorion$"; } ];
+      block-out-from = "screen-capture";
+      open-maximized = true;
+      open-on-workspace = "messaging";
+    }
+    {
       matches = [ { app-id = "^alacritty-config$"; } ];
       open-maximized = true;
       open-on-workspace = "config";
