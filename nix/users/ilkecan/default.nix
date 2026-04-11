@@ -24,7 +24,6 @@ in
   home.packages = with pkgs; [
     unstable.overskride
     pwvucontrol
-    wasistlos
     unstable.telegram-desktop # https://github.com/NixOS/nixpkgs/issues/497549
     ruffle # https://github.com/ruffle-rs/ruffle
 
