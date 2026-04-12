@@ -26,7 +26,7 @@ let
 
     llmAgent = {
       pane = {
-        _props.command = "codex";
+        _props.command = "gemini";
         start_suspended = true;
       };
     };
