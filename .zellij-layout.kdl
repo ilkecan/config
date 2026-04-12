@@ -39,7 +39,7 @@ layout {
     pane command="nvim"
 
     floating_panes {
-      pane command="codex" x="10%" y="10%" width="80%" height="80%"
+      pane command="gemini" x="10%" y="10%" width="80%" height="80%"
     }
 
     pane size=1 borderless=true {
