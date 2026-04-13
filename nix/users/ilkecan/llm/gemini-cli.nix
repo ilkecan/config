@@ -9,6 +9,18 @@
       enable = true;
       package = pkgs.llm-agents.gemini-cli;
       settings = {
+        agents = {
+          browser = {
+            blockFileUploads = true;
+          };
+        };
+        general = {
+          vimMode = true;
+          enableNotifications = true;
+        };
+        model = {
+          name = "gemini-3.1-flash-lite-preview";
+        };
         security = {
           auth = {
             selectedType = "oauth-personal";
@@ -26,15 +38,6 @@
               "quota"
               "context-used"
             ];
-          };
-        };
-        general = {
-          vimMode = true;
-          enableNotifications = true;
-        };
-        agents = {
-          browser = {
-            blockFileUploads = true;
           };
         };
       };
