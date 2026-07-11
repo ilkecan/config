@@ -37,11 +37,11 @@ in
   home = {
     packages = with pkgs; [
       slurp # https://github.com/emersion/slurp
-      unstable.xwayland-satellite
       wayfreeze # https://github.com/Jappie3/wayfreeze
       wev
       wl-clipboard-rs
       xeyes
+      xwayland-satellite # https://github.com/Supreeeme/xwayland-satellite
     ];
 
     sessionVariables = mkMerge [

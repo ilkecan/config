@@ -12,7 +12,6 @@ let
     mkIf
     mkOption
     nameValuePair
-    types
     ;
 
   cfg = config.xdg;
@@ -36,32 +35,12 @@ in
           Attribute set of files to link into the user's XDG bin home.
         '';
       };
-
-      binHome = mkOption {
-        type = types.path;
-        default = "${homeDirectory}/.local/bin";
-        defaultText = "~/.local/bin";
-        apply = toString;
-        description = ''
-          Absolute path to directory holding user-specific executable files.
-
-          Sets `XDG_BIN_HOME` for the user if `xdg.enable` is set `true`.
-        '';
-      };
     };
   };
 
   config = mkIf cfg.enable {
     home = {
       file = mapAttrs' (name: file: nameValuePair "${cfg.binHome}/${name}" file) cfg.binFile;
-
-      sessionVariables = {
-        XDG_BIN_HOME = cfg.binHome;
-      };
-
-      sessionPath = [
-        cfg.binHome
-      ];
     };
   };
 }

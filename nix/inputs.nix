@@ -14,7 +14,6 @@ let
     importJSON
     intersectAttrs
     isString
-    map
     mapAttrs
     mapAttrs'
     nameValuePair

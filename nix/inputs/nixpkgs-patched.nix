@@ -6,7 +6,7 @@
   pulls = [
     {
       number = "480060";
-      hash = "sha256-FNMYPEOeCp0WSbM9XZxJm8Qb9QfsTGud8cBriM6fnrM=";
+      hash = "sha256-vM0D/VZlA/MkWem1d3EDUqaTEwGHxwwmq2U+VMSuyNc=";
     } # various: use absolute path in thumbnailer files
   ];
 }

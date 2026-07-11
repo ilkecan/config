@@ -25,6 +25,10 @@ in
       null-ls.enable = true; # https://github.com/nvimtools/none-ls.nvim
       nvim-docs-view.enable = false; # https://github.com/amrbashir/nvim-docs-view
 
+      presets = {
+        tailwindcss-language-server.enable = true;
+      };
+
       servers = {
         #   "*" = {
         #     root_markers = [".git"];

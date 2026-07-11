@@ -7,7 +7,7 @@
     { pkgs, ... }:
     {
       pre-commit.settings = {
-        package = pkgs.unstable.prek;
+        package = pkgs.prek;
         hooks = {
           comrak.enable = true;
           deadnix.enable = true;

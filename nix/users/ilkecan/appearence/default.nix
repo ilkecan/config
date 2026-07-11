@@ -24,6 +24,7 @@ in
     polarity = "dark";
 
     targets = {
+      dank-material-shell.enable = false;
       firefox.profileNames = [ config.home.username ];
     };
   };

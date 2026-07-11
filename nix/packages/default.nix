@@ -12,9 +12,11 @@ let
   inherit (lib.my)
     importTree
     ;
+
+  localSystem = { inherit system; };
 in
 import inputs.nixpkgs {
-  localSystem = { inherit system; };
+  inherit localSystem;
 
   config = {
     allowUnfree = true;
@@ -32,24 +34,19 @@ import inputs.nixpkgs {
 
     (final: _prev: {
       unstable = import inputs.nixpkgs-unstable {
-        localSystem = final.stdenv.hostPlatform;
+        inherit localSystem;
         inherit (final) config;
       };
     })
 
     (final: _prev: {
       patched = import inputs.nixpkgs-patched {
-        localSystem = final.stdenv.hostPlatform;
+        inherit localSystem;
         inherit (final) config;
       };
     })
 
-    # TODO: until `stable` nixpkgs is updated to v26.05
-    # inputs.nur.overlays.default
-    (final: _prev: {
-      nur = (inputs.nur.overlays.default final.unstable final.unstable).nur;
-    })
-
+    inputs.nur.overlays.default
     inputs.llm-agents.overlays.default
     inputs.nix-alien.overlays.default
 

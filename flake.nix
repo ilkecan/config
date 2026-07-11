@@ -1,6 +1,6 @@
 {
   inputs = {
-    nixpkgs.url = "https://channels.nixos.org/nixos-25.11/nixexprs.tar.xz";
+    nixpkgs.url = "https://channels.nixos.org/nixos-26.05/nixexprs.tar.xz";
     nixpkgs-unstable.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
 
     disko = {
@@ -8,7 +8,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.11";
+      url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     impermanence = {
@@ -31,7 +31,7 @@
       };
     };
     stylix = {
-      url = "github:nix-community/stylix/release-25.11";
+      url = "github:nix-community/stylix/release-26.05";
       inputs = {
         flake-parts.follows = "flake-parts";
         nixpkgs.follows = "nixpkgs";
@@ -49,9 +49,18 @@
         systems.follows = "systems";
       };
     };
+    dankcalendar = {
+      url = "github:AvengeMedia/dankcalendar";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
     dms = {
-      url = "github:AvengeMedia/DankMaterialShell/v1.4.4";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:AvengeMedia/DankMaterialShell/v1.5.0";
+      inputs = {
+        flake-compat.follows = "flake-compat";
+        nixpkgs.follows = "nixpkgs";
+      };
     };
     dms-plugin-registry = {
       url = "github:AvengeMedia/dms-plugin-registry";
@@ -112,13 +121,14 @@
     nix-gaming = {
       url = "github:fufexan/nix-gaming";
       inputs = {
+        flake-compat.follows = "flake-compat";
         flake-parts.follows = "flake-parts";
         git-hooks.follows = "git-hooks-nix";
         nixpkgs.follows = "nixpkgs";
       };
     };
     nixcord = {
-      url = "github:kaylorben/nixcord";
+      url = "github:4evy/nixcord";
       inputs = {
         flake-compat.follows = "flake-compat";
         flake-parts.follows = "flake-parts";
@@ -136,12 +146,10 @@
       };
     };
     nvf = {
-      url = "github:NotAShelf/nvf/9c75c2a199af39fc95fb203636ce97d070ca3973";
+      url = "github:NotAShelf/nvf";
       inputs = {
         flake-compat.follows = "flake-compat";
-        flake-parts.follows = "flake-parts";
         nixpkgs.follows = "nixpkgs";
-        systems.follows = "systems";
       };
     };
     optnix = {
@@ -168,7 +176,6 @@
       url = "github:nix-community/bun2nix";
       inputs = {
         flake-parts.follows = "flake-parts";
-        import-tree.follows = "import-tree";
         nixpkgs.follows = "nixpkgs";
         systems.follows = "systems";
         treefmt-nix.follows = "treefmt-nix";

@@ -13,18 +13,15 @@ in
   imports = collectImports ./.;
 
   home.packages = with pkgs; [
-    unstable.devenv
-    unstable.prek # https://github.com/j178/prek # TODO: switch to stable after v26.05
+    devenv
+    prek # https://github.com/j178/prek
     yaak
   ];
 
   programs = {
     direnv = {
       enable = true;
-      nix-direnv = {
-        enable = true;
-        package = pkgs.unstable.nix-direnv;
-      };
+      nix-direnv.enable = true;
     };
   };
 }

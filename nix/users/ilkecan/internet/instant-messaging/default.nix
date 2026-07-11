@@ -13,6 +13,6 @@ in
   imports = collectImports ./.;
 
   home.packages = with pkgs; [
-    wasistlos
+    karere
   ];
 }
