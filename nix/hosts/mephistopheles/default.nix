@@ -39,8 +39,11 @@ in
 
   documentation = {
     dev.enable = true;
-    man.generateCaches = true;
-    nixos.includeAllModules = true;
+    man.cache = {
+      enable = true;
+      generateAtRuntime = true;
+    };
+    # nixos.includeAllModules = true; # bad local reference, id #opt-nixpkgs.hostPlatform not known
   };
 
   # This option defines the first version of NixOS you have installed on this particular machine,

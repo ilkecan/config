@@ -8,7 +8,7 @@
   programs.nvf.settings.vim = {
     extraPlugins = {
       oil-git-status-nvim = {
-        package = pkgs.unstable.vimPlugins.oil-git-status-nvim;
+        package = pkgs.vimPlugins.oil-git-status-nvim;
         setup = ''
           require("oil-git-status").setup()
         '';

@@ -23,6 +23,7 @@ let
 
           modules = [
             inputs.betterfox-nix.homeModules.betterfox
+            inputs.dankcalendar.homeModules.dank-calendar
             inputs.dms-plugin-registry.homeModules.default
             inputs.dms.homeModules.dank-material-shell
             inputs.dms.homeModules.niri

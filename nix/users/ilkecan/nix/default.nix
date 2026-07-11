@@ -36,8 +36,6 @@ in
     nix-alien # https://github.com/thiagokokada/nix-alien
     nix-diff # https://github.com/Gabriella439/nix-diff
     nix-du # https://github.com/symphorien/nix-du
-    unstable.nix-eval-jobs # https://github.com/nix-community/nix-eval-jobs
-    patched.nix-fast-build # https://github.com/Mic92/nix-fast-build
     nix-melt # https://github.com/nix-community/nix-melt
     nix-output-monitor # https://github.com/maralorn/nix-output-monitor
     nix-tree # https://github.com/utdemir/nix-tree
@@ -45,13 +43,14 @@ in
     nixos-anywhere # https://github.com/nix-community/nixos-anywhere
     nixos-facter # https://github.com/nix-community/nixos-facter
     nixos-shell # https://github.com/Mic92/nixos-shell
-    unstable.nixpkgs-review # https://github.com/Mic92/nixpkgs-review
+    nixpkgs-review # https://github.com/Mic92/nixpkgs-review
+    unstable.nix-eval-jobs # https://github.com/nix-community/nix-eval-jobs
+    unstable.nix-fast-build # https://github.com/Mic92/nix-fast-build
   ];
 
   programs = {
     nh = {
       enable = true;
-      package = pkgs.unstable.nh;
       flake = "${homeDirectory}/repos/git/github.com/ilkecan/config";
     };
     nix-index.enable = true;

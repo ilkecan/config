@@ -45,6 +45,7 @@ in
     }
     { argv = [ "firefox" ]; }
     { argv = [ "io.gitlab.news_flash.NewsFlash" ]; }
+    { argv = [ "karere" ]; }
     {
       argv = [
         "nautilus"
@@ -64,6 +65,5 @@ in
       ];
     }
     { argv = [ "thunderbird" ]; }
-    { argv = [ "wasistlos" ]; }
   ];
 }

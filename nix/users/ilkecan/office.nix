@@ -14,7 +14,6 @@
   programs = {
     zathura = {
       enable = true;
-      package = pkgs.unstable.zathura;
 
       mappings = {
         "<S-Space>" = "scroll half-up"; # Shift modifier does not work on Wayland for some reason

@@ -7,6 +7,6 @@
   xdg.userDirs = {
     enable = true;
     createDirectories = true;
-    # setSessionVariables  = true; # TODO: after 26.05
+    setSessionVariables = true;
   };
 }

@@ -47,5 +47,7 @@ in
     binFile = toXdgFiles "${self'}/nix/users/${user}/dotfiles/.local/bin";
     configFile = toXdgFiles "${self'}/nix/users/${user}/dotfiles/.config";
     dataFile = toXdgFiles "${self'}/nix/users/${user}/dotfiles/.local/share";
+
+    localBinInPath = true; # https://github.com/nix-community/home-manager/pull/9067
   };
 }

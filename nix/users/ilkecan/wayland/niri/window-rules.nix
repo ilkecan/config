@@ -32,17 +32,17 @@
       open-on-workspace = "browser";
     }
     {
+      matches = [ { app-id = ''^com\.danklinux\.dms$''; } ];
+      open-maximized = true;
+      open-on-workspace = "settings";
+    }
+    {
       matches = [ { app-id = ''^com\.github\.wwmm\.easyeffects$''; } ];
       open-maximized = true;
       open-on-workspace = "settings";
     }
     {
       matches = [ { app-id = ''^com\.saivert\.pwvucontrol$''; } ];
-      open-maximized = true;
-      open-on-workspace = "settings";
-    }
-    {
-      matches = [ { app-id = "^org.quickshell$"; } ];
       open-maximized = true;
       open-on-workspace = "settings";
     }
@@ -61,6 +61,12 @@
       matches = [ { app-id = ''^io\.github\.kaii_lb\.Overskride$''; } ];
       open-maximized = true;
       open-on-workspace = "settings";
+    }
+    {
+      matches = [ { app-id = ''^io\.github\.tobagin\.karere$''; } ];
+      block-out-from = "screen-capture";
+      open-maximized = true;
+      open-on-workspace = "messaging";
     }
     {
       matches = [ { app-id = ''^io\.gitlab\.news_flash\.NewsFlash$''; } ];
@@ -118,12 +124,6 @@
     {
       matches = [ { app-id = "^vlc$"; } ];
       open-maximized = true;
-    }
-    {
-      matches = [ { app-id = "^wasistlos$"; } ];
-      block-out-from = "screen-capture";
-      open-maximized = true;
-      open-on-workspace = "messaging";
     }
   ];
 }

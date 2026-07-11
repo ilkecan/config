@@ -21,9 +21,8 @@
       ruby.enable = true;
       rust.enable = true;
       sql.enable = true;
-      tailwind.enable = true;
       terraform.enable = true;
-      ts.enable = true;
+      typescript.enable = true;
       typst.enable = true;
       yaml.enable = true;
     };

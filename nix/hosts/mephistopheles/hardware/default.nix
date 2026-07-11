@@ -13,8 +13,7 @@ in
 {
   imports = collectImports ./.;
 
-  # TODO switch to facter after NixOS 26.05
-  # hardware.facter.reportPath = ./facter.json;
+  hardware.facter.reportPath = ./facter.json;
 
   hardware = {
     i2c.enable = true; # https://danklinux.com/docs/dankmaterialshell/cli-doctor#i2cddc

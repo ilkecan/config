@@ -8,7 +8,7 @@
   programs.nvf.settings.vim = {
     extraPlugins = {
       blame-nvim = {
-        package = pkgs.unstable.vimPlugins.blame-nvim;
+        package = pkgs.vimPlugins.blame-nvim;
         setup = ''
           require('blame').setup {
             date_format = "%r",

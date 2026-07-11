@@ -44,7 +44,7 @@ in
   programs = {
     optnix = {
       enable = true;
-      package = pkgs.unstable.optnix;
+      package = pkgs.optnix;
 
       settings = {
         min_score = 3;

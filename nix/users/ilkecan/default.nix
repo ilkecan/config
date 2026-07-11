@@ -22,10 +22,10 @@ in
   home.homeDirectory = "/home/${cfg.username}";
 
   home.packages = with pkgs; [
-    unstable.overskride
+    overskride # https://github.com/kaii-lb/overskride
     pwvucontrol
-    unstable.telegram-desktop # https://github.com/NixOS/nixpkgs/issues/497549
     ruffle # https://github.com/ruffle-rs/ruffle
+    telegram-desktop # https://github.com/NixOS/nixpkgs/issues/497549
 
     ast-grep # https://github.com/ast-grep/ast-grep
     bottom
@@ -62,6 +62,7 @@ in
 
     yazi = {
       enable = true;
+      shellWrapperName = "y"; # https://github.com/nix-community/home-manager/pull/7178
     };
   };
 
