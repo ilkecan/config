@@ -22,6 +22,7 @@ in
   home.homeDirectory = "/home/${cfg.username}";
 
   home.packages = with pkgs; [
+    anki # https://github.com/ankitects/anki
     overskride # https://github.com/kaii-lb/overskride
     pwvucontrol
     ruffle # https://github.com/ruffle-rs/ruffle
