@@ -13,10 +13,10 @@ let
     libheif.out # https://github.com/NixOS/nixpkgs/pull/427112
     nufraw-thumbnailer
     papers # https://gitlab.gnome.org/GNOME/papers
-    patched.gnome-font-viewer # https://gitlab.gnome.org/GNOME/gnome-font-viewer
-    patched.icoextract # https://github.com/jlu5/icoextract
-    patched.libgsf # https://gitlab.gnome.org/GNOME/libgsf
-    patched.sameboy # https://github.com/LIJI32/SameBoy
+    unstable.gnome-font-viewer # https://gitlab.gnome.org/GNOME/gnome-font-viewer
+    unstable.icoextract # https://github.com/jlu5/icoextract
+    unstable.libgsf # https://gitlab.gnome.org/GNOME/libgsf
+    unstable.sameboy # https://github.com/LIJI32/SameBoy
     xapp-thumbnailers # https://github.com/linuxmint/xapp-thumbnailers
   ];
 in

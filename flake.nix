@@ -84,7 +84,6 @@
     llm-agents = {
       url = "github:numtide/llm-agents.nix";
       inputs = {
-        blueprint.follows = "blueprint";
         bun2nix.follows = "bun2nix";
         flake-parts.follows = "flake-parts";
         nixpkgs.follows = "nixpkgs-unstable";
@@ -165,13 +164,6 @@
     };
 
     ## unused
-    blueprint = {
-      url = "github:numtide/blueprint";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        systems.follows = "systems";
-      };
-    };
     bun2nix = {
       url = "github:nix-community/bun2nix";
       inputs = {

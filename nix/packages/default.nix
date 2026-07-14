@@ -47,7 +47,7 @@ import inputs.nixpkgs {
     })
 
     inputs.nur.overlays.default
-    inputs.llm-agents.overlays.default
+    inputs.llm-agents.overlays.shared-nixpkgs
     inputs.nix-alien.overlays.default
 
     (final: _prev: {
