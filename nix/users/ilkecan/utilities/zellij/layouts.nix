@@ -24,13 +24,6 @@ let
       };
     };
 
-    llmAgent = {
-      pane = {
-        _props.command = "gemini";
-        start_suspended = true;
-      };
-    };
-
     mkFloating = pane: {
       floating_panes = {
         pane = pane.pane // {
@@ -51,21 +44,6 @@ let
   };
 
   tabs = {
-    llmAgent = {
-      tab = {
-        _props = {
-          name = "LLM agent";
-          hide_floating_panes = true;
-        };
-
-        _children = [
-          panes.llmAgent
-          (panes.mkFloating panes.shell)
-          panes.bar
-        ];
-      };
-    };
-
     neovim = {
       tab = {
         _props = {
@@ -76,7 +54,7 @@ let
 
         _children = [
           { pane._props.command = "nvim"; }
-          (panes.mkFloating panes.llmAgent)
+          (panes.mkFloating panes.shell)
           panes.bar
         ];
       };
