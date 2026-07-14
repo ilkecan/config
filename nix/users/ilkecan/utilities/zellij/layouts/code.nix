@@ -6,7 +6,6 @@
 
 {
   layout._children = [
-    tabs.llmAgent
     tabs.neovim
 
     {
