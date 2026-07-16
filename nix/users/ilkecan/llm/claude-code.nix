@@ -19,9 +19,7 @@
   programs = {
     claude-code = {
       enable = true;
-      package = pkgs.llm-agents.claude-code.override {
-        disableTelemetry = true;
-      };
+      package = pkgs.unstable.claude-code;
       enableMcpIntegration = true;
       settings = {
       };
