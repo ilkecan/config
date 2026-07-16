@@ -56,7 +56,7 @@
       };
     };
     dms = {
-      url = "github:AvengeMedia/DankMaterialShell/v1.5.0";
+      url = "github:AvengeMedia/DankMaterialShell/stable";
       inputs = {
         flake-compat.follows = "flake-compat";
         nixpkgs.follows = "nixpkgs";
