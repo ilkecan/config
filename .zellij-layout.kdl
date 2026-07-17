@@ -39,7 +39,9 @@ layout {
     pane command="nvim"
 
     floating_panes {
-      pane command="zsh" x="10%" y="10%" width="80%" height="80%"
+      pane command="codex" x="10%" y="10%" width="80%" height="80%" {
+        args "--profile" "mutable"
+      }
     }
 
     pane size=1 borderless=true {
