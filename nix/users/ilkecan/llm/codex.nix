@@ -22,7 +22,7 @@ in
   programs = {
     codex = {
       enable = true;
-      package = pkgs.unstable.codex;
+      package = pkgs.llm-agents.codex;
       # enableMcpIntegration = true; # disable until lazy loading is implemented https://github.com/openai/codex/issues/9266
       settings = {
         model = "gpt-5.4";
