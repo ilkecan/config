@@ -8,13 +8,13 @@
 let
   cfg = config.home;
 
-  inherit (lib.my)
-    collectImports
+  inherit (lib._.ilkecan)
+    importsFromDirectory
     ;
 in
 
 {
-  imports = collectImports ./.;
+  imports = importsFromDirectory ./.;
 
   # Home Manager needs a bit of information about you and the
   # paths it should manage.

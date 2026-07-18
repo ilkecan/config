@@ -5,12 +5,12 @@
 }:
 
 let
-  inherit (lib.my)
-    collectImports
+  inherit (lib._.ilkecan)
+    importsFromDirectory
     ;
 in
 {
-  imports = collectImports ./.;
+  imports = importsFromDirectory ./.;
 
   boot = {
     kernel.sysctl."kernel.sysrq" = 1; # https://wiki.nixos.org/wiki/Linux_kernel#Enable_SysRq

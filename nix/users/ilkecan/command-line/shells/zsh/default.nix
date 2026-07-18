@@ -13,8 +13,8 @@ let
     mkOrder
     ;
 
-  inherit (lib.my)
-    collectImports
+  inherit (lib._.ilkecan)
+    importsFromDirectory
     ;
 
   inherit (config.xdg)
@@ -38,7 +38,7 @@ let
   };
 in
 {
-  imports = collectImports ./.;
+  imports = importsFromDirectory ./.;
 
   programs.zsh = {
     enable = true;

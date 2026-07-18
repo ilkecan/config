@@ -190,7 +190,10 @@
   outputs =
     inputs:
     let
-      lib = import ./nix/lib { inherit (inputs.nixpkgs) lib; };
+      lib = import ./nix/lib {
+        inherit inputs;
+        inherit (inputs.nixpkgs) lib;
+      };
     in
     inputs.flake-parts.lib.mkFlake {
       inputs = import ./nix/inputs.nix { inherit inputs lib; };

@@ -5,12 +5,12 @@
 }:
 
 let
-  inherit (lib.my)
-    collectImports
+  inherit (lib._.ilkecan)
+    importsFromDirectory
     ;
 in
 {
-  imports = collectImports ./.;
+  imports = importsFromDirectory ./.;
 
   home.packages = with pkgs; [
     llm-agents.copilot-cli # https://github.com/github/copilot-cli

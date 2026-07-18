@@ -20,10 +20,10 @@ let
     removeSuffix
     ;
 
-  inherit (lib.my)
+  inherit (lib._.ilkecan)
     importTree
     isFlake
-    isPatchedInput
+    isPatchedFlakeInput
     ;
 
   # NOTE: unfortunately there is no way to avoid hard-coded `system` yet
@@ -96,9 +96,9 @@ let
     };
 
   # Patch configurations from ./inputs/ that actually apply changes. importFn
-  # calls patchInput for every spec file; isPatchedInput filters out specs with
+  # calls patchInput for every spec file; isPatchedFlakeInput filters out specs with
   # no patches (where applyPatches returns the original src unchanged).
-  patchedInputs = filterAttrs (_: isPatchedInput) (importTree {
+  patchedInputs = filterAttrs (_: isPatchedFlakeInput) (importTree {
     root = ./inputs;
     depth = 1;
     importFn = x: patchInput (import x);

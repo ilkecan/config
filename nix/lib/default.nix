@@ -1,23 +1,16 @@
 {
+  inputs,
   lib,
   pkgs ? null,
-  ...
 }:
 
 let
-  inherit (lib)
-    optionalAttrs
-    ;
+  nur = pkgs.nur or (inputs.nur.overlays.default null { inherit lib; }).nur;
 in
 lib.extend (
-  final: _prev:
-  {
-    my = import ./my.nix { lib = final; };
-  }
-  // optionalAttrs (pkgs != null) {
-    my-pkgs = import ./my-pkgs.nix {
-      inherit pkgs;
-      lib = final;
+  _final: _prev: {
+    _ = {
+      ilkecan = nur.repos.ilkecan.lib;
     };
   }
 )

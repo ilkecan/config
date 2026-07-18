@@ -8,12 +8,12 @@ let
     mkForce
     ;
 
-  inherit (lib.my)
-    collectImports
+  inherit (lib._.ilkecan)
+    importsFromDirectory
     ;
 in
 {
-  imports = collectImports ./.;
+  imports = importsFromDirectory ./.;
 
   programs.niri.settings.binds = {
     "Ctrl+WheelScrollLeft".action.focus-monitor-left = [ ];

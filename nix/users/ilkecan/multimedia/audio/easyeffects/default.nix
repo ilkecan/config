@@ -4,11 +4,8 @@
 }:
 
 let
-  inherit (lib.my-pkgs)
+  inherit (lib._.ilkecan)
     callExpression
-    ;
-
-  inherit (lib.my)
     importTree
     ;
 in

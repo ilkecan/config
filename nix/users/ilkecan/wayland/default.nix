@@ -12,8 +12,8 @@ let
     mkMerge
     ;
 
-  inherit (lib.my)
-    collectImports
+  inherit (lib._.ilkecan)
+    importsFromDirectory
     ;
 
   inherit (builtins)
@@ -28,7 +28,7 @@ let
   );
 in
 {
-  imports = collectImports ./.;
+  imports = importsFromDirectory ./.;
 
   dbus.packages = with pkgs; [
     nautilus # required for xdg-desktop-portal-gnome's FileChooser to work properly

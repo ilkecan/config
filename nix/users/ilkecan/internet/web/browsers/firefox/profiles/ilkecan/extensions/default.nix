@@ -4,14 +4,14 @@
 }:
 
 let
-  inherit (lib.my)
-    collectImports
+  inherit (lib._.ilkecan)
+    importsFromDirectory
     ;
 in
 {
   # https://gitlab.com/rycee/nur-expressions/-/raw/master/pkgs/firefox-addons/addons.json
 
-  imports = collectImports ./.;
+  imports = importsFromDirectory ./.;
 
   programs.firefox.profiles.ilkecan.extensions = {
     force = true;
