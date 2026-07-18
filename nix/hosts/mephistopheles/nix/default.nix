@@ -33,6 +33,7 @@ in
 
       auto-optimise-store = true;
       http-connections = 128; # default: 25
+      http3 = true;
       keep-going = true;
       keep-outputs = true;
       # lint-absolute-path-literals = "warn";
