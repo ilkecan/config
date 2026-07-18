@@ -13,6 +13,7 @@ let
       module =
         {
           inputs',
+          lib',
           lib,
           pkgs,
           self',
@@ -40,6 +41,7 @@ let
             inherit
               inputs'
               lib
+              lib'
               self'
               userConfig
               ;

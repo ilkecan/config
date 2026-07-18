@@ -13,6 +13,7 @@ let
       module =
         {
           inputs',
+          lib',
           lib,
           pkgs,
           self',
@@ -44,7 +45,12 @@ let
           ];
 
           extraSpecialArgs = {
-            inherit inputs' self' hostConfig;
+            inherit
+              hostConfig
+              inputs'
+              lib'
+              self'
+              ;
             osConfig = hostConfig; # keep this since it is an established HM convention
           };
         };
