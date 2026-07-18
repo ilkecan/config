@@ -4,10 +4,10 @@
 }:
 
 let
-  inherit (lib.my)
-    collectImports
+  inherit (lib._.ilkecan)
+    importsFromDirectory
     ;
 in
 {
-  imports = collectImports ./.;
+  imports = importsFromDirectory ./.;
 }

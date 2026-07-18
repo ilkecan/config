@@ -9,7 +9,7 @@ let
     removeSuffix
     ;
 
-  inherit (lib.my)
+  inherit (lib._.ilkecan)
     importTree
     ;
 in

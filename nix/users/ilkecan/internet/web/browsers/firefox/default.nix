@@ -6,8 +6,8 @@
 }:
 
 let
-  inherit (lib.my)
-    collectImports
+  inherit (lib._.ilkecan)
+    importsFromDirectory
     ;
 
   inherit (config.xdg)
@@ -15,7 +15,7 @@ let
     ;
 in
 {
-  imports = collectImports ./.;
+  imports = importsFromDirectory ./.;
 
   home.packages = with pkgs; [
     nur.repos.vladexa.mozlz4 # https://github.com/jusw85/mozlz4

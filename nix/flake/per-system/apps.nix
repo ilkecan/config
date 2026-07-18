@@ -4,7 +4,7 @@
 }:
 
 let
-  inherit (lib.my)
+  inherit (lib._.ilkecan)
     importTree
     ;
 

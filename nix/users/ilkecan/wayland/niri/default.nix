@@ -8,12 +8,12 @@
 let
   cfg = config.programs.niri;
 
-  inherit (lib.my)
-    collectImports
+  inherit (lib._.ilkecan)
+    importsFromDirectory
     ;
 in
 {
-  imports = collectImports ./.;
+  imports = importsFromDirectory ./.;
 
   programs.niri = {
     enable = true;

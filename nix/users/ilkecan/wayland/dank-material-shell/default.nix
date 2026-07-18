@@ -8,12 +8,12 @@
 let
   opt = options.programs.dank-material-shell;
 
-  inherit (lib.my)
-    collectImports
+  inherit (lib._.ilkecan)
+    importsFromDirectory
     ;
 in
 {
-  imports = collectImports ./.;
+  imports = importsFromDirectory ./.;
 
   home.packages = with pkgs; [
     unstable.dsearch

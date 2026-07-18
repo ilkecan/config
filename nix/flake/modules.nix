@@ -11,7 +11,7 @@ let
     toCamelCase
     ;
 
-  inherit (lib.my)
+  inherit (lib._.ilkecan)
     importTree
     ;
 in

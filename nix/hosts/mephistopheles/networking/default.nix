@@ -10,8 +10,8 @@ let
     optional
     ;
 
-  inherit (lib.my)
-    collectImports
+  inherit (lib._.ilkecan)
+    importsFromDirectory
     ;
 
   # https://userbase.kde.org/KDEConnect#I_have_two_devices_running_KDE_Connect_on_the_same_network,_but_they_can't_see_each_other
@@ -22,7 +22,7 @@ let
 in
 
 {
-  imports = collectImports ./.;
+  imports = importsFromDirectory ./.;
 
   networking = {
     hostName = "mephistopheles";

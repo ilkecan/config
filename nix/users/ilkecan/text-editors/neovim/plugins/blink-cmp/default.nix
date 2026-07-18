@@ -13,12 +13,12 @@ let
     mkLuaInline
     ;
 
-  inherit (lib.my)
-    collectImports
+  inherit (lib._.ilkecan)
+    importsFromDirectory
     ;
 in
 {
-  imports = collectImports ./.;
+  imports = importsFromDirectory ./.;
 
   programs.nvf.settings.vim.autocomplete.blink-cmp = {
     enable = true;

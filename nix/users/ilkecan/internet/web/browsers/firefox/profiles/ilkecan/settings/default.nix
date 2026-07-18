@@ -8,14 +8,14 @@ let
     concatStringsSep
     ;
 
-  inherit (lib.my)
-    collectImports
+  inherit (lib._.ilkecan)
+    importsFromDirectory
     ;
 
   comSepList = concatStringsSep ",";
 in
 {
-  imports = collectImports ./.;
+  imports = importsFromDirectory ./.;
 
   programs.firefox = {
     profiles.ilkecan.settings = {

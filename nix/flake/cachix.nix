@@ -13,15 +13,15 @@ let
     mapAttrsToList
     ;
 
-  inherit (lib.my)
-    isPatchedInput
+  inherit (lib._.ilkecan)
+    isPatchedFlakeInput
     ;
 in
 {
   flake.cachix = {
     push = {
       ilkecan = concatLists [
-        (filter isPatchedInput (attrValues inputs))
+        (filter isPatchedFlakeInput (attrValues inputs))
         (mapAttrsToList (_: v: v.apps.ci.program) config.allSystems)
         (concatLists (mapAttrsToList (_: v: attrValues v.checks) config.allSystems))
       ];
