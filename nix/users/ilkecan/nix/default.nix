@@ -37,6 +37,7 @@ in
     nix-diff # https://github.com/Gabriella439/nix-diff
     nix-du # https://github.com/symphorien/nix-du
     nix-melt # https://github.com/nix-community/nix-melt
+    nix-olde # https://github.com/trofi/nix-olde
     nix-output-monitor # https://github.com/maralorn/nix-output-monitor
     nix-tree # https://github.com/utdemir/nix-tree
     nix-update # https://github.com/Mic92/nix-update/
