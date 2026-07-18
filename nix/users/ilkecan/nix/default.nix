@@ -37,7 +37,6 @@ in
     nix-diff # https://github.com/Gabriella439/nix-diff
     nix-du # https://github.com/symphorien/nix-du
     nix-melt # https://github.com/nix-community/nix-melt
-    nix-olde # https://github.com/trofi/nix-olde
     nix-output-monitor # https://github.com/maralorn/nix-output-monitor
     nix-tree # https://github.com/utdemir/nix-tree
     nix-update # https://github.com/Mic92/nix-update/
@@ -47,6 +46,7 @@ in
     nixpkgs-review # https://github.com/Mic92/nixpkgs-review
     unstable.nix-eval-jobs # https://github.com/nix-community/nix-eval-jobs
     unstable.nix-fast-build # https://github.com/Mic92/nix-fast-build
+    unstable.nix-olde # https://github.com/trofi/nix-olde
   ];
 
   programs = {
