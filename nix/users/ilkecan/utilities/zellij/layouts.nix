@@ -49,6 +49,13 @@ let
       };
     };
 
+    processes = {
+      pane = {
+        _props.command = "devenv";
+        args = [ "up" ];
+      };
+    };
+
     shell = {
       pane._props.command = config.home.defaultShell.meta.mainProgram;
     };
@@ -85,6 +92,22 @@ let
         ];
       };
     };
+
+    processes = {
+      tab = {
+        _props = {
+          name = "processes";
+          hide_floating_panes = true;
+        };
+
+        _children = [
+          panes.processes
+          (panes.mkFloating panes.shell)
+          panes.bar
+        ];
+      };
+    };
+
   };
 in
 {
