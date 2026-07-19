@@ -54,6 +54,10 @@ in
         ## aliases
         ${concatLines (mapAttrsToList (n: v: "alias ${n}=${escapeShellArg v}") aliases)}
       '')
+
+      ''
+        eval "$(devenv hook zsh)"
+      ''
     ];
 
     completionInit = ''
