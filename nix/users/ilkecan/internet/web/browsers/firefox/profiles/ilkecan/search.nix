@@ -40,6 +40,10 @@ in
       "youtube"
       "urban-dictionary"
 
+      "lens"
+      "tineye"
+      "yandex-reverse-image"
+
       "nixpkgs"
       "nix-packages"
       "nixos-options"
@@ -177,6 +181,17 @@ in
           ];
         };
 
+        lens = {
+          name = "Google Lens";
+          urls = [ { template = "https://lens.google.com/uploadbyurl?url={searchTerms}"; } ];
+          iconMapObj."32" = "https://www.google.com/favicon.ico";
+          definedAliases = [
+            "@google-lens"
+            "@glens"
+            "@lens"
+          ];
+        };
+
         nix-packages = {
           name = "Nix Packages";
           urls = [ { template = "https://search.nixos.org/packages?query={searchTerms}"; } ];
@@ -302,6 +317,16 @@ in
           ];
         };
 
+        tineye = {
+          name = "TinEye";
+          urls = [ { template = "https://tineye.com/search?url={searchTerms}"; } ];
+          iconMapObj."16" = "https://tineye.com/favicon.ico";
+          definedAliases = [
+            "@tineye"
+            "@te"
+          ];
+        };
+
         urban-dictionary = {
           name = "Urban Dictionary";
           urls = [ { template = "https://www.urbandictionary.com/define.php?term={searchTerms}"; } ];
@@ -317,6 +342,16 @@ in
             "@wikipedia"
             "@wiki"
             "@wk"
+          ];
+        };
+
+        yandex-reverse-image = {
+          name = "Yandex Reverse Image";
+          urls = [ { template = "https://yandex.com/images/search?rpt=imageview&url={searchTerms}"; } ];
+          iconMapObj."48" = "https://yandex.com/favicon.ico";
+          definedAliases = [
+            "@yandex-reverse-image"
+            "@yri"
           ];
         };
 
