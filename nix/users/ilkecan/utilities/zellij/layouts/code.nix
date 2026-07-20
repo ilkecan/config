@@ -6,7 +6,7 @@
 
 {
   layout._children = [
-    tabs.processes
+    tabs.devenv
     tabs.neovim
 
     {
