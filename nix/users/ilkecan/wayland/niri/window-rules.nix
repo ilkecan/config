@@ -27,6 +27,10 @@
       open-on-workspace = "nixpkgs";
     }
     {
+      matches = [ { app-id = "^camoufox$"; } ];
+      open-on-output = "eDP-1";
+    }
+    {
       matches = [ { app-id = "^chromium-browser$"; } ];
       open-maximized = true;
       open-on-workspace = "browser";
