@@ -27,17 +27,17 @@
   stylix.fonts = {
     serif = {
       package = pkgs.nerd-fonts.inconsolata-go;
-      name = "Inconsolata Go Nerd Font";
+      name = "InconsolataGo Nerd Font";
     };
 
     sansSerif = {
       package = pkgs.nerd-fonts.inconsolata-go;
-      name = "Inconsolata Go Nerd Font";
+      name = "InconsolataGo Nerd Font";
     };
 
     monospace = {
       package = pkgs.nerd-fonts.inconsolata-go;
-      name = "Inconsolata Go Nerd Font Mono";
+      name = "InconsolataGo Nerd Font Mono";
     };
 
     emoji = {

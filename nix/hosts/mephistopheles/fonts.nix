@@ -20,17 +20,17 @@
       defaultFonts = {
         emoji = [ "Noto Color Emoji" ];
         monospace = [
-          "Inconsolata Go Nerd Font Mono"
+          "InconsolataGo Nerd Font Mono"
           "Noto Sans Mono"
           "Noto Sans Math"
         ];
         sansSerif = [
-          "Inconsolata Go Nerd Font"
+          "InconsolataGo Nerd Font"
           "Noto Sans"
           "Noto Sans Math"
         ];
         serif = [
-          "Inconsolata Go Nerd Font"
+          "InconsolataGo Nerd Font"
           "Noto Serif"
           "Noto Sans Math"
         ];
