@@ -27,6 +27,7 @@ in
     pwvucontrol
     ruffle # https://github.com/ruffle-rs/ruffle
     telegram-desktop # https://github.com/NixOS/nixpkgs/issues/497549
+    diff-pdf # https://github.com/vslavik/diff-pdf
 
     ast-grep # https://github.com/ast-grep/ast-grep
     bottom
