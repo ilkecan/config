@@ -94,6 +94,11 @@
       open-on-workspace = "password";
     }
     {
+      matches = [ { app-id = ''^org\.qutebrowser\.qutebrowser$''; } ];
+      open-maximized = true;
+      open-on-workspace = "browser";
+    }
+    {
       matches = [ { app-id = ''^org\.telegram\.desktop$''; } ];
       block-out-from = "screen-capture";
       open-maximized = true;
