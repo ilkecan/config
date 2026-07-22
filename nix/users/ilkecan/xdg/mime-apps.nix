@@ -18,5 +18,11 @@
       neovide
       vlc
     ];
+
+    defaultApplications = {
+      "text/markdown" = [
+        "neovide.desktop"
+      ];
+    };
   };
 }
