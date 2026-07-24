@@ -39,6 +39,7 @@ in
       "github"
       "youtube"
       "urban-dictionary"
+      "wayback-machine"
 
       "lens"
       "tineye"
@@ -332,6 +333,17 @@ in
           urls = [ { template = "https://www.urbandictionary.com/define.php?term={searchTerms}"; } ];
           iconMapObj."48" = "https://www.urbandictionary.com/favicon.ico";
           definedAliases = [ "@urban" ];
+        };
+
+        wayback-machine = {
+          name = "Wayback Machine";
+          urls = [ { template = "https://web.archive.org/web/{searchTerms}"; } ];
+          iconMapObj."32" = "https://web-static.archive.org/_static/images/archive.ico";
+          definedAliases = [
+            "@wayback-machine"
+            "@wayback"
+            "@wb"
+          ];
         };
 
         wikipedia2 = {
