@@ -13,7 +13,7 @@ in
   programs = {
     codex = {
       enable = true;
-      package = pkgs.llm-agents.codex;
+      package = pkgs.unstable.codex;
       # enableMcpIntegration = true; # disable until lazy loading is implemented https://github.com/openai/codex/issues/9266
 
       settings = {
