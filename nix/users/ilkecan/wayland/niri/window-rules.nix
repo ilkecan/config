@@ -36,7 +36,12 @@
       open-on-workspace = "browser";
     }
     {
-      matches = [ { app-id = ''^com\.danklinux\.dms$''; } ];
+      matches = [
+        {
+          app-id = ''^com\.danklinux\.dms$'';
+          title = "Settings";
+        }
+      ];
       open-maximized = true;
       open-on-workspace = "settings";
     }
