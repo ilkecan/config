@@ -58,6 +58,8 @@ in
       "archlinux"
       "aur"
 
+      "hoogle"
+
       "python"
       "pypi"
 
@@ -172,6 +174,16 @@ in
           ];
         };
 
+        hoogle = {
+          name = "Hoogle";
+          urls = [ { template = "https://hoogle.haskell.org/?hoogle={searchTerms}"; } ];
+          iconMapObj."16" = "https://hoogle.haskell.org/favicon.png";
+          definedAliases = [
+            "@hoogle"
+            "@h"
+          ];
+        };
+
         kagi = {
           name = "Kagi";
           urls = [ { template = "https://kagi.com/search?q={searchTerms}"; } ];
@@ -239,7 +251,7 @@ in
           icon = nixSnowflake;
           definedAliases = [
             "@noogle"
-            "@nog"
+            "@n"
           ];
         };
 
@@ -304,7 +316,7 @@ in
           iconMapObj."196" = "https://doc.rust-lang.org/favicon.ico";
           definedAliases = [
             "@rust"
-            "rs"
+            "@rs"
           ];
         };
 
