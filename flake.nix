@@ -129,10 +129,10 @@
     nixcord = {
       url = "github:4evy/nixcord";
       inputs = {
-        flake-compat.follows = "flake-compat";
         flake-parts.follows = "flake-parts";
         nixpkgs-nixcord.follows = "nixpkgs";
         nixpkgs.follows = "nixpkgs";
+        treefmt-nix.follows = "treefmt-nix";
       };
     };
     nixos-cli = {
