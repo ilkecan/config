@@ -67,8 +67,6 @@ in
   };
 
   services = {
-    gnome-keyring.enable = true;
-
     udiskie = {
       enable = true;
       automount = true;
