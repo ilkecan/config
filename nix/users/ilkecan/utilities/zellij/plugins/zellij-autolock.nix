@@ -8,7 +8,7 @@
   # https://github.com/fresh2dev/zellij-autolock#example-configkdl
   programs.zellij.settings = {
     plugins.autolock = {
-      _props.location = "file:${pkgs.nur.repos.ilkecan.zellij-autolock}/share/zellij/plugins/zellij-autolock.wasm";
+      _props.location = "file:${pkgs.unstable.zellijPlugins.autolock}";
 
       is_enabled = false;
       triggers = "nvim";
