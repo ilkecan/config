@@ -5,7 +5,7 @@
 {
   programs.nixcord = {
     enable = true;
-    discord.silenceNoModClientWarning = true;
+    discord.enable = false;
     dorion = {
       enable = true;
       cacheCss = true;
