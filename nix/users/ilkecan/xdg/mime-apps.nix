@@ -23,6 +23,9 @@
       "text/markdown" = [
         "neovide.desktop"
       ];
+      "inode/directory" = [
+        "org.gnome.Nautilus.desktop"
+      ];
     };
   };
 }
