@@ -47,6 +47,7 @@ let
           extraSpecialArgs = {
             inherit
               hostConfig
+              inputs
               inputs'
               lib'
               self'

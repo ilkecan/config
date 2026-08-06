@@ -1,6 +1,6 @@
 {
   config,
-  inputs',
+  inputs,
   lib,
   pkgs,
   ...
@@ -21,7 +21,7 @@ let
     ;
 
   fileType =
-    (import "${inputs'.home-manager}/modules/lib/file-type.nix" {
+    (import "${inputs.home-manager}/modules/lib/file-type.nix" {
       inherit homeDirectory lib pkgs;
     }).fileType;
 in
