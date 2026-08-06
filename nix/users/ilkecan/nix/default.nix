@@ -1,6 +1,6 @@
 {
   config,
-  inputs',
+  inputs,
   lib,
   pkgs,
   ...
@@ -19,7 +19,7 @@ in
   imports = importsFromDirectory ./.;
 
   nix.channels = {
-    inherit (inputs')
+    inherit (inputs)
       nixpkgs
       nixpkgs-unstable
       ;

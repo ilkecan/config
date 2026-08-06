@@ -1,5 +1,5 @@
 {
-  inputs',
+  inputs,
   lib,
   pkgs,
   self',
@@ -14,7 +14,7 @@ let
     nameValuePair
     ;
 
-  inherit (inputs'.optnix.mkLib pkgs) mkOptionsList;
+  inherit (inputs.optnix.mkLib pkgs) mkOptionsList;
 
   mkFlakePartsScope = flake: {
     description = "flake-parts top level configuration";

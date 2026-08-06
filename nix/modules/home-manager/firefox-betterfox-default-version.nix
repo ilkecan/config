@@ -1,6 +1,6 @@
 {
   config,
-  inputs',
+  inputs,
   lib,
   ...
 }:
@@ -17,7 +17,7 @@ let
 
   cfg = config.programs.firefox;
   firefoxVersion = versions.majorMinor cfg.package.version;
-  supportedVersions = attrNames (import "${inputs'.betterfox-nix}/data/firefox");
+  supportedVersions = attrNames (import "${inputs.betterfox-nix}/data/firefox");
   version =
     if elem firefoxVersion supportedVersions then
       firefoxVersion

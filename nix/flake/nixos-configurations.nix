@@ -39,6 +39,7 @@ let
 
           specialArgs = {
             inherit
+              inputs
               inputs'
               lib
               lib'
