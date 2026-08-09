@@ -180,6 +180,13 @@
     import-tree = {
       url = "github:vic/import-tree";
     };
+    nixpkgs-python = {
+      url = "github:cachix/nixpkgs-python";
+      inputs = {
+        flake-compat.follows = "flake-compat";
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
     systems.url = "github:nix-systems/default";
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
