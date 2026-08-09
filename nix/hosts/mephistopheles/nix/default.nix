@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   lib,
   pkgs,
   userConfig,
@@ -7,9 +8,45 @@
 }:
 
 let
+  inherit (lib)
+    filterAttrs
+    foldl'
+    importJSON
+    isString
+    mapAttrs
+    mapAttrsToList
+    toJSON
+    ;
+
   inherit (lib._.ilkecan)
     importsFromDirectory
     ;
+
+  lock = importJSON "${inputs.self}/flake.lock";
+
+  resolveNodeName =
+    inputSpec:
+    if isString inputSpec then
+      inputSpec
+    else
+      foldl' (
+        nodeName: inputName: resolveNodeName lock.nodes.${nodeName}.inputs.${inputName}
+      ) lock.root inputSpec;
+
+  pins = mapAttrs (_name: inputSpec: lock.nodes.${resolveNodeName inputSpec}.locked) (
+    filterAttrs (name: _: name != "self") lock.nodes.${lock.root}.inputs
+  );
+
+  flakeRegistry = pkgs.writeText "flake-registry.json" (toJSON {
+    version = 2;
+    flakes = mapAttrsToList (id: to: {
+      from = {
+        type = "indirect";
+        inherit id;
+      };
+      inherit to;
+    }) pins;
+  });
 in
 {
   imports = importsFromDirectory ./.;
@@ -29,6 +66,9 @@ in
         "impure-derivations"
         "nix-command"
       ];
+
+      flake-registry = flakeRegistry;
+
       trusted-users = [ userConfig.home.username ];
 
       auto-optimise-store = true;
