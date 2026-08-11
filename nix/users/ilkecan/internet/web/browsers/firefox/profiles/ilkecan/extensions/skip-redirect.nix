@@ -9,7 +9,7 @@
     packages = [ pkgs.nur.repos.rycee.firefox-addons.skip-redirect ];
     settings."skipredirect@sblask" = {
       permissions = [
-        "<all_urls>"
+        "alarms"
         "clipboardWrite"
         "contextMenus"
         "notifications"
