@@ -10,10 +10,8 @@ let
     attrValues
     elem
     filterAttrs
-    foldl'
     importJSON
     intersectAttrs
-    isString
     mapAttrs
     mapAttrs'
     nameValuePair
@@ -24,6 +22,7 @@ let
     importTree
     isFlake
     isPatchedFlakeInput
+    resolveFlakeLockNodeName
     ;
 
   # NOTE: unfortunately there is no way to avoid hard-coded `system` yet
@@ -105,18 +104,13 @@ let
     normalizeNameFn = removeSuffix ".nix";
   });
 
+  lockFile = importJSON ../flake.lock;
+  inherit (lockFile) nodes root;
+
   # Resolve a lock node reference to its canonical node name.
   # String refs are already node names; array refs are follow-paths from root
   # (e.g. ["nixpkgs"] resolves root -> nixpkgs, ["bar","foo"] resolves root -> bar -> foo).
-  resolveNodeName =
-    inputSpec:
-    if isString inputSpec then
-      inputSpec
-    else
-      foldl' (nodeName: inputName: resolveNodeName nodes.${nodeName}.inputs.${inputName}) root inputSpec;
-
-  lockFile = importJSON ../flake.lock;
-  inherit (lockFile) nodes root;
+  resolveNodeName = resolveFlakeLockNodeName lockFile;
 
   rootInputs = nodes.${root}.inputs;
   resolveTopLevelNodeName = name: resolveNodeName rootInputs.${name};

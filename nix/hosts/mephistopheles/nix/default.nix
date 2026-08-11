@@ -9,10 +9,7 @@
 
 let
   inherit (lib)
-    filterAttrs
-    foldl'
     importJSON
-    isString
     mapAttrs
     mapAttrsToList
     toJSON
@@ -20,22 +17,16 @@ let
 
   inherit (lib._.ilkecan)
     importsFromDirectory
+    resolveFlakeLockNodeName
     ;
 
   lock = importJSON "${inputs.self}/flake.lock";
 
-  resolveNodeName =
-    inputSpec:
-    if isString inputSpec then
-      inputSpec
-    else
-      foldl' (
-        nodeName: inputName: resolveNodeName lock.nodes.${nodeName}.inputs.${inputName}
-      ) lock.root inputSpec;
+  resolveNodeName = resolveFlakeLockNodeName lock;
 
-  pins = mapAttrs (_name: inputSpec: lock.nodes.${resolveNodeName inputSpec}.locked) (
-    filterAttrs (name: _: name != "self") lock.nodes.${lock.root}.inputs
-  );
+  pins = mapAttrs (
+    _: inputSpec: lock.nodes.${resolveNodeName inputSpec}.locked
+  ) lock.nodes.${lock.root}.inputs;
 
   flakeRegistry = pkgs.writeText "flake-registry.json" (toJSON {
     version = 2;
