@@ -19,6 +19,7 @@ jobs:
 
       - uses: nixbuild/nix-quick-install-action@v35
         with:
+          nix_version: 2.35.1
           nix_conf: |
             experimental-features = ca-derivations flakes impure-derivations nix-command
             extra-substituters = https://ilkecan.cachix.org?priority=41 https://nix-community.cachix.org?priority=42
