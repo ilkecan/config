@@ -11,13 +11,13 @@ jobs:
     permissions:
       contents: read # required for `actions/checkout`
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
       - uses: wimpysworld/nothing-but-nix@v10
         with:
           nix-permission-edict: true
 
-      - uses: nixbuild/nix-quick-install-action@v34
+      - uses: nixbuild/nix-quick-install-action@v35
         with:
           nix_conf: |
             experimental-features = ca-derivations flakes impure-derivations nix-command
