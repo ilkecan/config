@@ -20,6 +20,7 @@ in
         model = "gpt-5.6-luna";
         model_reasoning_effort = "high";
         plan_mode_reasoning_effort = "xhigh";
+        approvals_reviewer = "user";
         personality = "pragmatic";
 
         features = {
@@ -53,16 +54,18 @@ in
           }
         ];
 
+        notice = {
+          hide_rate_limit_model_nudge = true;
+        };
+
         tui = {
           status_line = [
             "model-with-reasoning"
-            "context-remaining"
+            "context-used"
+            "run-state"
+            "approval-mode"
             "current-dir"
 
-            "project-root"
-            "git-branch"
-
-            "context-used"
             "five-hour-limit"
             "weekly-limit"
 
@@ -71,6 +74,8 @@ in
             "total-input-tokens"
             "total-output-tokens"
           ];
+
+          status_line_use_colors = true;
 
           theme = "solarized-dark";
         };
