@@ -32,7 +32,7 @@ automatic-timezoned.overrideAttrs (
       src = prev.src.override {
         tag = null;
         rev = "2627ec2dcd85bbb640d40c735793e8ca3f99d18a";
-        sha256 = "sha256-TH2I/cTSBDQzBvz4OCFxcbKf/aHqtFUsdJ/PQIvF0v0=";
+        hash = "sha256-TH2I/cTSBDQzBvz4OCFxcbKf/aHqtFUsdJ/PQIvF0v0=";
       };
 
       patches = mapAttrsToList mkPatch patches;
