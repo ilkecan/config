@@ -19,6 +19,15 @@ in
       default = null;
     };
 
+    configFiles = lib.mkOption {
+      type = lib.types.listOf lib.types.path;
+      default = [ ];
+      description = ''
+        Additional config overlays loaded before `settings`. Later files
+        override earlier files.
+      '';
+    };
+
     settings = lib.mkOption {
       inherit (yamlFormat) type;
       default = { };
@@ -32,6 +41,8 @@ in
 
   config = lib.mkIf cfg.enable {
     home.packages = lib.optional (cfg.package != null) cfg.package;
-    home.sessionVariables.PI_CONFIG_FILES = "${configFile}";
+    home.sessionVariables.PI_CONFIG_FILES = lib.concatStringsSep ":" (
+      map toString (cfg.configFiles ++ [ configFile ])
+    );
   };
 }
