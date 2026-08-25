@@ -9,6 +9,7 @@ let
   cfg = config.programs.omp;
   yamlFormat = pkgs.formats.yaml { };
   configFile = yamlFormat.generate "omp-config.yml" cfg.settings;
+  configFileName = ".omp/agent/hm-config.yml";
 in
 {
   options.programs.omp = {
@@ -40,9 +41,15 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    home.file.${configFileName}.source = configFile;
     home.packages = lib.optional (cfg.package != null) cfg.package;
     home.sessionVariables.PI_CONFIG_FILES = lib.concatStringsSep ":" (
-      map toString (cfg.configFiles ++ [ configFile ])
+      map toString (
+        cfg.configFiles
+        ++ [
+          "${config.home.homeDirectory}/${config.home.file.${configFileName}.target}"
+        ]
+      )
     );
   };
 }
