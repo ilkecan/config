@@ -33,11 +33,7 @@ let
 
     llmAgent = {
       pane = {
-        _props.command = "codex";
-        args = [
-          "--profile"
-          "mutable"
-        ];
+        _props.command = "omp";
         start_suspended = true;
       };
     };
