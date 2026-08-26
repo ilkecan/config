@@ -177,6 +177,13 @@
       url = "github:edolstra/flake-compat";
       flake = false;
     };
+    flake-utils = {
+      url = "github:numtide/flake-utils";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        systems.follows = "systems";
+      };
+    };
     import-tree = {
       url = "github:vic/import-tree";
     };
@@ -184,6 +191,15 @@
       url = "github:cachix/nixpkgs-python";
       inputs = {
         flake-compat.follows = "flake-compat";
+        flake-utils.follows = "flake-utils";
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
+    nixpkgs-ruby = {
+      url = "github:bobvanderlinden/nixpkgs-ruby";
+      inputs = {
+        flake-compat.follows = "flake-compat";
+        flake-utils.follows = "flake-utils";
         nixpkgs.follows = "nixpkgs";
       };
     };
