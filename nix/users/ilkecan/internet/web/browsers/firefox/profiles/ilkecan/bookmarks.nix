@@ -43,13 +43,18 @@
             tags = [ "llm" ];
           }
           {
+            name = "Claude";
+            url = "https://claude.ai/new";
+            tags = [ "llm" ];
+          }
+          {
             name = "DeepSeek";
             url = "https://chat.deepseek.com/";
             tags = [ "llm" ];
           }
           {
-            name = "Claude";
-            url = "https://claude.ai/new";
+            name = "Z.ai";
+            url = "https://chat.z.ai/";
             tags = [ "llm" ];
           }
         ];
