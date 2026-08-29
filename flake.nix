@@ -180,7 +180,6 @@
     flake-utils = {
       url = "github:numtide/flake-utils";
       inputs = {
-        nixpkgs.follows = "nixpkgs";
         systems.follows = "systems";
       };
     };
@@ -191,7 +190,6 @@
       url = "github:cachix/nixpkgs-python";
       inputs = {
         flake-compat.follows = "flake-compat";
-        flake-utils.follows = "flake-utils";
         nixpkgs.follows = "nixpkgs";
       };
     };
