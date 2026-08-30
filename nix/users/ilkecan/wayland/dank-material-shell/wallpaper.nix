@@ -1,26 +1,33 @@
 {
+  lib',
   pkgs,
   ...
 }:
 
 let
-  fractalWallpaper = pkgs.writeShellScript "fractal-wallpaper" ''
-    wallpaper="$XDG_STATE_HOME/fractalart/wallpaper.bmp"
-    mkdir -p "$(dirname "$wallpaper")"
+  inherit (lib'.ilkecan)
+    writeNushellScript
+    ;
 
-    FractalArt --width 1920 --height 1080 --file "$wallpaper" --no-bg
+  fractalWallpaper = writeNushellScript "fractal-wallpaper.nu" ''
+    let wallpaper = ($env.XDG_STATE_HOME | path join fractalart wallpaper.bmp)
+    mkdir ($wallpaper | path dirname)
 
-    # TODO: `dms ipc call night status` always return the same string use `dms
-    # ipc call night temperature` after
-    # https://github.com/AvengeMedia/DankMaterialShell/issues/1778 is resolved
-    # if dms ipc call night status 2>/dev/null | grep -q "Night mode is enabled"; then
-    #   # https://github.com/TomSmeets/FractalArt/issues/4#issuecomment-869073994
-    #   magick "$wallpaper" -brightness-contrast -40x-10 "$wallpaper"
-    # fi
+    ^FractalArt --width 1920 --height 1080 --file $wallpaper --no-bg
 
-    dms ipc call wallpaper clear
-    dms ipc call wallpaper set "$wallpaper"
+    let temperature = try {
+      (^dms ipc call night getCurrentTemp | complete | get stdout | str trim | into int)
+    }
+
+    if ($temperature != null and $temperature < 6500) {
+      # https://github.com/TomSmeets/FractalArt/issues/4#issuecomment-869073994
+      ^mogrify -brightness-contrast -40x-10 $wallpaper
+    }
+
+    ^dms ipc call wallpaper clear
+    ^dms ipc call wallpaper set $wallpaper
   '';
+
 in
 {
   home.packages = with pkgs; [
