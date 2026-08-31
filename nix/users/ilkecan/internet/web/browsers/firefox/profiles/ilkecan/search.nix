@@ -58,6 +58,7 @@ in
       "archlinux"
       "aur"
 
+      "hackage"
       "hoogle"
 
       "python"
@@ -174,6 +175,14 @@ in
           ];
         };
 
+        hackage = {
+          name = "Hackage";
+          urls = [ { template = "https://hackage.haskell.org/packages/search?terms={searchTerms}"; } ];
+          iconMapObj."96" = "https://hackage.haskell.org/static/favicon.png";
+          definedAliases = [
+            "@hackage"
+          ];
+        };
         hoogle = {
           name = "Hoogle";
           urls = [ { template = "https://hoogle.haskell.org/?hoogle={searchTerms}"; } ];
