@@ -52,6 +52,7 @@
     dankcalendar = {
       url = "github:AvengeMedia/dankcalendar";
       inputs = {
+        dank-qml-common.follows = "dms/dank-qml-common";
         nixpkgs.follows = "nixpkgs";
       };
     };

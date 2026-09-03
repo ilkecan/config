@@ -22,8 +22,6 @@ in
   programs.dank-material-shell = {
     enable = true;
 
-    dgop.package = pkgs.unstable.dgop;
-
     # Core features
     enableAudioWavelength = true; # Audio visualizer (cava)
     enableCalendarEvents = true; # Calendar integration (khal)
