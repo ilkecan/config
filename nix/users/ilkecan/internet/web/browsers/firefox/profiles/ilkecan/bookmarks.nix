@@ -20,6 +20,11 @@
             url = "https://calendar.proton.me/u/0/";
             tags = [ "proton" ];
           }
+          {
+            name = "GitHub Notifications";
+            url = "https://github.com/notifications";
+            tags = [ "github" ];
+          }
           "separator"
           {
             name = "Google Translate";
