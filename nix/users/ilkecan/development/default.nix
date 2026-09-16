@@ -13,7 +13,7 @@ in
   imports = importsFromDirectory ./.;
 
   home.packages = with pkgs; [
-    unstable.devenv
+    patched.devenv
     prek # https://github.com/j178/prek
     yaak
   ];
