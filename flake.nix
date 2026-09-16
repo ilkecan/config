@@ -130,7 +130,7 @@
     nixcord = {
       url = "github:4evy/nixcord";
       inputs = {
-        flake-parts.follows = "flake-parts";
+        home-manager.follows = "home-manager";
         nixpkgs-nixcord.follows = "nixpkgs";
         nixpkgs.follows = "nixpkgs";
         treefmt-nix.follows = "treefmt-nix";
