@@ -36,6 +36,7 @@ in
       "kagi"
 
       "wikipedia2"
+      "nlab"
       "github"
       "youtube"
       "urban-dictionary"
@@ -251,6 +252,16 @@ in
           definedAliases = [
             "@nprt"
             "@npr"
+          ];
+        };
+
+        nlab = {
+          name = "nLab";
+          urls = [ { template = "https://ncatlab.org/nlab/search?query={searchTerms}"; } ];
+          iconMapObj."256" = "https://ncatlab.org/favicon.ico";
+          definedAliases = [
+            "@nlab"
+            "@nl"
           ];
         };
 
