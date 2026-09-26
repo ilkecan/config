@@ -6,8 +6,8 @@
 {
   # https://github.com/natsukium/mcp-servers-nix
   mcp-servers.programs = {
-    fetch.enable = true;
-    git.enable = true;
+    # fetch.enable = true;
+    # git.enable = true;
     github = {
       enable = true;
       envFile = config.sops.templates.github-mpc-server-env.path;
@@ -21,7 +21,7 @@
       enableWebDashboard = true;
     };
     terraform.enable = true;
-    time.enable = true;
+    # time.enable = true;
   };
 
   programs.mcp = {
