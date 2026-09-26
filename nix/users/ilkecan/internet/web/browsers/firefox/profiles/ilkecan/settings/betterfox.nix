@@ -15,12 +15,6 @@
 
         };
 
-        securefox = {
-          containers = {
-            "privacy.userContext.ui.enabled".value = false;
-          };
-        };
-
         smoothfox = {
           instant-scrolling.enable = true;
         };
@@ -105,6 +99,9 @@
       "extensions.postDownloadThirdPartyPrompt" = false;
       "privacy.resistFingerprinting.block_mozAddonManager" = true;
       "extensions.webextensions.restrictedDomains" = "";
+
+      ### containers
+      "privacy.userContext.ui.enabled" = false;
 
       ### webrtc
       "media.peerconnection.ice.default_address_only" = true;
