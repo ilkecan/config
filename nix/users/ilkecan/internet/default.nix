@@ -1,6 +1,5 @@
 {
   lib,
-  pkgs,
   ...
 }:
 
@@ -11,8 +10,4 @@ let
 in
 {
   imports = importsFromDirectory ./.;
-
-  home.packages = with pkgs; [
-    bandwhich # https://github.com/imsnif/bandwhich
-  ];
 }

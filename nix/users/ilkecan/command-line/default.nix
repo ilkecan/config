@@ -20,7 +20,6 @@ in
 
     packages = with pkgs; [
       _7zz
-      inxi
       just
       libnotify # `notify-send`
       lz4
