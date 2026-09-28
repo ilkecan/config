@@ -9,5 +9,6 @@
     cntr # https://github.com/Mic92/cntr, used by `pkgs.breakpointHook`
     dpkg # for `dpkg-deb`
     icoutils # for `icotool`
+    unrar
   ];
 }
