@@ -20,6 +20,7 @@ in
     dfu-util
     hw-probe
     hwinfo
+    inxi
     libva-utils
     mesa-demos # for `eglinfo`
     pciutils
