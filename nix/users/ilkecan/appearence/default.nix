@@ -26,6 +26,7 @@ in
     targets = {
       dank-material-shell.enable = false;
       firefox.profileNames = [ config.home.username ];
+      gtksourceview.enable = false; # to prevent papers being rebuild
     };
   };
 }
