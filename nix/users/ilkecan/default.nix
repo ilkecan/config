@@ -44,6 +44,7 @@ in
     patchelf
     python3
     ripgrep
+    difftastic
     scrcpy
     sd
     trash-cli
