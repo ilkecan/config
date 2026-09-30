@@ -75,7 +75,7 @@
       url = "github:NotAShelf/flint";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    git-hooks-nix = {
+    git-hooks = {
       url = "github:cachix/git-hooks.nix";
       inputs = {
         flake-compat.follows = "flake-compat";
@@ -123,7 +123,7 @@
       inputs = {
         flake-compat.follows = "flake-compat";
         flake-parts.follows = "flake-parts";
-        git-hooks.follows = "git-hooks-nix";
+        git-hooks.follows = "git-hooks";
         nixpkgs.follows = "nixpkgs";
       };
     };
