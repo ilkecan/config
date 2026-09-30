@@ -340,7 +340,7 @@
         "type": "github"
       }
     },
-    "git-hooks-nix": {
+    "git-hooks": {
       "inputs": {
         "flake-compat": [
           "flake-compat"
@@ -647,7 +647,7 @@
           "flake-parts"
         ],
         "git-hooks": [
-          "git-hooks-nix"
+          "git-hooks"
         ],
         "nixpkgs": [
           "nixpkgs"
@@ -923,7 +923,7 @@
         "flake-parts": "flake-parts",
         "flake-utils": "flake-utils",
         "flint": "flint",
-        "git-hooks-nix": "git-hooks-nix",
+        "git-hooks": "git-hooks",
         "home-manager": "home-manager",
         "impermanence": "impermanence",
         "import-tree": "import-tree",
