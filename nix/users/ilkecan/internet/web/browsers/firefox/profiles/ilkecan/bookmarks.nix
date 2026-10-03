@@ -62,6 +62,11 @@
             url = "https://chat.z.ai/";
             tags = [ "llm" ];
           }
+          {
+            name = "Kimi";
+            url = "https://www.kimi.ai/";
+            tags = [ "llm" ];
+          }
         ];
       }
       {
