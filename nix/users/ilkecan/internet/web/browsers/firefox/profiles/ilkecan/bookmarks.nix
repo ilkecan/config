@@ -79,12 +79,12 @@
           }
           {
             name = "NixOS Manual";
-            url = "https://nixos.org/manual/nixos/stable/";
+            url = "https://nixos.org/manual/nixos/unstable/";
             tags = [ "nix" ];
           }
           {
             name = "Nixpkgs Reference Manual";
-            url = "https://nixos.org/manual/nixpkgs/stable/";
+            url = "https://nixos.org/manual/nixpkgs/unstable/";
             tags = [ "nix" ];
           }
           {
