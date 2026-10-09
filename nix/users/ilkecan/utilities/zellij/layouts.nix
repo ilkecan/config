@@ -33,7 +33,7 @@ let
 
     llmAgent = {
       pane = {
-        _props.command = "omp";
+        _props.command = "claude";
         start_suspended = true;
       };
     };
