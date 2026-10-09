@@ -141,7 +141,11 @@ in
 
         home-manager-options = {
           name = "Home Manager Options";
-          urls = [ { template = "https://home-manager-options.extranix.com?query={searchTerms}"; } ];
+          urls = [
+            {
+              template = "https://nix-community.github.io/home-manager/options/home-manager/index.html?search={searchTerms}";
+            }
+          ];
           icon = nixSnowflake;
           definedAliases = [ "@hmo" ];
         };
