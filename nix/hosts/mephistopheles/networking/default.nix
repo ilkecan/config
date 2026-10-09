@@ -58,7 +58,6 @@ in
   };
 
   programs = {
-    wavemon.enable = true;
     wireshark.enable = true;
   };
 
