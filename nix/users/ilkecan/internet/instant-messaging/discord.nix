@@ -7,7 +7,7 @@
     enable = true;
     discord.enable = false;
     dorion = {
-      enable = true;
+      enable = !true; # https://github.com/NixOS/nixpkgs/pull/572178
       cacheCss = true;
       desktopNotifications = true;
       proxyUri = "socks5://localhost:1080";

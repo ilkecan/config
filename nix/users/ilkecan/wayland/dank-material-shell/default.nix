@@ -21,6 +21,7 @@ in
 
   programs.dank-material-shell = {
     enable = true;
+    package = pkgs.unstable.dms-shell;
 
     # Core features
     enableAudioWavelength = true; # Audio visualizer (cava)

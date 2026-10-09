@@ -132,7 +132,7 @@
       inputs = {
         home-manager.follows = "home-manager";
         nixpkgs-ci.follows = "nixpkgs";
-        nixpkgs-nixcord.follows = "nixpkgs";
+        nixpkgs-packages.follows = "nixpkgs";
         nixpkgs.follows = "nixpkgs";
         treefmt-nix.follows = "treefmt-nix";
       };
