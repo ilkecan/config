@@ -10,7 +10,4 @@ let
 in
 {
   imports = importsFromDirectory ./.;
-
-  home.packages = [
-  ];
 }
