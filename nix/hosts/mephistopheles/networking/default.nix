@@ -57,10 +57,6 @@ in
     };
   };
 
-  programs = {
-    wireshark.enable = true;
-  };
-
   services = {
     dnscrypt-proxy = {
       enable = true;
