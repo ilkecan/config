@@ -7,6 +7,10 @@
   programs.git = {
     enable = true;
     settings = {
+      alias = {
+        pclone = "clone --filter=blob:none";
+      };
+
       checkout = {
         defaultRemote = "origin";
       };
